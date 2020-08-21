@@ -1,3 +1,8 @@
-<button class="MenuItem">
-    <em class="icon-{{this.icon}} mr-2"></em>
+<button appTooltip class="MenuItem">
+    <em class="icon-{{this.icon}}"></em>
+    <ng-template #tooltipTemplate>
+        <div class="tooltip">
+            This is my tooltip!
+        </div>
+    </ng-template>
 </button>

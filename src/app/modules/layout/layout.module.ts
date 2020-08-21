@@ -5,13 +5,21 @@ import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
-  declarations: [LayoutComponent, MenuComponent, HeaderComponent, FooterComponent, MenuItemComponent],
+  declarations: [
+    LayoutComponent,
+    MenuComponent,
+    HeaderComponent,
+    FooterComponent,
+    MenuItemComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports: [
     LayoutComponent

@@ -1,11 +1,15 @@
 @keyframes text-slide {
     0% {
-        transform: translateX(-50px);
+        top: 50%;
+        transform: translateY(-50%);
+        left: 50%;
         opacity: 0%;
     }
 
     100% {
-        transform: translateX(0);
+        top: 50%;
+        transform: translateY(-50%);
+        left: 100%;
         opacity: 100%;
     }
 }
