@@ -1,0 +1,121 @@
+@import "colors";
+
+//custom
+$menu-color: $blue-22;
+$menu-width: 8rem;
+$header-height: 4rem;
+$font-size: (
+  xxs: 0.65rem,
+  xs: 0.75rem,
+  sm: 0.875rem,
+  md: 1rem,
+  lg: 1.125rem,
+  lgx: 1.25rem,
+  xl: 1.5rem,
+  xxl: 1.875rem,
+);
+
+//bootstrap
+$body-bg: $blue-2;
+// $body-color: $midnight;
+$body-color: $white;
+
+$grid-gutter-width: 1.5rem;
+
+$primary: $azure;
+$info: $water-grass;
+$warning: $aqua-green;
+$danger: $carmine;
+
+$h1-font-size: 1.5rem;
+$h2-font-size: 1.125rem;
+
+$font-size-title-large: 2rem;
+$font-size-title: 1.5rem;
+$font-size-sub-title: 1.25rem;
+$font-size-sub-middle-title: 1.125rem;
+$font-size-sub-sub-title: 1rem;
+$font-size-base: 0.875rem;
+$font-size-sm: 0.75rem;
+$font-size-xs: 0.625rem;
+
+$small-font-size: 0.875rem;
+$line-height-base: 1.5;
+
+$sizes: (
+  10: 10%,
+  20: 20%,
+  30: 30%,
+  40: 40%,
+  60: 60%,
+  70: 70%,
+  80: 80%,
+  90: 90%,
+);
+
+$spacer: 1rem;
+$spacers: (
+  0_75: $spacer * 0.75,
+  4_2: (
+    $spacer * 2,
+  ),
+  4_5: (
+    $spacer * 2.5,
+  ),
+  6: (
+    $spacer * 5,
+  ),
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  md: 767px,
+  xl: 1200px,
+  xxl: 1920px,
+);
+
+$container-max-widths: (
+  md: 767px,
+  xl: 1200px,
+  xxl: 1920px,
+);
+
+$theme-colors: (
+  "gainsboro": $gainsboro,
+  "light-warning": $light-aqua-green,
+  "highline": $bright-blue,
+  "sliver": $sliver,
+);
+
+$nav-tabs-border-radius: 3px;
+$input-btn-focus-width: 0;
+
+$nav-tabs-link-active-color: $bright-blue;
+$nav-tabs-border-width: 1px;
+$nav-tabs-link-active-bg: $white;
+$nav-tabs-link-active-border-color: $gainsboro;
+$nav-tabs-link-hover-border-color: $light-blue;
+
+$alert-border-width: 0;
+$alert-padding-x: 1rem;
+$alert-padding-y: 0;
+
+$border-radius: 3px;
+
+$input-color: $midnight;
+$input-bg: $white;
+$input-border-color: $link-water;
+$input-focus-border-color: $bright-blue;
+$form-feedback-invalid-color: $carmine;
+$enable-validation-icons: false;
+$input-disabled-bg: $gainsboro;
+$input-padding-x: 1rem;
+$input-padding-y: 0.5rem;
+$input-line-height: 1;
+
+$component-active-bg: $bright-blue;
+$close-font-size: 1.5rem;
+$close-color: $dark-gray-blue;
+$close-font-weight: 100;
+
+$card-border-color: $sliver;

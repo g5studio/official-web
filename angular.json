@@ -25,11 +25,17 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
+              "src/fonts",
               "src/assets"
             ],
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -92,6 +98,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +130,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "g5-studio-offical"
+    }
+  },
+  "defaultProject": "g5-studio-offical",
+  "cli": {
+    "analytics": false
+  }
 }

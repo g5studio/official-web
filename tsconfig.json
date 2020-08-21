@@ -16,6 +16,14 @@
       "dom"
     ]
   },
+  "paths": {
+    "@services/*": [
+      "src/app/service/*"
+    ],
+    "@utilities/*": [
+      "src/app/utility/*"
+    ]
+  },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true

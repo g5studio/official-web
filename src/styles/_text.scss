@@ -1,0 +1,221 @@
+$xxs: 0.65rem;
+$xs: 0.75rem;
+$sm: 0.875rem;
+$md: 1rem;
+$lg: 1.125rem;
+$lgx: 1.25rem;
+$xl: 1.5rem;
+$xxl: 1.875rem;
+
+//gray-blue
+
+.g5-font-gray-blue-color {
+    color: $gray-blue;
+}
+
+.g5-font-midnight-color {
+    color: $midnight;
+}
+
+//orange
+.g5-font-chrome-yellow {
+    @include g5-font($xxl, $chrome-yellow, normal);
+}
+
+//carmine
+.g5-font-carmine-lg {
+    @include g5-font($lg, $carmine, normal);
+}
+
+//hint
+.g5-font-hint-sm {
+    @include g5-font($sm, $gray, normal);
+}
+.g5-font-hint-xs {
+    @include g5-font($xs, $gray, normal);
+}
+.g5-font-hint {
+    @include g5-font($xs, $gray, normal);
+}
+
+.g5-font-hint-lg {
+    @include g5-font($lg, $gray, normal);
+}
+.g5-font-hint-md {
+    @include g5-font($md, $gray, normal);
+}
+.g5-font-hint-md-bold {
+    @include g5-font($md, $gray, bold);
+}
+
+//midnight
+.g5-font-midnight-xxl {
+    @include g5-font($xxl, $midnight, normal);
+}
+.g5-font-midnight-xl {
+    @include g5-font($xl, $midnight, normal);
+}
+.g5-font-midnight-lg {
+    @include g5-font($lg, $midnight, normal);
+}
+.g5-font-midnight {
+    @include g5-font($md, $midnight, normal);
+}
+.g5-font-midnight-sm {
+    @include g5-font($sm, $midnight, normal);
+}
+.g5-font-midnight-sm-bold {
+    @include g5-font($sm, $midnight, bold);
+}
+.g5-font-midnight-xs {
+    @include g5-font($xs, $midnight, normal);
+}
+.g5-font-midnight-lgx {
+    @include g5-font($lgx, $midnight, normal);
+}
+.g5-font-midnight-xxs {
+    @include g5-font($xxs, $midnight, normal);
+}
+
+//dark-gray-blue
+.g5-font-dark-gray-blue-xxl {
+    @include g5-font($xxl, $dark-gray-blue, normal);
+}
+.g5-font-dark-gray-blue-lg {
+    @include g5-font($lg, $dark-gray-blue, normal);
+}
+.g5-font-dark-gray-blue {
+    @include g5-font($md, $dark-gray-blue, normal);
+}
+.g5-font-dark-gray-blue-sm {
+    @include g5-font($sm, $dark-gray-blue, normal);
+}
+.g5-font-dark-gray-blue-xs {
+    @include g5-font($xs, $dark-gray-blue, normal);
+}
+
+//bright-blu
+.g5-font-bright-blu-xxl {
+    @include g5-font($xxl, $bright-blue, normal);
+}
+.g5-font-bright-blu-lg {
+    @include g5-font($lg, $bright-blue, normal);
+}
+.g5-font-bright-blu {
+    @include g5-font($md, $bright-blue, normal);
+}
+.g5-font-bright-blu-sm {
+    @include g5-font($sm, $bright-blue, normal);
+}
+.g5-font-bright-blu-xs {
+    @include g5-font($xs, $bright-blue, normal);
+}
+
+//rose
+.g5-font-rose-xxl {
+    @include g5-font($xxl, $rose, normal);
+}
+.g5-font-rose-xl {
+    @include g5-font($xl, $rose, normal);
+}
+.g5-font-rose-lg {
+    @include g5-font($lg, $rose, normal);
+}
+.g5-font-rose {
+    @include g5-font($md, $rose, normal);
+}
+.g5-font-rose-sm {
+    @include g5-font($sm, $rose, normal);
+}
+.g5-font-rose-xs {
+    @include g5-font($xs, $rose, normal);
+}
+
+//bean-green
+.g5-font-bean-green-xxl {
+    @include g5-font($xxl, $bean-green, normal);
+}
+.g5-font-bean-green-xl {
+    @include g5-font($xl, $bean-green, normal);
+}
+.g5-font-bean-green-lg {
+    @include g5-font($lg, $bean-green, normal);
+}
+.g5-font-bean-green {
+    @include g5-font($md, $bean-green, normal);
+}
+.g5-font-bean-green-sm {
+    @include g5-font($sm, $bean-green, normal);
+}
+.g5-font-bean-green-xs {
+    @include g5-font($xs, $bean-green, normal);
+}
+.g5-font-bean-green-lgx {
+    @include g5-font($lgx, $bean-green, normal);
+}
+.g5-font-bean-green-xxs {
+    @include g5-font($xxs, $bean-green, normal);
+}
+
+// general
+
+.g5-font-normal {
+    font-weight: normal !important;
+}
+.g5-font-bold {
+    font-weight: bold !important;
+}
+
+.g5-font-lineheight-normal {
+    line-height: normal !important;
+}
+
+.g5-font-align-justify {
+    text-align: justify !important;
+}
+
+.g5-font-align-left {
+    text-align: left !important;
+}
+
+.g5-font-align-right {
+    text-align: right !important;
+}
+.g5-white-space-wrap {
+    white-space: normal !important;
+}
+
+.g5-white-space-nowrap {
+    white-space: nowrap !important;
+}
+
+.g5-white-space-preline {
+    white-space: pre-line !important;
+}
+
+/* inherit parent color */
+
+.g5-font-inherit-xxl {
+    @include g5-font($xxl, inherit, normal);
+}
+.g5-font-inherit-xl {
+    @include g5-font($xl, inherit, normal);
+}
+.g5-font-inherit-lg {
+    @include g5-font($lg, inherit, normal);
+}
+.g5-font-inherit {
+    @include g5-font($md, inherit, normal);
+}
+.g5-font-inherit-sm {
+    @include g5-font($sm, inherit, normal);
+}
+.g5-font-inherit-xs {
+    @include g5-font($xs, inherit, normal);
+}
+.g5-font-inherit-lgx {
+    @include g5-font($lgx, inherit, normal);
+}
+.g5-font-inherit-xxs {
+    @include g5-font($xxs, inherit, normal);
+}

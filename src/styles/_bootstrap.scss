@@ -1,0 +1,12 @@
+@import "variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+p {
+    margin: 0;
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, "md")) and (max-width: map-get($grid-breakpoints, "xl")) {
+    .container {
+        max-width: 100vw !important;
+    }
+}

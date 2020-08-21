@@ -1,0 +1,59 @@
+@import "colors";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+button:focus,
+input:focus {
+    outline: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+//擋掉原本chrome內建的date picker
+input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+html {
+    font-size: 16px; //1rem
+}
+
+@include media-breakpoint-down(xs) {
+    html {
+        font-size: 17.6px; //1rem
+    }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow-anchor: none;
+    font-family: "SF Pro Text", Arial;
+    em {
+        cursor: pointer;
+    }
+    &:lang(zh-Hans) {
+        font-family: "SF Pro Text", Arial, "Microsoft YaHei", "微软雅黑", "PingFangSC-Regular";
+    }
+    &:lang(zh-Hant) {
+        font-family: "SF Pro Text", Arial, "Microsoft JhengHei", "微軟正黑體", "PingFangTC-Regular";
+    }
+    &:lang(ja-jp) {
+        font-family: YuGothic, "Hiragino Sans";
+    }
+}

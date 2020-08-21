@@ -1,0 +1,34 @@
+@import "variables";
+@import "mixins";
+
+.Header {
+    height: $header-height;
+    background-color: $menu-color;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 0.75rem 0 0.75rem;
+    &__Logo {
+        cursor: pointer;
+        width: $menu-width;
+        height: $header-height;
+        background-color: $menu-color;
+        color: $chrome-yellow;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        @include font-size("lg");
+        img {
+            width: 2.5rem;
+            margin-right: 0.5rem;
+        }
+    }
+
+    &__Navigation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}

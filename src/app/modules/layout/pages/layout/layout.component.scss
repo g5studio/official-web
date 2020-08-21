@@ -1,0 +1,54 @@
+@import "variables";
+
+.Layout {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &__Menu {
+        width: $menu-width;
+    }
+
+    &__Header {
+        width: 100%;
+    }
+
+    &__Container {
+        width: 100%;
+        height: calc(100% - 4rem);
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__Pages {
+        background-color: $menu-color;
+        height: 100%;
+        width: 100%;
+        &__Page {
+            height: 100%;
+            background-color: $body-bg;
+            border: 3px solid $menu-color;
+            border-top-left-radius: 2%;
+            border-right-style: hidden;
+            border-bottom-style: hidden;
+            padding: 1rem 0 0 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
+    .Layout {
+        &__Menu {
+            display: none;
+        }
+
+        &__Pages {
+            background-color: $body-bg;
+            &__Page {
+                border: none;
+            }
+        }
+    }
+}
