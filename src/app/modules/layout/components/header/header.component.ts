@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PROFILE } from './header.config';
+import { NavigationService } from 'src/app/modules/shared/services/navigation.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public $navigation: NavigationService
+  ) { }
+
+  public profile = PROFILE;
 
   ngOnInit(): void {
   }

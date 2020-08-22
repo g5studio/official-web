@@ -49,10 +49,29 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        & > button {
+            text-align: left;
+            outline: none;
+            background-color: inherit;
+            border: none;
+            padding: 0 0.625rem;
+            width: 100%;
+            height: 1.5rem;
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $white;
+            font-weight: normal;
+            border-radius: 3px;
+            em {
+                @include font-size("lg");
+            }
+        }
     }
 
     &__Menu {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -72,7 +91,7 @@
 @media screen and (max-width: map-get($grid-breakpoints, "md")) {
     .Header {
         &__Menu {
-            display: flex;
+            display: flex !important;
         }
     }
 }

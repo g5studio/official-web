@@ -3,13 +3,13 @@
         <div class="Layout__Header">
             <app-header></app-header>
         </div>
-        <div class="Layout__Container">
+        <div class="Layout__Container" *ngIf='this.$navigation.route$ | async as route'>
             <div class="Layout__Menu">
-                <app-menu></app-menu>
+                <app-menu [currentPath]='route'></app-menu>
             </div>
             <div class="Layout__Pages">
                 <div class="Layout__Pages__Page">
-                    pages
+                    <ng-content></ng-content>
                 </div>
                 <div class="Layout__Footer">
                     <app-footer></app-footer>

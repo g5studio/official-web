@@ -1,10 +1,10 @@
 <div class="Header">
-    <div class="Header__Logo">
+    <div (click)='this.$navigation.navigate("home")' class="Header__Logo">
         <img src="assets/images/logo.png" alt="">
         <p>STUDIO</p>
     </div>
     <div class="Header__Navigation">
-        <app-menu-item [icon]='"man"'></app-menu-item>
-        <app-menu-item class="Header__Menu" [icon]='"list"'></app-menu-item>
+        <app-menu-item [parms]='this.profile'></app-menu-item>
+        <button class="Header__Menu"><em class="icon-list"></em></button>
     </div>
 </div>

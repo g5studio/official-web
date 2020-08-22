@@ -25,6 +25,10 @@
     }
 }
 
+.current {
+    color: $chrome-yellow;
+}
+
 [tooltipDirective] {
     position: relative;
 }

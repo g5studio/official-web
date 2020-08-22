@@ -1,13 +1,10 @@
 <div class="Menu">
     <div class="Menu__Container">
         <ul>
-            <li>
-                <app-menu-item [icon]='"dashboard"'></app-menu-item>
-            </li>
-            <li>
-                <app-menu-item [icon]='"account1"'></app-menu-item>
+            <li *ngFor='let menuItem of this.menuList;'>
+                <app-menu-item (onClick)='this.navigate($event)' [parms]='menuItem'></app-menu-item>
             </li>
         </ul>
-        <app-menu-item [icon]='"setting"'></app-menu-item>
+        <app-menu-item [parms]='this.setting'></app-menu-item>
     </div>
 </div>

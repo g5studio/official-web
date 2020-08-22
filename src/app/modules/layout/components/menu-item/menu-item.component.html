@@ -1,5 +1,6 @@
-<button appTooltip class="MenuItem">
-    <em class="icon-{{this.icon}}"></em>
+<button (click)='this.onClick.emit(this.parms.path)' appTooltip class="MenuItem"
+    [ngClass]='{"current": this.checkIsCurrent()}'>
+    <em class="icon-{{this.parms.icon}}"></em>
     <ng-template #tooltipTemplate>
         <div class="tooltip">
             This is my tooltip!

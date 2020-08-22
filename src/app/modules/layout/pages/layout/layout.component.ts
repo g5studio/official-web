@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UnsubOndestroy } from 'src/app/utilities/unsub-ondestroy';
+import { NavigationService } from 'src/app/modules/shared/services/navigation.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public $navigation: NavigationService
+  ) { }
 
   ngOnInit(): void {
   }
-
 }

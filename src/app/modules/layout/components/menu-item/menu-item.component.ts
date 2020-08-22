@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { IMenuItemParms } from 'src/app/interfaces/menu.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-item',
@@ -7,11 +9,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuItemComponent implements OnInit {
 
-  @Input() icon: string;
+  @Input() parms: IMenuItemParms;
+  @Output() onClick: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  public checkIsCurrent() {
+    return this.router.url.includes(this.parms.path);
   }
 
 }
