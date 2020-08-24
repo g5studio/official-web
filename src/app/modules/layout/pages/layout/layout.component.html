@@ -8,8 +8,12 @@
                 <app-menu [currentPath]='route'></app-menu>
             </div>
             <div class="Layout__Pages">
-                <div class="Layout__Pages__Page">
-                    <ng-content></ng-content>
+                <div class="Layout__Pages__Container">
+                    <div class="Layout__Pages__Page">
+                        <div class="Layout__Pages__Scroll">
+                            <ng-content></ng-content>
+                        </div>
+                    </div>
                 </div>
                 <div class="Layout__Footer">
                     <app-footer></app-footer>

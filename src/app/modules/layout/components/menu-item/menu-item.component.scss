@@ -16,9 +16,6 @@
     color: $white;
     font-weight: normal;
     border-radius: 3px;
-    em {
-        @include font-size("lg");
-    }
     &:hover {
         color: $chrome-yellow;
         // transition: 0.5s;
@@ -27,4 +24,16 @@
 
 .current {
     color: $chrome-yellow;
+}
+
+.lg {
+    @include font-size("lg");
+}
+
+.xl {
+    @include font-size("xl");
+}
+
+.xxl {
+    @include font-size("xxl");
 }

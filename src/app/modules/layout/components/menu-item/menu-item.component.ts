@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IMenuItemParms } from 'src/app/interfaces/menu.interface';
+import { IMenuItemParms } from 'src/app/interfaces/layout.interface';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MenuItemComponent implements OnInit {
 
+  @Input() size: 'lg' | 'xl' | 'xxl' = 'lg';
   @Input() parms: IMenuItemParms;
   @Input() disabledTooltip;
   @Output() onclick: EventEmitter<string> = new EventEmitter();

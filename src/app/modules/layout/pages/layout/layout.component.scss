@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 .Layout {
     width: 100vw;
@@ -32,6 +33,11 @@
             border-top-left-radius: 24px;
             padding: 1rem 0 0 1rem;
         }
+
+        &__Scroll {
+            height: $page-height;
+            @include scroll();
+        }
     }
 }
 
@@ -53,6 +59,7 @@
             background-color: $body-bg;
             &__Page {
                 border: none;
+                padding-left: 0;
             }
         }
     }

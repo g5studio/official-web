@@ -91,6 +91,7 @@
 
 @media screen and (max-width: map-get($grid-breakpoints, "md")) {
     .Header {
+        border-bottom-right-radius: 0px;
         &__Menu {
             display: flex !important;
         }

@@ -6,3 +6,9 @@ export interface IMenuItemParms {
     i18n: string;
     tooltip?: ToolTipPosition;
 }
+
+export interface ILayoutCardParms {
+    hideHead?: boolean;
+    hideContainerPadding?: boolean;
+    hideBodyPadding?: boolean;
+}

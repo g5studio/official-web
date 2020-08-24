@@ -7,3 +7,7 @@
 @import "root";
 @import "text";
 @import "animations";
+
+.scroll-bar {
+    @include scroll();
+}

@@ -1,4 +1,4 @@
-import { IMenuItemParms } from 'src/app/interfaces/menu.interface';
+import { IMenuItemParms } from 'src/app/interfaces/layout.interface';
 import { ToolTipPosition } from 'src/app/modules/shared/components/tooltip/tooltip.component';
 
 export const PROFILE: IMenuItemParms = {
