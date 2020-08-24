@@ -2,9 +2,10 @@
     <div class="Menu__Container">
         <ul>
             <li *ngFor='let menuItem of this.menuList;'>
-                <app-menu-item (onclick)='this.navigate($event)' [parms]='menuItem'>{{menuItem.i18n | translate}}</app-menu-item>
+                <app-menu-item (onclick)='this.navigate($event)' [parms]='menuItem'>{{menuItem.i18n | translate}}
+                </app-menu-item>
             </li>
         </ul>
-        <app-menu-item [parms]='this.setting'>{{this.setting.i18n}}</app-menu-item>
+        <app-menu-item [parms]='this.setting'>{{this.setting.i18n | translate}}</app-menu-item>
     </div>
 </div>

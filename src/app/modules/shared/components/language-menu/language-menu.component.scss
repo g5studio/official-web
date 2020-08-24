@@ -1,0 +1,34 @@
+@import "mixins";
+@import "variables";
+
+.LanguageMenu {
+    position: relative;
+    & > button {
+        height: 1.5rem;
+        color: $white;
+        em {
+            @include font-size("lg");
+        }
+    }
+
+    &__Container {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0.625rem;
+        @include g5-card();
+        color: $midnight;
+        white-space: nowrap;
+        li {
+            padding: 0.25rem;
+        }
+        button {
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            @include font-size("xs");
+            &:hover {
+                background-color: $chrome-yellow;
+                color: $white;
+            }
+        }
+    }
+}

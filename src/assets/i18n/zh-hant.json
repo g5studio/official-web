@@ -1,5 +1,14 @@
 {
     "Menu": {
-        "Home": "首頁"
+        "Home": "首頁",
+        "Team": "團隊成員",
+        "Setting": "設定"
+    },
+    "Header": {
+        "Profile": "個人檔案"
+    },
+    "Language": {
+        "en": "English",
+        "zh-hant": "繁體中文"
     }
 }

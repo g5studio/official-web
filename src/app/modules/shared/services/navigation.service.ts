@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UnsubOndestroy } from 'src/app/utilities/unsub-ondestroy';
+import { UnsubOndestroy } from '@utilities/unsub-ondestroy';
 import { Router, NavigationEnd } from '@angular/router';
 import { takeUntil, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';

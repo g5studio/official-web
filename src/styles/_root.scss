@@ -39,6 +39,26 @@ html {
     }
 }
 
+ul {
+    user-select: none;
+}
+
+button {
+    text-align: left;
+    outline: none;
+    background-color: inherit;
+    border: none;
+    padding: 0 0.625rem;
+    width: 100%;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
 body {
     padding: 0;
     margin: 0;

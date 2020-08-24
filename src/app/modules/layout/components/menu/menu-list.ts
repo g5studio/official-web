@@ -10,13 +10,13 @@ export const MENU_LIST: IMenuItemParms[] = [
     {
         path: 'team',
         icon: 'account1',
-        i18n: '團隊成員'
+        i18n: 'Menu.Team'
     }
 ];
 
 export const MENU_SET: IMenuItemParms = {
     path: 'setting',
     icon: 'setting',
-    i18n: '設定',
+    i18n: 'Menu.Setting',
     tooltip: ToolTipPosition.Top
 };

@@ -4,7 +4,8 @@
         <p>STUDIO</p>
     </div>
     <div class="Header__Navigation">
-        <app-menu-item [parms]='this.profile'>個人資料</app-menu-item>
+        <app-language-menu></app-language-menu>
+        <app-menu-item [parms]='this.profile'>{{this.profile.i18n | translate}}</app-menu-item>
         <button class="Header__Menu"><em class="icon-list"></em></button>
     </div>
 </div>

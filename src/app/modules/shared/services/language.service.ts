@@ -13,10 +13,13 @@ export class LanguageService {
 
   public inital() {
     this.$translate.addLangs(['en', 'zh-hant']);
-    this.$translate.setDefaultLang(localStorage.getItem('lan') || this.getBrowserLan());
+    this.$translate.setDefaultLang(ELanguage.English);
+    this.setLanguage(localStorage.getItem('lan') || this.getBrowserLan());
+
   }
 
-  public setLanguage(language: ELanguage) {
+  public setLanguage(language: string) {
+    localStorage.setItem('lan', language);
     this.$translate.use(language);
   }
 

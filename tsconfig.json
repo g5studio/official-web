@@ -14,15 +14,18 @@
     "lib": [
       "es2018",
       "dom"
-    ]
-  },
-  "paths": {
-    "@services/*": [
-      "src/app/service/*"
     ],
-    "@utilities/*": [
-      "src/app/utility/*"
-    ]
+    "paths": {
+      "@services/*": [
+        "src/app/modules/shared/services*"
+      ],
+      "@directives/*": [
+        "src/app/modules/shared/directives*"
+      ],
+      "@utilities/*": [
+        "src/app/utilities/*"
+      ]
+    },
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
