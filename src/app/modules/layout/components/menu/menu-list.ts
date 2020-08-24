@@ -5,7 +5,7 @@ export const MENU_LIST: IMenuItemParms[] = [
     {
         path: 'home',
         icon: 'dashboard',
-        i18n: '首頁'
+        i18n: 'Menu.Home'
     },
     {
         path: 'team',
