@@ -2,21 +2,21 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable()
-export abstract class UnsubOndestroy implements OnDestroy{
+export abstract class UnsubOndestroy implements OnDestroy {
   /** Is Single Time Event */
   public onDestroy$ = new Subject<void>();
-  constructor(){}
+  constructor() { }
 
   /**
    * On the components destroy event, emit from onDestroy$ to close all Observables
    * then complete that Subject to end it.
    */
-   ngOnDestroy(){
-     this.unsubAll()
-   }
+  ngOnDestroy() {
+    this.unsubAll();
+  }
 
-   private unsubAll():void{
-     this.onDestroy$.next();
-     this.onDestroy$.complete();
-   }
+  private unsubAll(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
+  }
 }

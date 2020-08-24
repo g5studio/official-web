@@ -21,23 +21,10 @@
     }
     &:hover {
         color: $chrome-yellow;
-        transition: 0.5s;
+        // transition: 0.5s;
     }
 }
 
 .current {
     color: $chrome-yellow;
-}
-
-[tooltipDirective] {
-    position: relative;
-}
-
-.tooltip {
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    padding: 10px;
-    background: #fff;
-    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.6);
 }

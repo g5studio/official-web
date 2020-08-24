@@ -10,3 +10,11 @@
         width: 100%;
     }
 }
+
+@media screen and (min-width: map-get($grid-breakpoints, "xxl")) {
+    .Error {
+        img {
+            width: 60%;
+        }
+    }
+}

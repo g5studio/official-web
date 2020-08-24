@@ -21,7 +21,7 @@ export class NavigationService extends UnsubOndestroy {
           this.route.next(event.url);
         }
       }
-    )
+    );
   }
 
   private route: Subject<string> = new Subject();
@@ -30,7 +30,7 @@ export class NavigationService extends UnsubOndestroy {
   );
 
   private onRouteChanged(path: string) {
-    console.log(path);
+    // console.log(path);
   }
 
   public navigate(path: string) {

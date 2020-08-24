@@ -1,0 +1,88 @@
+@import "variables";
+@import "mixins";
+
+.Tooltip {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: 2;
+    padding: 0.25rem 0.5rem;
+    @include font-size("xxs");
+    border-radius: 3px;
+    background: $black;
+    color: $white;
+    white-space: nowrap;
+    letter-spacing: 0.1rem;
+}
+
+.top {
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translate(-50%);
+    &::before {
+        position: absolute;
+        content: "";
+        bottom: -0.4rem;
+        left: 50%;
+        transform: translate(-50%) rotate(180deg);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0.5rem 0.5rem 0.5rem;
+        border-color: transparent transparent $black transparent;
+    }
+}
+
+.right {
+    top: 50%;
+    left: calc(100%);
+    transform: translateY(-50%);
+    &::before {
+        position: absolute;
+        content: "";
+        left: -0.5rem;
+        top: 50%;
+        transform: translateY(-50%) rotate(180deg);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0.5rem 0 0.5rem 1rem;
+        border-color: transparent transparent transparent $black;
+    }
+}
+
+.bottom {
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translate(-50%);
+    &::before {
+        position: absolute;
+        content: "";
+        top: -0.4rem;
+        left: 50%;
+        transform: translate(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0.5rem 0.5rem 0.5rem;
+        border-color: transparent transparent $black transparent;
+    }
+}
+
+.left {
+    top: 50%;
+    right: calc(100%);
+    transform: translateY(-50%);
+    &::before {
+        position: absolute;
+        content: "";
+        right: -0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0.5rem 0 0.5rem 1rem;
+        border-color: transparent transparent transparent $black;
+    }
+}

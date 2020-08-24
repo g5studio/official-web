@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 export class MenuItemComponent implements OnInit {
 
   @Input() parms: IMenuItemParms;
-  @Output() onClick: EventEmitter<string> = new EventEmitter();
+  @Input() disabledTooltip;
+  @Output() onclick: EventEmitter<string> = new EventEmitter();
 
   constructor(
     private router: Router

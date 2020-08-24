@@ -3,6 +3,7 @@
 @import "animations";
 
 .Menu {
+    @include scroll();
     display: flex;
     flex-direction: column;
     overflow: auto;
