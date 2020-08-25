@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TooltipDirective } from './directives/tooltip.directive';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { LanguageMenuComponent } from './components/language-menu/language-menu.component';
-import { LayoutCardComponent } from './components/layout-card/layout-card.component';
+import { CardModule } from './modules/card/card.module';
 
 
 
@@ -12,19 +12,19 @@ import { LayoutCardComponent } from './components/layout-card/layout-card.compon
   declarations: [
     TooltipDirective,
     TooltipComponent,
-    LayoutCardComponent,
     LanguageMenuComponent
   ],
   imports: [
     CommonModule,
-    TranslateModule
+    TranslateModule,
+    CardModule
   ],
   exports: [
-    LayoutCardComponent,
     TooltipDirective,
     TooltipComponent,
     LanguageMenuComponent,
-    TranslatePipe
+    TranslatePipe,
+    CardModule
   ]
 })
 export class SharedModule { }

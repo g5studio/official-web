@@ -15,6 +15,7 @@
         position: absolute;
         top: calc(100% + 0.5rem);
         right: 0.625rem;
+        z-index: map-get($layout-level, "important");
         @include g5-card();
         color: $midnight;
         white-space: nowrap;

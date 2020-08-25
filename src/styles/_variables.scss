@@ -16,6 +16,18 @@ $font-size: (
   xxl: 1.875rem,
 );
 
+$layout-level: (
+  normal: 1,
+  // layout cover
+    cover: 2,
+  // menu
+    important: 5,
+  // alert message
+    priority: 10,
+  // overlay
+    supreme: 100,
+);
+
 //bootstrap
 $body-bg: $blue-2;
 // $body-color: $midnight;

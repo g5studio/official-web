@@ -1,4 +1,4 @@
-import { ILayoutCardParms } from './../../../../interfaces/layout.interface';
+import { ILayoutCardParms } from '../../../../../../interfaces/layout.interface';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

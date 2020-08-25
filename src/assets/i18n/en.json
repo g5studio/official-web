@@ -1,11 +1,11 @@
 {
     "Menu": {
-        "Home": "home",
-        "Team": "member",
-        "Setting": "settings"
+        "Home": "Home",
+        "Team": "Member",
+        "Setting": "Settings"
     },
     "Header": {
-        "Profile": "profile"
+        "Profile": "Profile"
     },
     "Language": {
         "en": "English",
