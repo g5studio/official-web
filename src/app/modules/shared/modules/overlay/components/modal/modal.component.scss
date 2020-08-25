@@ -1,0 +1,36 @@
+@import "variables";
+@import "mixins";
+
+.Modal {
+    position: absolute;
+
+    &__Container {
+        position: relative;
+        @include g5-modal();
+        height: 100%;
+        width: 100%;
+        em {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: $black;
+            @include font-size("lg");
+            font-weight: bold;
+        }
+    }
+}
+
+.sm {
+    top: 5rem;
+    left: 50%;
+    transform: translate(-50%);
+    width: 15rem;
+}
+
+.lg {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    height: 50vh;
+    width: 50vw;
+}

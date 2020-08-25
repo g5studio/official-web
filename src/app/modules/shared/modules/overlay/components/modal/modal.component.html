@@ -1,0 +1,6 @@
+<div #tmodal class="Modal {{this.options.size}}">
+    <div class="Modal__Container">
+        <ng-content></ng-content>
+        <em (click)='this.$overlay.closeAll()' *ngIf='!this.options.hideClose' class="icon-close"></em>
+    </div>
+</div>

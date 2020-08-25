@@ -1,3 +1,4 @@
+import { OverlayModule } from './modules/overlay/overlay.module';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,14 +18,16 @@ import { CardModule } from './modules/card/card.module';
   imports: [
     CommonModule,
     TranslateModule,
-    CardModule
+    CardModule,
+    OverlayModule
   ],
   exports: [
     TooltipDirective,
     TooltipComponent,
     LanguageMenuComponent,
     TranslatePipe,
-    CardModule
+    CardModule,
+    OverlayModule
   ]
 })
 export class SharedModule { }

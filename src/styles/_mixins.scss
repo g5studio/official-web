@@ -46,6 +46,12 @@
     background-color: $white;
 }
 
+@mixin g5-modal {
+    @include border($sliver);
+    background-color: $white;
+    box-shadow: 0px 0px 3px 1px $white;
+}
+
 @mixin box-shadow($color) {
     box-shadow: 0 1px 1px 0 $color;
 }
