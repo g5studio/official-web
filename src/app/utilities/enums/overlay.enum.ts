@@ -9,3 +9,9 @@ export enum EModalSize {
     Middle = 'md',
     Small = 'sm'
 }
+
+export enum EDeviceType {
+    Desktop = 1920,
+    Pad = 1200,
+    Mobile = 767
+}

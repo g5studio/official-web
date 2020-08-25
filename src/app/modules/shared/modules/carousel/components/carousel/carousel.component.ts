@@ -8,21 +8,16 @@ import { Component, OnInit, HostListener, Input } from '@angular/core';
 export class CarouselComponent implements OnInit {
 
   @Input() duration = 3000;
-  @Input() isVertical = true;
+  @Input() isVertical = false;
+  @Input() images = [];
 
   constructor() { }
 
   public isSliding = false;
-  public images = [
-    'assets/images/introduction/intro.png',
-    'assets/images/introduction/intro2.png',
-    'assets/images/introduction/intro3.png',
-    'assets/images/introduction/intro4.png',
-  ];
 
   public currentIndex = 0;
   private nextIndex = this.currentIndex + 1;
-  public slideQueue = [this.images[this.currentIndex], this.images[this.nextIndex]];
+  public slideQueue = [];
   private interval;
   @HostListener('mouseenter') onMouseIn() {
     clearInterval(this.interval);
@@ -33,13 +28,18 @@ export class CarouselComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.interval = setInterval(_ => this.startCarousel(), this.duration);
+    this.inital();
   }
 
   public controlerOnChange(index: number) {
     this.currentIndex = index;
     this.nextIndex = this.currentIndex + 1 < this.images.length ? this.currentIndex + 1 : 0;
     this.slideQueue = [this.images[this.currentIndex], this.images[this.nextIndex]];
+  }
+
+  private inital() {
+    this.slideQueue = [this.images[this.currentIndex], this.images[this.nextIndex]];
+    this.interval = setInterval(_ => this.startCarousel(), this.duration);
   }
 
   private startCarousel() {
