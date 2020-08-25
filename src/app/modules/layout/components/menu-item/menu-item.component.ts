@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IMenuItemParms } from 'src/app/interfaces/layout.interface';
+import { IMenuItemParms } from '@utilities/interfaces/layout.interface';
 import { Router } from '@angular/router';
 
 @Component({

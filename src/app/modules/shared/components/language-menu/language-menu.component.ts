@@ -1,7 +1,7 @@
-import { ELanguage } from './../../../../enums/language.enum';
+import { ELanguage } from '@utilities/enums/language.enum';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Modal } from '@utilities/modal';
+import { Modal } from '@utilities/abstract/modal';
 import { LanguageService } from '@services//language.service';
 
 @Component({

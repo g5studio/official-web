@@ -1,4 +1,4 @@
-import { ELanguage } from './../../../enums/language.enum';
+import { ELanguage } from '@utilities/enums/language.enum';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UnsubOndestroy } from 'src/app/utilities/unsub-ondestroy';
+import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 import { NavigationService } from 'src/app/modules/shared/services/navigation.service';
 
 @Component({
