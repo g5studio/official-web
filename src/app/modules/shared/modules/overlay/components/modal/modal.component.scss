@@ -25,12 +25,24 @@
     left: 50%;
     transform: translate(-50%);
     width: 15rem;
+    min-height: 15rem;
 }
 
 .lg {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    height: 50vh;
-    width: 50vw;
+    // height: 50vh;
+    width: 90vw;
+}
+
+@media screen and (min-width: map-get($map: $grid-breakpoints, $key: "md")) {
+    .sm {
+        width: 25rem;
+    }
+
+    .lg {
+        // height: 70vh;
+        width: 50vw;
+    }
 }

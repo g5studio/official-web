@@ -12,8 +12,8 @@ export class IntroductionModalComponent implements OnInit {
   constructor() { }
 
   public options: IModalOptions = {
-    size: EModalSize.Small
-    // hideClose: true,
+    size: EModalSize.Large,
+    hideClose: true,
     // disabledOutsideClose: true
   }
 

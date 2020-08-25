@@ -1,0 +1,22 @@
+<div class="Carousel">
+    <div class="Carousel__Viewer">
+        <img [ngClass]='{
+            "sliding-out": this.isSliding && !this.isVertical,
+            "sliding-vertical-out":  this.isSliding && this.isVertical
+        }' src="{{this.slideQueue[0]}}" alt="">
+        <img [ngClass]='{
+            "sliding-in": this.isSliding && !this.isVertical,
+            "sliding-vertical-in":  this.isSliding && this.isVertical
+        }' src="{{this.slideQueue[1]}}" alt="">
+    </div>
+    <div class="Carousel__Controler" [ngClass]='{"vertical": this.isVertical}'>
+        <ng-container *ngFor='let image of this.images; let i = index;let last = last'>
+            <input (change)='this.controlerOnChange(i)' [checked]='i === this.currentIndex' id="carousel-{{i}}"
+                name="carousel" type="radio">
+            <label [ngStyle]='{
+                "margin-right": last || this.isVertical ? "0" : (60 / this.images.length) + "%",
+                "margin-bottom": last || !this.isVertical ? "0" : "1.5rem"
+            }' for="carousel-{{i}}"></label>
+        </ng-container>
+    </div>
+</div>

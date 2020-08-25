@@ -1,3 +1,9 @@
 .IntroductionModal {
-    height: 15rem;
+    height: 100%;
+    width: 100%;
+    app-carousel {
+        height: 100%;
+        width: 100%;
+        display: flex;
+    }
 }

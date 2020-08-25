@@ -1,3 +1,4 @@
+import { CarouselModule } from './modules/carousel/carousel.module';
 import { OverlayModule } from './modules/overlay/overlay.module';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,8 @@ import { CardModule } from './modules/card/card.module';
     CommonModule,
     TranslateModule,
     CardModule,
-    OverlayModule
+    OverlayModule,
+    CarouselModule
   ],
   exports: [
     TooltipDirective,
@@ -27,7 +29,8 @@ import { CardModule } from './modules/card/card.module';
     LanguageMenuComponent,
     TranslatePipe,
     CardModule,
-    OverlayModule
+    OverlayModule,
+    CarouselModule
   ]
 })
 export class SharedModule { }

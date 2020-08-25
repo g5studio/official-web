@@ -1,0 +1,82 @@
+@import "variables";
+@import "mixins";
+
+.Carousel {
+    position: relative;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+    img {
+        &:nth-child(2) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        width: 100%;
+    }
+
+    &__Controler {
+        bottom: 8%;
+        left: 0;
+        width: 100%;
+        display: flex;
+        position: absolute;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        & > input {
+            display: none;
+            &:checked + label {
+                background-color: $chrome-yellow;
+            }
+        }
+        & > label {
+            margin-bottom: 0;
+            cursor: pointer;
+            display: flex;
+            width: 1rem;
+            height: 1rem;
+            background-color: $white;
+            box-shadow: 0px 0px 3px 1px $gray;
+            border-radius: 100%;
+            &:hover {
+                background-color: $chrome-yellow;
+            }
+        }
+    }
+}
+
+.vertical {
+    top: 0;
+    bottom: auto;
+    left: auto;
+    right: 1rem;
+    height: 100%;
+    width: 1rem;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sliding-out {
+    animation-name: carousel-slide-left-out;
+    animation-duration: 1s;
+}
+
+.sliding-in {
+    animation-name: carousel-slide-left-in;
+    animation-duration: 1s;
+}
+
+.sliding-vertical-out {
+    animation-name: carousel-slide-down-out;
+    animation-duration: 1s;
+}
+
+.sliding-vertical-in {
+    animation-name: carousel-slide-down-in;
+    animation-duration: 1s;
+}

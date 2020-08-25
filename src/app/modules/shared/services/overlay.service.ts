@@ -16,17 +16,17 @@ export class OverlayService {
   );
 
   public toggleModal() {
-    event.stopPropagation();
+    event?.stopPropagation();
     this.overlay.next(EOverlayType.Modal);
   }
 
   public toggleDialog() {
-    event.stopPropagation();
+    event?.stopPropagation();
     this.overlay.next(EOverlayType.Dialog);
   }
 
   public closeAll() {
-    event.stopPropagation();
+    event?.stopPropagation();
     this.overlay.next(EOverlayType.Close);
   }
 

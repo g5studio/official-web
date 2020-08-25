@@ -13,3 +13,49 @@
         opacity: 100%;
     }
 }
+
+@keyframes carousel-slide-left-out {
+    0% {
+        transform: translate(0px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-100%);
+    }
+}
+
+@keyframes carousel-slide-left-in {
+    0% {
+        opacity: 0;
+        transform: translate(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes carousel-slide-down-out {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+@keyframes carousel-slide-down-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
