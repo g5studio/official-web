@@ -10,5 +10,18 @@
     "Language": {
         "en": "English",
         "zh-hant": "繁體中文"
+    },
+    "Images": {
+        "Speech": {
+            "2019": "2019，於{{location}}演講"
+        },
+        "Group": {
+            "2019": "2019 {{location}}{{type}}團體課程"
+        }
+    },
+    "Pages": {
+        "Home": {
+            "Activity": "活動剪影"
+        }
     }
 }

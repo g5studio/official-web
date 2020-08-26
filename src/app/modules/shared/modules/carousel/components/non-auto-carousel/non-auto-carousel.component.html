@@ -1,0 +1,14 @@
+<div class="NonAutoCarousel">
+    <div [ngClass]='{"hidden": !this.isPreviousVisible()}' class="NonAutoCarousel__Previous">
+        <em (click)='this.previous()' class="icon-arrow-left"></em>
+    </div>
+    <div class="NonAutoCarousel__Container" [ngStyle]='{"width": this.calcWindowWidth() + "px"}'>
+        <div class="NonAutoCarousel__Images"
+            [ngStyle]='{"transform": "translate(" + this.offset + "px)", "transition": "1s"}'>
+            <img *ngFor='let image of this.images' [src]='image' alt="">
+        </div>
+    </div>
+    <div [ngClass]='{"hidden": !this.isNextVisible()}' class="NonAutoCarousel__Next">
+        <em (click)='this.next()' class="icon-arrow-right"></em>
+    </div>
+</div>

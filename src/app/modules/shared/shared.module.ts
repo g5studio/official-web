@@ -7,6 +7,7 @@ import { TooltipDirective } from './directives/tooltip.directive';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { LanguageMenuComponent } from './components/language-menu/language-menu.component';
 import { CardModule } from './modules/card/card.module';
+import { ImageWaterMarkerComponent } from './components/image-water-marker/image-water-marker.component';
 
 
 
@@ -14,14 +15,15 @@ import { CardModule } from './modules/card/card.module';
   declarations: [
     TooltipDirective,
     TooltipComponent,
-    LanguageMenuComponent
+    LanguageMenuComponent,
+    ImageWaterMarkerComponent
   ],
   imports: [
     CommonModule,
     TranslateModule,
     CardModule,
     OverlayModule,
-    CarouselModule
+    CarouselModule,
   ],
   exports: [
     TooltipDirective,
@@ -30,7 +32,8 @@ import { CardModule } from './modules/card/card.module';
     TranslatePipe,
     CardModule,
     OverlayModule,
-    CarouselModule
+    CarouselModule,
+    ImageWaterMarkerComponent
   ]
 })
 export class SharedModule { }

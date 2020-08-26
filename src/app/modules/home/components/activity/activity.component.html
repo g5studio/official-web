@@ -1,0 +1,12 @@
+<div class="Activity">
+    <div class="Activity__Container">
+        <ul>
+            <li *ngFor='let speech of this.speechs'>
+                <app-image-water-marker [url]='speech'>
+                    {{"Images.Speech.2019" | translate : {location: "台中高工"} }}
+                </app-image-water-marker>
+            </li>
+        </ul>
+
+    </div>
+</div>

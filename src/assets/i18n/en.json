@@ -10,5 +10,18 @@
     "Language": {
         "en": "English",
         "zh-hant": "繁體中文"
+    },
+    "Images": {
+        "Speech": {
+            "2019": "2019 speech at {{location}}"
+        },
+        "Group": {
+            "2019": "2019 {{type}} class at {{location}}"
+        }
+    },
+    "Pages": {
+        "Home": {
+            "Activity": "Activities"
+        }
     }
 }

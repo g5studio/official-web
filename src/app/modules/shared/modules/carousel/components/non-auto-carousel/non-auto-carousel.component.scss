@@ -1,0 +1,48 @@
+@import "variables";
+@import "mixins";
+
+.NonAutoCarousel {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &__Container {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        height: 15rem;
+    }
+
+    &__Images {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        img {
+            @include g5-modal();
+            height: 15rem;
+            width: 15rem;
+            &:not(:last-child) {
+                margin-right: 2rem;
+            }
+        }
+    }
+
+    &__Previous,
+    &__Next {
+        width: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: visible;
+        em {
+            @include font-size("xxl");
+            &:hover {
+                color: $chrome-yellow;
+            }
+        }
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}

@@ -4,6 +4,7 @@ import { IModalOptions } from '@utilities/interfaces/overlay.interface';
 import { EModalSize } from '@utilities/enums/overlay.enum';
 import { WindowService } from '@services//window.service';
 import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
+import { OverlayService } from '@services//overlay.service';
 
 @Component({
   selector: 'app-introduction-modal',
@@ -13,9 +14,17 @@ import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 export class IntroductionModalComponent extends UnsubOndestroy implements OnInit {
 
   constructor(
-    public $window: WindowService
+    public $window: WindowService,
+    private $overlay: OverlayService
   ) {
     super();
+    this.$overlay.onClose$.pipe(
+      takeUntil(this.onDestroy$)
+    ).subscribe(
+      _ => {
+        sessionStorage.setItem('first-login', JSON.stringify(false));
+      }
+    );
   }
 
   public options: IModalOptions = {

@@ -1,10 +1,11 @@
 import { CarouselModule } from './../carousel/carousel.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OverlayComponent } from './components/overlay/overlay.component';
 import { IntroductionModalComponent } from './components/introduction-modal/introduction-modal.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { CarouselComponent } from '../carousel/components/carousel/carousel.component';
+import { OverlayComponent } from './pages/overlay/overlay.component';
+import { ModalProviderComponent } from './pages/modal-provider/modal-provider.component';
+import { DialogProviderComponent } from './pages/dialog-provider/dialog-provider.component';
 
 
 
@@ -13,10 +14,11 @@ import { CarouselComponent } from '../carousel/components/carousel/carousel.comp
     OverlayComponent,
     IntroductionModalComponent,
     ModalComponent,
+    ModalProviderComponent,
+    DialogProviderComponent,
   ],
   exports: [
     OverlayComponent,
-    IntroductionModalComponent,
   ],
   imports: [
     CommonModule,

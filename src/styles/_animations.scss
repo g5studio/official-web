@@ -21,14 +21,14 @@
 
     100% {
         opacity: 0;
-        transform: translate(-100%);
+        transform: translate(-80%);
     }
 }
 
 @keyframes carousel-slide-left-in {
     0% {
         opacity: 0;
-        transform: translate(100%);
+        transform: translate(80%);
     }
 
     100% {
@@ -44,14 +44,14 @@
 
     100% {
         opacity: 0;
-        transform: translateY(100%);
+        transform: translateY(4rem);
     }
 }
 
 @keyframes carousel-slide-down-in {
     0% {
         opacity: 0;
-        transform: translateY(-100%);
+        transform: translateY(-4rem);
     }
 
     100% {

@@ -4,10 +4,18 @@ export enum EOverlayType {
     Close = ''
 }
 
+export enum EModalProvider {
+    Introduction = 1,
+}
+
 export enum EModalSize {
     Large = 'lg',
     Middle = 'md',
     Small = 'sm'
+}
+
+export enum EDialogProvider {
+
 }
 
 export enum EDeviceType {
@@ -15,3 +23,5 @@ export enum EDeviceType {
     Pad = 1200,
     Mobile = 767
 }
+
+
