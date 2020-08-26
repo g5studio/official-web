@@ -1,11 +1,13 @@
 .Activity {
     display: flex;
     flex-direction: row;
+    padding: 1rem 1rem;
     &__Container {
         width: 100%;
         ul {
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             li {
                 cursor: pointer;
                 opacity: 0.5;

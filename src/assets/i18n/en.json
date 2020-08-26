@@ -16,7 +16,7 @@
             "2019": "2019 speech at {{location}}"
         },
         "Group": {
-            "2019": "2019 {{type}} class at {{location}}"
+            "2019": "2019 {{location}} {{type}} Class"
         }
     },
     "Pages": {

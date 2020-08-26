@@ -6,6 +6,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { OverlayComponent } from './pages/overlay/overlay.component';
 import { ModalProviderComponent } from './pages/modal-provider/modal-provider.component';
 import { DialogProviderComponent } from './pages/dialog-provider/dialog-provider.component';
+import { NonAutoCarouselModalComponent } from './components/non-auto-carousel-modal/non-auto-carousel-modal.component';
 
 
 
@@ -16,6 +17,7 @@ import { DialogProviderComponent } from './pages/dialog-provider/dialog-provider
     ModalComponent,
     ModalProviderComponent,
     DialogProviderComponent,
+    NonAutoCarouselModalComponent,
   ],
   exports: [
     OverlayComponent,

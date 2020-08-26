@@ -1,7 +1,7 @@
 import { ELanguage } from '@utilities/enums/language.enum';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Modal } from '@utilities/abstract/modal';
+import { AbstractModal } from '@utilities/abstract/modal';
 import { LanguageService } from '@services//language.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { LanguageService } from '@services//language.service';
   templateUrl: './language-menu.component.html',
   styleUrls: ['./language-menu.component.scss']
 })
-export class LanguageMenuComponent extends Modal implements OnInit {
+export class LanguageMenuComponent extends AbstractModal implements OnInit {
   constructor(
     public $translate: TranslateService,
     private $language: LanguageService

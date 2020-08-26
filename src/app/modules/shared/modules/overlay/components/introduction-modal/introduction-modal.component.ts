@@ -1,5 +1,6 @@
+import { Modal } from './../../models/modal.model';
 import { takeUntil } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IModalOptions } from '@utilities/interfaces/overlay.interface';
 import { EModalSize } from '@utilities/enums/overlay.enum';
 import { WindowService } from '@services//window.service';
@@ -12,6 +13,8 @@ import { OverlayService } from '@services//overlay.service';
   styleUrls: ['./introduction-modal.component.scss']
 })
 export class IntroductionModalComponent extends UnsubOndestroy implements OnInit {
+
+  @Input() modal: Modal;
 
   constructor(
     public $window: WindowService,
@@ -26,12 +29,6 @@ export class IntroductionModalComponent extends UnsubOndestroy implements OnInit
       }
     );
   }
-
-  public options: IModalOptions = {
-    size: EModalSize.Large,
-    hideClose: true,
-    // disabledOutsideClose: true
-  };
 
   public isVertical = false;
 

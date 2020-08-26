@@ -1,9 +1,14 @@
 <div class="Activity">
     <div class="Activity__Container">
         <ul>
-            <li *ngFor='let speech of this.speechs'>
-                <app-image-water-marker [url]='speech'>
+            <li (click)='this.toggleAlbumModal(this.configs.speechs.images)'>
+                <app-image-water-marker [url]='this.configs.speechs.index'>
                     {{"Images.Speech.2019" | translate : {location: "台中高工"} }}
+                </app-image-water-marker>
+            </li>
+            <li (click)='this.toggleAlbumModal(this.configs.unity.images)'>
+                <app-image-water-marker [url]='this.configs.unity.index'>
+                    {{"Images.Group.2019" | translate : {location: "NTUT", type: "Unity"} }}
                 </app-image-water-marker>
             </li>
         </ul>

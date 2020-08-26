@@ -14,7 +14,8 @@ export class ModalComponent implements OnInit, OnDestroy {
   @Input() options: IModalOptions = {
     size: EModalSize.Small,
     hideClose: false,
-    disabledOutsideClose: false
+    disabledOutsideClose: false,
+    hideBackground: false
   };
 
   constructor(

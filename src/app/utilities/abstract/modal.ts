@@ -1,7 +1,7 @@
 import { Injectable, ElementRef, } from '@angular/core';
 
 @Injectable()
-export abstract class Modal {
+export abstract class AbstractModal {
 
   constructor() {
   }

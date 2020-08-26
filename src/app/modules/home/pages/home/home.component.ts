@@ -1,6 +1,7 @@
+import { Modal } from '../../../shared/modules/overlay/models/modal.model';
 import { Component, OnInit } from '@angular/core';
 import { OverlayService } from '@services//overlay.service';
-import { EModalProvider } from '@utilities/enums/overlay.enum';
+import { EModalProvider, EModalSize } from '@utilities/enums/overlay.enum';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (!sessionStorage.getItem('first-login')) {
-      this.$overlay.toggleModal(EModalProvider.Introduction);
+      this.$overlay.toggleModal(
+        new Modal(EModalProvider.Introduction,
+          {
+            size: EModalSize.Large,
+            hideClose: true
+          })
+      );
     }
 
   }
