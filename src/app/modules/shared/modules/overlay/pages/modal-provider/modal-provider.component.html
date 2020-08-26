@@ -1,0 +1,3 @@
+<div *ngIf='this.$overlay.modal$ | async as modal' [ngSwitch]='this.modal'>
+    <app-introduction-modal *ngSwitchCase='modalProvider.Introduction'></app-introduction-modal>
+</div>
