@@ -14,6 +14,59 @@
     }
 }
 
+@keyframes landing-logo-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: translateX(-130%);
+    }
+}
+
+@keyframes showup {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes border-cycle {
+    0% {
+        left: 0;
+        height: 1px;
+        width: 30px;
+    }
+
+    25% {
+        height: 1px;
+        width: 30px;
+        transform: translateX(30rem);
+    }
+
+    50% {
+        height: 30px;
+        width: 1px;
+        transform: translateX(30rem);
+    }
+
+    75% {
+        transform: translateX(30rem);
+        // top: auto;
+        // right: 0;
+        // bottom: 0;
+        width: 1px;
+        height: 10px;
+    }
+}
+
 @keyframes carousel-slide-left-out {
     0% {
         transform: translate(0px);

@@ -1,0 +1,9 @@
+<div class="Landing">
+    <div class="Landing__Container">
+        <span [ngClass]='{"landing-logo-rotate": this.start}'>
+            <img src="assets/images/logo.png" alt="">
+            <p *ngIf='this.showTitle' [ngClass]='{"landin-title-showup": this.showTitle}'>G5 STUDIO™ OFFICAL</p>
+        </span>
+        <button (click)='this.login()'>start</button>
+    </div>
+</div>

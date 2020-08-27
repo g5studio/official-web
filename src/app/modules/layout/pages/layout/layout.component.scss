@@ -18,7 +18,7 @@
 
     &__Container {
         width: 100%;
-        height: calc(100% - 4rem);
+        height: calc(100% - #{$header-height});
         display: flex;
         flex-direction: row;
     }
@@ -56,6 +56,7 @@
         }
 
         &__Pages {
+            width: 100%;
             background-color: $body-bg;
             &__Page {
                 border: none;

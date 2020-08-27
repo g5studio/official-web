@@ -2,6 +2,7 @@
 
 //custom
 $menu-color: $blue-22;
+$layout-card-bg-color: $blue-3;
 $menu-width: 6rem;
 $header-height: 4rem;
 $page-height: calc(100vh - 5rem);
@@ -19,13 +20,13 @@ $font-size: (
 $layout-level: (
   normal: 1,
   // layout cover
-    cover: 2,
+  cover: 2,
   // menu
-    important: 5,
+  important: 5,
   // alert message
-    priority: 10,
+  priority: 10,
   // overlay
-    supreme: 100,
+  supreme: 100,
 );
 
 //bootstrap

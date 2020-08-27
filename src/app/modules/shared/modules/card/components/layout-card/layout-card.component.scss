@@ -8,12 +8,12 @@
     &__Container {
         // height: 100vh;
         padding: 1rem 0;
-        background-color: $blue-3;
+        background-color: $layout-card-bg-color;
         border-radius: 1rem;
     }
 
     &__Head {
-        border-bottom: 0.5px solid $blue-22;
+        border-bottom: 0.5px solid $menu-color;
         padding: 0 1rem 1rem 1rem;
         &::ng-deep > h1 {
             display: flex;
@@ -28,7 +28,7 @@
             }
         }
 
-        @include box-shadow($blue-22);
+        @include box-shadow($menu-color);
     }
 
     &__Body {

@@ -1,4 +1,7 @@
-<app-layout>
+<app-layout *ngIf='this.isLogin; else tLanding'>
     <router-outlet></router-outlet>
 </app-layout>
+<ng-template #tLanding>
+    <router-outlet></router-outlet>
+</ng-template>
 <app-overlay></app-overlay>

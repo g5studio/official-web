@@ -9,6 +9,7 @@ import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { RouterModule } from '@angular/router';
+import { LandingComponent } from './pages/landing/landing.component';
 
 
 
@@ -20,6 +21,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     MenuItemComponent,
     ErrorPageComponent,
+    LandingComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   exports: [
-    LayoutComponent
+    LayoutComponent,
+    LandingComponent
   ]
 })
 export class LayoutModule { }
