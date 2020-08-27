@@ -12,6 +12,10 @@ export class WindowService {
 
   }
 
+  get windowWidth() {
+    return window.innerWidth;
+  }
+
   private device: ReplaySubject<EDeviceType> = new ReplaySubject();
   public device$ = this.device.asObservable().pipe(
     distinctUntilChanged(),
@@ -33,10 +37,9 @@ export class WindowService {
 
 
   public resize() {
-    const SIZE = window.innerWidth;
-    if (SIZE > EDeviceType.Pad) {
+    if (this.windowWidth > EDeviceType.Pad) {
       this.device.next(EDeviceType.Desktop);
-    } else if (SIZE > EDeviceType.Mobile) {
+    } else if (this.windowWidth > EDeviceType.Mobile) {
       this.device.next(EDeviceType.Pad);
     } else {
       this.device.next(EDeviceType.Mobile);
@@ -44,6 +47,6 @@ export class WindowService {
   }
 
   private onDeviceChange(device: EDeviceType) {
-    
+
   }
 }

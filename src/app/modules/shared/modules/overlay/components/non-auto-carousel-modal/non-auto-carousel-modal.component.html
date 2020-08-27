@@ -1,4 +1,4 @@
-<app-modal [options]='this.modal.options'>
+<app-modal *ngIf='this.$window.device$ | async as device' [options]='this.modal.options'>
     <div class="NonAutoCarouselModal">
         <app-non-auto-carousel [images]='this.modal.options.config.images'></app-non-auto-carousel>
     </div>

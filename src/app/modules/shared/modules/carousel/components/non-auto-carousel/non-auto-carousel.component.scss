@@ -46,3 +46,18 @@
 .hidden {
     visibility: hidden;
 }
+
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
+    .NonAutoCarousel {
+        &__Container {
+            align-items: center;
+        }
+
+        &__Images {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
