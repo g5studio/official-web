@@ -1,6 +1,9 @@
 @import "variables";
+@import "mixins";
 
 .Activity {
+    @include scroll();
+    overflow-x: auto;
     display: flex;
     flex-direction: row;
     padding: 1rem 1rem;

@@ -26,7 +26,7 @@
     &__Pages {
         background-color: $menu-color;
         height: 100%;
-        width: 100%;
+        width: calc(100% - #{$menu-width});
         &__Page {
             height: 100%;
             background-color: $body-bg;
