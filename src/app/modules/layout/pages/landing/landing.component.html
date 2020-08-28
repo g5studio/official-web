@@ -4,6 +4,13 @@
             <img src="assets/images/logo.png" alt="">
             <p *ngIf='this.rotationEnd' [ngClass]='{"landin-title-showup": this.rotationEnd}'>G5 STUDIO™ OFFICAL</p>
         </span>
-        <button (click)='this.login()'>start</button>
+        <div class="Landing__Introduction" [ngClass]='{"landing-intro": this.rotationEnd}'>
+            <app-carousel [opacity]="0.3" [isVertical]='this.isVertical' [images]='this.introductions'></app-carousel>
+        </div>
+        <button class="Landing__Login" [ngClass]='{"landing-start": this.rotationEnd}'
+            (click)='this.$auth.login()'>{{"Pages.Landing.Start" | translate}}</button>
+    </div>
+    <div class="Landing__Navbar">
+        <app-language-menu></app-language-menu>
     </div>
 </div>

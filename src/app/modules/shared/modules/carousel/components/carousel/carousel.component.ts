@@ -10,6 +10,7 @@ export class CarouselComponent implements OnInit {
   @Input() duration = 3000;
   @Input() isVertical = false;
   @Input() images = [];
+  @Input() opacity = 0;
 
   constructor() { }
 
@@ -51,6 +52,7 @@ export class CarouselComponent implements OnInit {
       }, 1000
     );
     this.next();
+    console.log(this.currentIndex, this.nextIndex)
   }
 
   private next() {

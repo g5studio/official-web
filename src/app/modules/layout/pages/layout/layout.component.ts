@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 import { NavigationService } from 'src/app/modules/shared/services/navigation.service';
 
@@ -8,6 +8,8 @@ import { NavigationService } from 'src/app/modules/shared/services/navigation.se
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+
+  @Input() route: string;
 
   constructor(
     public $navigation: NavigationService

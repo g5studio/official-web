@@ -6,6 +6,7 @@
     <div class="Header__Navigation">
         <app-language-menu></app-language-menu>
         <app-menu-item [size]='"xl"' [parms]='this.profile'>{{this.profile.i18n | translate}}</app-menu-item>
+        <button (click)='this.$auth.logout()'>logout</button>
         <button class="Header__Menu"><em class="icon-list"></em></button>
     </div>
 </div>

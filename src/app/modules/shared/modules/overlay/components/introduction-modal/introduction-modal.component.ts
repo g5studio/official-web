@@ -32,6 +32,7 @@ export class IntroductionModalComponent extends UnsubOndestroy implements OnInit
 
   public isVertical = false;
 
+  // 工作室特色簡介
   public introductions = [
     'assets/images/introduction/intro.png',
     'assets/images/introduction/intro2.png',

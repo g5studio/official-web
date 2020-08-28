@@ -20,6 +20,9 @@
         }
     },
     "Pages": {
+        "Landing": {
+            "Start": "Start"
+        },
         "Home": {
             "Activity": "Activities"
         }

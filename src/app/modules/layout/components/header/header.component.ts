@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PROFILE } from './header.config';
 import { NavigationService } from 'src/app/modules/shared/services/navigation.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,8 @@ import { NavigationService } from 'src/app/modules/shared/services/navigation.se
 export class HeaderComponent implements OnInit {
 
   constructor(
-    public $navigation: NavigationService
+    public $navigation: NavigationService,
+    public $auth: AuthService
   ) { }
 
   public profile = PROFILE;

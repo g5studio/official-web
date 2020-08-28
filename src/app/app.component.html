@@ -1,7 +1,9 @@
-<app-layout *ngIf='this.isLogin; else tLanding'>
-    <router-outlet></router-outlet>
-</app-layout>
-<ng-template #tLanding>
-    <router-outlet></router-outlet>
-</ng-template>
+<ng-container *ngIf='this.$navigation.route$ | async as route'>
+    <app-layout [route]='route' *ngIf='this.isLogin; else tLanding'>
+        <router-outlet></router-outlet>
+    </app-layout>
+    <ng-template #tLanding>
+        <router-outlet></router-outlet>
+    </ng-template>
+</ng-container>
 <app-overlay></app-overlay>

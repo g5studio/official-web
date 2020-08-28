@@ -6,7 +6,8 @@
     user-select: none;
     width: 100%;
     height: 100%;
-    @include g5-modal();
+    box-shadow: 0px 0px 3px 1px $white;
+    background-color: $white;
     img {
         border-radius: 3px;
         &:nth-child(2) {
@@ -32,6 +33,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        z-index: map-get($layout-level, "canvus");
         & > input {
             display: none;
             &:checked + label {

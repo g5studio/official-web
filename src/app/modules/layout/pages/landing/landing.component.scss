@@ -17,15 +17,15 @@
         position: relative;
         display: flex;
         justify-content: center;
+        flex-direction: column;
         width: 32rem;
-        height: 20rem;
-        background-color: $menu-color;
+        // height: 20rem;
+        background-color: inherit;
         box-shadow: 0px 0px 3px 1px $layout-card-bg-color;
-        // border-radius: 1.5rem;
-        & > button {
-            width: auto;
-            height: auto;
-        }
+        border-radius: 3px;
+        // &:hover {
+        //     border-color: $chrome-yellow !important;
+        // }
         &::before,
         &::after {
             content: "";
@@ -72,6 +72,53 @@
             }
         }
     }
+
+    &__Introduction {
+        position: relative;
+        padding: 3px;
+        opacity: 0;
+    }
+
+    &__Login {
+        @include font-size("xl");
+        font-weight: bold;
+        letter-spacing: 0.2rem;
+        width: 15rem;
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(50%);
+        @include border($white);
+        border-width: 2px;
+        opacity: 0;
+        padding: 0.75rem;
+        color: $white;
+        z-index: map-get($layout-level, "canvus");
+        &:hover {
+            background-color: rgba($color: $black, $alpha: 0.5);
+            border-color: $chrome-yellow;
+            color: $chrome-yellow;
+            opacity: 0.8;
+            transition: 0.1s;
+        }
+    }
+
+    &__Navbar {
+        padding: 1.5rem 1.5rem;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+}
+
+.landing-start {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.landing-intro {
+    opacity: 0.8;
+    transition: 0.5s;
 }
 
 .landin-title-showup {
@@ -90,8 +137,8 @@
 @media screen and (max-width: map-get($grid-breakpoints, "md")) {
     .Landing {
         &__Container {
-            width: 22rem;
-            height: 10rem;
+            width: 80%;
+            // height: 10rem;
             & > span {
                 transform: translateX(-50%) translateY(calc(-100% - 2.5rem));
                 @include font-size("lg");
@@ -100,6 +147,10 @@
                     margin-right: 0.5rem;
                 }
             }
+        }
+
+        &__Login {
+            bottom: -5rem;
         }
     }
 }

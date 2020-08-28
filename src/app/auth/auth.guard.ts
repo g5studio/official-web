@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { NavigationService } from '@services//navigation.service';
-import { stat } from 'fs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,8 @@ import { stat } from 'fs';
 export class AuthGuard implements CanActivate, CanActivateChild {
 
   constructor(
-    private $navigation: NavigationService
+    private $navigation: NavigationService,
+    private $auth: AuthService
   ) {
 
   }
@@ -26,19 +27,16 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   }
 
   private isAuth(url: string) {
-
-    const LOGIN = JSON.parse(sessionStorage.getItem('login'));
-
-    if (url !== '/landing' && !LOGIN) {
+    if (url !== '/landing' && !this.$auth.isLogin) {
       this.$navigation.navigate('landing');
       return true;
     }
 
-    if (url === '/landing' && LOGIN) {
+    if (url === '/landing' && this.$auth.isLogin) {
       this.$navigation.navigate('home');
     }
 
-    return !!LOGIN || url === '/landing';
+    return !!this.$auth.isLogin || url === '/landing';
   }
 
 }
