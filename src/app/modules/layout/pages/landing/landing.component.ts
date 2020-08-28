@@ -16,8 +16,8 @@ export class LandingComponent implements OnInit {
 
   private animationStart$ = of([]);
 
-  public start = false;
-  public showTitle = false;
+  public rotationStart = false;
+  public rotationEnd = false;
 
   ngOnInit(): void {
     this.animationStart$.pipe(
@@ -28,11 +28,11 @@ export class LandingComponent implements OnInit {
   }
 
   private onAnimationLogoRotationStart() {
-    this.start = true;
+    this.rotationStart = true;
   }
 
   private onAnimationLogoRotationEnd() {
-    this.showTitle = true;
+    this.rotationEnd = true;
   }
 
   public login() {

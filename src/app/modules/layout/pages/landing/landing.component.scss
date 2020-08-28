@@ -21,17 +21,31 @@
         height: 20rem;
         background-color: $menu-color;
         box-shadow: 0px 0px 3px 1px $layout-card-bg-color;
-        border-radius: 1.5rem;
-        // @include border($white);
-        &::before {
+        // border-radius: 1.5rem;
+        & > button {
+            width: auto;
+            height: auto;
+        }
+        &::before,
+        &::after {
             content: "";
+            box-sizing: border-box;
             position: absolute;
-            animation-name: border-cycle;
-            animation-duration: 13s;
-            background-color: $white;
-          
+            border: 1px solid transparent;
+            width: 0;
+            height: 0;
+        }
+        &::before {
             top: 0;
+            left: 0;
+            border-top-color: $white;
+            border-right-color: $white;
+            animation: border-cycle 1.5s;
+        }
+        &::after {
+            bottom: 0;
             right: 0;
+            animation: border-cycle 1.5s 1s, borderColor 1.5s 1s;
         }
         & span {
             display: flex;
@@ -87,5 +101,24 @@
                 }
             }
         }
+    }
+}
+
+@keyframes borderColor {
+    0% {
+        border-bottom-color: $white;
+        border-left-color: $white;
+    }
+    50% {
+        border-bottom-color: $white;
+        border-left-color: $white;
+    }
+    51% {
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    100% {
+        border-bottom-color: transparent;
+        border-left-color: transparent;
     }
 }
