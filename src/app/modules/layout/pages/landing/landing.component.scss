@@ -2,11 +2,15 @@
 @import "animations";
 @import "mixins";
 
+$viewer-width: 32rem;
+
 .Landing {
     user-select: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
+    padding-top: 5rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -18,14 +22,11 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        width: 32rem;
-        // height: 20rem;
+        width: $viewer-width;
+        margin-top: 3rem;
         background-color: inherit;
         box-shadow: 0px 0px 3px 1px $layout-card-bg-color;
         border-radius: 3px;
-        // &:hover {
-        //     border-color: $chrome-yellow !important;
-        // }
         &::before,
         &::after {
             content: "";
@@ -47,29 +48,25 @@
             right: 0;
             animation: border-cycle 2s 1s, borderColor 2s 1s;
         }
-        & span {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            position: absolute;
-            white-space: nowrap;
-            @include font-size("xxxl");
-            left: 50%;
-            transform: translateX(-50%) translateY(calc(-100% - 5rem));
-            top: 0;
-            & > img {
-                border-radius: 100%;
-                padding: 0.1rem;
-                border: 3px solid $white;
-                opacity: 0.8;
-                width: 8rem;
-                margin-right: 0.5rem;
-            }
+    }
 
-            & > p {
-                // display: none;
-                opacity: 0;
-            }
+    &__Logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        white-space: nowrap;
+        @include font-size("xxl");
+        & > img {
+            border-radius: 100%;
+            padding: 0.1rem;
+            border: 3px solid $white;
+            opacity: 0.8;
+            width: 6rem;
+            margin-right: 1rem;
+        }
+
+        & > p {
+            opacity: 0;
         }
     }
 
@@ -83,7 +80,7 @@
         @include font-size("xl");
         font-weight: bold;
         letter-spacing: 0.2rem;
-        width: 15rem;
+        width: $viewer-width / 2;
         position: absolute;
         bottom: 50%;
         left: 50%;
@@ -137,7 +134,21 @@
 @media screen and (min-width: map-get($grid-breakpoints, "xxl")) {
     .Landing {
         &__Container {
-            transform: scale(1.5);
+            margin-top: 7.5rem;
+            width: calc(#{$viewer-width} * 1.5);
+        }
+
+        &__Login {
+            @include font-size("xxl");
+            width: calc(#{$viewer-width} / 2 * 1.5);
+        }
+
+        &__Logo {
+            @include font-size("xxxl");
+            img {
+                width: 8rem;
+                margin-right: 2rem;
+            }
         }
     }
 }
@@ -146,14 +157,14 @@
     .Landing {
         &__Container {
             width: 80%;
-            // height: 10rem;
-            & > span {
-                transform: translateX(-50%) translateY(calc(-100% - 2.5rem));
-                @include font-size("lg");
-                img {
-                    width: 4rem;
-                    margin-right: 0.5rem;
-                }
+            margin-top: 2.5rem;
+        }
+
+        &__Logo {
+            @include font-size("lg");
+            img {
+                width: 4rem;
+                margin-right: 0.5rem;
             }
         }
 
