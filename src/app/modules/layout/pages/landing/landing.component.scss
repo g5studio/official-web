@@ -53,7 +53,7 @@
             align-items: center;
             position: absolute;
             white-space: nowrap;
-            @include font-size("xxl");
+            @include font-size("xxxl");
             left: 50%;
             transform: translateX(-50%) translateY(calc(-100% - 5rem));
             top: 0;
@@ -131,6 +131,14 @@
     img {
         animation-name: landing-logo-rotate;
         animation-duration: 1.5s;
+    }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, "xxl")) {
+    .Landing {
+        &__Container {
+            transform: scale(1.5);
+        }
     }
 }
 
