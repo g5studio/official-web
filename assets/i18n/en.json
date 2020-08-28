@@ -1,0 +1,30 @@
+{
+    "Menu": {
+        "Home": "Home",
+        "Team": "Member",
+        "Setting": "Settings"
+    },
+    "Header": {
+        "Profile": "Profile"
+    },
+    "Language": {
+        "en": "English",
+        "zh-hant": "繁體中文"
+    },
+    "Images": {
+        "Speech": {
+            "2019": "2019 speech at {{location}}"
+        },
+        "Group": {
+            "2019": "2019 {{location}} {{type}} Class"
+        }
+    },
+    "Pages": {
+        "Landing": {
+            "Start": "Start"
+        },
+        "Home": {
+            "Activity": "Activities"
+        }
+    }
+}
