@@ -18,6 +18,7 @@ export abstract class AbstractModal {
 
 
   public expand(menu: ElementRef) {
+    event.stopPropagation();
     this.menu = menu;
     this.isOpen = true;
     addEventListener('click', this.e);

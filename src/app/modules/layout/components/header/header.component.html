@@ -6,6 +6,11 @@
     <div class="Header__Navigation">
         <app-language-menu></app-language-menu>
         <app-menu-item [size]='"xl"' [parms]='this.profile'>{{this.profile.i18n | translate}}</app-menu-item>
-        <button class="Header__Menu"><em class="icon-list"></em></button>
+        <button (click)='this.expand(tmenu)' class="Header__MenuIcon"><em class="icon-list"></em></button>
+    </div>
+    <div [ngStyle]="{'visibility': this.isOpen ? 'visible' : 'hidden'}" class="Header__Menu">
+        <div #tmenu>
+            <app-menu [currentPath]='this.route'></app-menu>
+        </div>
     </div>
 </div>
