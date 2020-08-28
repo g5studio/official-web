@@ -55,7 +55,6 @@ export class CarouselComponent implements OnInit, OnDestroy {
       }, 1000
     );
     this.next();
-    console.log(this.currentIndex, this.nextIndex)
   }
 
   private next() {
