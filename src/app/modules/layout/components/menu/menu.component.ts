@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavigationService } from 'src/app/modules/shared/services/navigation.service';
-import { MENU_LIST, MENU_SET } from './menu-list';
+import { MENU_LIST, MENU_SET, MENU_LOGOUT } from './menu-list';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -13,9 +14,11 @@ export class MenuComponent implements OnInit {
 
   public menuList = MENU_LIST;
   public setting = MENU_SET;
+  public logout = MENU_LOGOUT;
 
   constructor(
-    private $navigation: NavigationService
+    private $navigation: NavigationService,
+    public $auth: AuthService
   ) { }
 
   ngOnInit(): void {

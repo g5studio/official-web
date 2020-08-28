@@ -37,7 +37,7 @@ export class LandingComponent extends UnsubOndestroy implements OnInit {
   ngOnInit(): void {
     this.animationStart$.pipe(
       tap(_ => this.onAnimationLogoRotationStart()),
-      switchMap(_ => timer(1500)),
+      switchMap(_ => timer(2000)),
       tap(_ => this.onAnimationLogoRotationEnd())
     ).subscribe();
 

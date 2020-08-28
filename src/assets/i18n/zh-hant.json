@@ -2,7 +2,8 @@
     "Menu": {
         "Home": "首頁",
         "Team": "團隊成員",
-        "Setting": "設定"
+        "Setting": "設定",
+        "Logout": "登出"
     },
     "Header": {
         "Profile": "個人檔案"

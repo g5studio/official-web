@@ -20,3 +20,10 @@ export const MENU_SET: IMenuItemParms = {
     i18n: 'Menu.Setting',
     tooltip: ToolTipPosition.Top
 };
+
+export const MENU_LOGOUT: IMenuItemParms = {
+    path: 'logout',
+    icon: 'logOut',
+    i18n: 'Menu.Logout',
+    tooltip: ToolTipPosition.Top
+}

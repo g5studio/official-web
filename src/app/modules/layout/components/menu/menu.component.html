@@ -6,6 +6,14 @@
                 </app-menu-item>
             </li>
         </ul>
-        <app-menu-item [parms]='this.setting'>{{this.setting.i18n | translate}}</app-menu-item>
+        <ul>
+            <li>
+                <app-menu-item (onclick)='this.$auth.logout()' [parms]='this.logout'>{{this.logout.i18n | translate}}
+                </app-menu-item>
+            </li>
+            <li>
+                <app-menu-item [parms]='this.setting'>{{this.setting.i18n | translate}}</app-menu-item>
+            </li>
+        </ul>
     </div>
 </div>

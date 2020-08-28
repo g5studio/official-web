@@ -12,6 +12,7 @@
     padding: 0 0.75rem 0 0.75rem;
     border-bottom-right-radius: 24px;
     &__Logo {
+        padding-top: 0.5rem;
         position: relative;
         cursor: pointer;
         width: 4.5rem;
@@ -24,7 +25,7 @@
         justify-content: center;
         @include font-size("lg");
         img {
-            width: 2.5rem;
+            width: 3.5rem;
             z-index: map-get($layout-level, "cover");
         }
 
@@ -93,6 +94,16 @@
         border-bottom-right-radius: 0px;
         &__Menu {
             display: flex !important;
+            em {
+                font-size: map-get($font-size, "xl") !important;
+            }
+        }
+
+        &__Logo {
+            padding-top: 0;
+            img {
+                width: 2.5rem;
+            }
         }
     }
 }

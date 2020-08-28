@@ -2,7 +2,8 @@
     "Menu": {
         "Home": "Home",
         "Team": "Member",
-        "Setting": "Settings"
+        "Setting": "Settings",
+        "Logout": "Logout"
     },
     "Header": {
         "Profile": "Profile"

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MenuItemComponent implements OnInit {
 
-  @Input() size: 'lg' | 'xl' | 'xxl' = 'lg';
+  @Input() size: 'lg' | 'xl' | 'xxl' = 'xl';
   @Input() parms: IMenuItemParms;
   @Input() disabledTooltip;
   @Output() onclick: EventEmitter<string> = new EventEmitter();

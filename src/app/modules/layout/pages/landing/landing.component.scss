@@ -40,12 +40,12 @@
             left: 0;
             border-top-color: $white;
             border-right-color: $white;
-            animation: border-cycle 1.5s;
+            animation: border-cycle 2s;
         }
         &::after {
             bottom: 0;
             right: 0;
-            animation: border-cycle 1.5s 1s, borderColor 1.5s 1s;
+            animation: border-cycle 2s 1s, borderColor 2s 1s;
         }
         & span {
             display: flex;
@@ -130,7 +130,7 @@
 .landing-logo-rotate {
     img {
         animation-name: landing-logo-rotate;
-        animation-duration: 1.5s;
+        animation-duration: 2s;
     }
 }
 
