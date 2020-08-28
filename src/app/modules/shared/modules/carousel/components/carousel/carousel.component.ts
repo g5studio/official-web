@@ -1,18 +1,21 @@
-import { Component, OnInit, HostListener, Input } from '@angular/core';
+import { Component, OnInit, HostListener, Input, OnDestroy } from '@angular/core';
+import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent implements OnInit, OnDestroy {
 
   @Input() duration = 3000;
   @Input() isVertical = false;
   @Input() images = [];
   @Input() opacity = 0;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   public isSliding = false;
 
@@ -59,5 +62,9 @@ export class CarouselComponent implements OnInit {
     const LENGTH = this.images.length;
     this.currentIndex = this.currentIndex + 1 < LENGTH ? this.currentIndex + 1 : 0;
     this.nextIndex = this.nextIndex + 1 < LENGTH ? this.nextIndex + 1 : 0;
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
   }
 }
