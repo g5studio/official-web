@@ -3,6 +3,7 @@ import { LanguageService } from '@services//language.service';
 import { WindowService } from '@services//window.service';
 import { NavigationService } from '@services//navigation.service';
 import { FirebaseService } from '@services//firebase.service';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +15,11 @@ export class AppComponent implements OnInit {
     private $language: LanguageService,
     private $window: WindowService,
     public $navigation: NavigationService,
-    private $firebase: FirebaseService
+    private $firebase: FirebaseService,
+    public $auth: AuthService
   ) {
     this.$language.inital();
     this.$window.resize();
-  }
-
-  get isLogin() {
-    return JSON.parse(sessionStorage.getItem('login'));
   }
 
   @HostListener('window:resize') onWindowResize() {

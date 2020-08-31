@@ -1,5 +1,5 @@
 <ng-container *ngIf='this.$navigation.route$ | async as route'>
-    <app-layout [route]='route' *ngIf='this.isLogin; else tLanding'>
+    <app-layout [route]='route' *ngIf='this.$auth.isLogin; else tLanding'>
         <router-outlet></router-outlet>
     </app-layout>
     <ng-template #tLanding>
