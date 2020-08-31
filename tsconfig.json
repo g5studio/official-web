@@ -19,6 +19,9 @@
       "@services/*": [
         "src/app/modules/shared/services*"
       ],
+      "@models/*": [
+        "src/app/modules/shared/models*"
+      ],
       "@directives/*": [
         "src/app/modules/shared/directives*"
       ],
