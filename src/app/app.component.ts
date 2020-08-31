@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { LanguageService } from '@services//language.service';
 import { WindowService } from '@services//window.service';
 import { NavigationService } from '@services//navigation.service';
+import { FirebaseService } from '@services//firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent implements OnInit {
   constructor(
     private $language: LanguageService,
     private $window: WindowService,
-    public $navigation: NavigationService
+    public $navigation: NavigationService,
+    private $firebase: FirebaseService
   ) {
     this.$language.inital();
     this.$window.resize();

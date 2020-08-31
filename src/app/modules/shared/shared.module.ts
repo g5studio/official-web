@@ -16,7 +16,7 @@ import { ImageWaterMarkerComponent } from './components/image-water-marker/image
     TooltipDirective,
     TooltipComponent,
     LanguageMenuComponent,
-    ImageWaterMarkerComponent
+    ImageWaterMarkerComponent,
   ],
   imports: [
     CommonModule,
