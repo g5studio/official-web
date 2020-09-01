@@ -1,4 +1,5 @@
 export interface IUser {
+    nickName: string;
     name: string;
     email: string;
     id: string;
@@ -6,4 +7,5 @@ export interface IUser {
     firstName: string;
     lastName: string;
     fullName: string;
+    photo: string;
 }

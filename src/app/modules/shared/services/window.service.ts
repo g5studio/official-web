@@ -1,4 +1,4 @@
-import { EDeviceType } from './../../../utilities/enums/overlay.enum';
+import { EDeviceType } from '@utilities/enums/overlay.enum';
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { map, filter, distinctUntilChanged, tap } from 'rxjs/operators';

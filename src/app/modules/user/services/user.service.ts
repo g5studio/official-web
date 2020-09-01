@@ -1,11 +1,11 @@
-import { EModalProvider, EModalSize } from './../../../utilities/enums/overlay.enum';
+import { EModalProvider, EModalSize } from '@utilities/enums/overlay.enum';
 import { filter, tap, take } from 'rxjs/operators';
 import { IUser } from '@utilities/interfaces/user.interface';
 import { ReplaySubject, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { OverlayService } from './overlay.service';
-import { Modal } from '../modules/overlay/models/modal.model';
-import { FirebaseService } from './firebase.service';
+import { OverlayService } from '@services/overlay.service';
+import { Modal } from '@overlay/models/modal.model';
+import { User } from '@user/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,7 @@ import { FirebaseService } from './firebase.service';
 export class UserService {
 
   constructor(
-    private $overlay: OverlayService,
-    private $fb: FirebaseService
+    private $overlay: OverlayService
   ) {
     this.firstLogin$.subscribe();
   }
@@ -28,8 +27,8 @@ export class UserService {
     tap(_ => this.firstLoginPopup())
   );
 
-  public inital(user: any) {
-    this.user.next(user);
+  public inital(userProfile: any) {
+    this.user.next(new User(userProfile));
   }
 
   private firstLoginPopup() {

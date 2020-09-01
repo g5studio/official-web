@@ -16,14 +16,20 @@
       "dom"
     ],
     "paths": {
+      "@user/*": [
+        "src/app/modules/user/*"
+      ],
+      "@overlay/*": [
+        "src/app/modules/shared/modules/overlay/*"
+      ],
       "@services/*": [
-        "src/app/modules/shared/services*"
+        "src/app/modules/shared/services/*"
       ],
       "@models/*": [
-        "src/app/modules/shared/models*"
+        "src/app/modules/shared/models/*"
       ],
       "@directives/*": [
-        "src/app/modules/shared/directives*"
+        "src/app/modules/shared/directives/*"
       ],
       "@utilities/*": [
         "src/app/utilities/*"

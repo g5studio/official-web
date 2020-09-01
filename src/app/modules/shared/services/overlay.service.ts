@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject, ReplaySubject } from 'rxjs';
 import { EOverlayType, EModalProvider, EDialogProvider } from '@utilities/enums/overlay.enum';
 import { startWith, tap } from 'rxjs/operators';
-import { Modal } from '../modules/overlay/models/modal.model';
+import { Modal } from '@overlay/models/modal.model';
 
 @Injectable({
   providedIn: 'root'

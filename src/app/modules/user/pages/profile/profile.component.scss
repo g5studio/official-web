@@ -1,0 +1,17 @@
+@import "variables";
+@import "mixins";
+
+.Profile {
+    display: flex;
+    flex-direction: row;
+    &__Basic {
+        height: calc(#{$page-height} - 4rem);
+        @include scroll;
+    }
+}
+
+@media screen and (max-width: map-get($map: $grid-breakpoints, $key: "md")) {
+    .Profile {
+        flex-direction: column;
+    }
+}

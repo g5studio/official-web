@@ -15,7 +15,7 @@ export class FirebaseService {
 
   public addCollectionListener(name: string, fun: any) {
     return this.$firebaseStore.collection(name).snapshotChanges().subscribe(
-      _ => fun(_)
+      res => fun(res.map(_ => _.payload.doc.data()))
     );
   }
 

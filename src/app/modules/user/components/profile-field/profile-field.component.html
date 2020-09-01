@@ -1,0 +1,8 @@
+<ng-container *ngIf='!this.isEdit'>
+    {{this.model}}
+</ng-container>
+<input *ngIf='this.isEdit' (ngModelChange)='this.validation($event)' [(ngModel)]='this.value' type="text">
+<span *ngIf='!this.valid && this.isEdit'>
+    <em class="g5-font-rose-xs icon-alert_2 mr-1"></em>
+    <p class="g5-font-rose-xs">此欄位不得為空</p>
+</span>

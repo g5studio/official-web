@@ -1,10 +1,11 @@
+import { User } from '@user/models/user.model';
 import { Observable, Subscription } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { NavigationService } from '@services//navigation.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as fb from 'firebase/app';
 import { FirebaseService } from '@services//firebase.service';
-import { UserService } from '@services//user.service';
+import { UserService } from '@user//services/user.service';
 import { map, take, filter, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -63,8 +64,8 @@ export class AuthService {
         if (res.exists) {
           this.$user.inital(res.data());
         } else {
-          const PROFILE = { ...profile, ...{ firstLogin: true } };
-          this.$firebase.document('users', profile.id).set(PROFILE);
+          const PROFILE = new User(profile);
+          this.$firebase.document('users', profile.id).set({ ...{}, ...PROFILE });
           this.$user.inital(PROFILE);
         }
         sessionStorage.setItem('user', JSON.stringify(profile.id));
@@ -93,7 +94,7 @@ export class AuthService {
   private onUsersDBChanges(users: any[]) {
     this.$user.user$.pipe(
       take(1),
-      filter(profile => users.findIndex(user => user.id === profile.id) > -1 || users.length === 0)
+      filter(profile => users.findIndex(user => user.id === profile.id) === -1 || users.length === 0)
     ).subscribe(
       _ => this.logout()
     );

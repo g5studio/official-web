@@ -1,17 +1,16 @@
 <div class="Home">
-    <div class="col-12 mb-4">
-        <app-layout-card>
-            <h1><em class="icon-record1"></em>{{"Pages.Home.Activity" | translate}}</h1>
-            <ng-container body>
-                <app-activity></app-activity>
-                <!-- <app-carousel [images]='this.introductions'></app-carousel> -->
-            </ng-container>
-        </app-layout-card>
-    </div>
     <div class="col-12 col-md-6 mb-4 mb-md-0">
         <app-layout-card hideHead></app-layout-card>
     </div>
     <div class="col-12 col-md-6">
         <app-layout-card></app-layout-card>
+    </div>
+    <div class="col-12 mt-4">
+        <app-layout-card>
+            <h1><em class="icon-record1"></em>{{"Pages.Home.Activity" | translate}}</h1>
+            <ng-container body>
+                <app-activity></app-activity>
+            </ng-container>
+        </app-layout-card>
     </div>
 </div>

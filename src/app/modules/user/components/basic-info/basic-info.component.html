@@ -1,0 +1,33 @@
+<div class="BasicInfo" *ngIf='this.user'>
+    <ul>
+        <li class="BasicInfo__Guide">
+            <span class="BasicInfo__Avatar">
+                <img [src]="this.user.photo" alt="user photo">
+                <span *ngIf='this.isEdit'><em class="icon-add-2"></em></span>
+            </span>
+
+            <div>
+                <div class="mb-4">
+                    <p>暱稱</p>
+                    <span>
+                        <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
+                            (ngModelChange)='this.modifyField("nickName", $event)' [(ngModel)]='this.fields.nickName'>
+                        </app-profile-field>
+                    </span>
+                </div>
+                <div>
+                    <p>身分</p>
+                    <span>訪客</span>
+                </div>
+            </div>
+        </li>
+        <li>
+
+        </li>
+    </ul>
+    <em *ngIf='!this.isEdit; else tSave' (click)='this.isEdit = true' class="icon-edit"></em>
+    <ng-template #tSave>
+        <em (click)='this.submit()' class="icon-done"></em>
+    </ng-template>
+
+</div>
