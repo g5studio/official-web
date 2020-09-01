@@ -1,11 +1,11 @@
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { NavigationService } from '@services//navigation.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as fb from 'firebase/app';
 import { FirebaseService } from '@services//firebase.service';
 import { UserService } from '@services//user.service';
-import { map } from 'rxjs/operators';
+import { map, take, filter, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,15 +19,11 @@ export class AuthService {
     private $user: UserService
   ) {
     if (this.isLogin) {
-      this.checkUserIsExist$().subscribe(
-        isExist => {
-          if (!isExist) {
-            this.logout();
-          }
-        }
-      );
+      this.getUserByCatch();
     }
   }
+
+  private userDBListener: Subscription;
 
   get isLogin() {
     return !!JSON.parse(sessionStorage.getItem('user'));
@@ -44,11 +40,20 @@ export class AuthService {
 
   public logout() {
     sessionStorage.removeItem('user');
+    if (this.userDBListener) {
+      this.$firebase.removeCollectionListener(this.userDBListener);
+    }
     this.$navigation.navigate('landing');
   }
 
-  private checkUserIsExist$(): Observable<boolean> {
-    return this.$firebase.document('users', JSON.parse(sessionStorage.getItem('user'))).get().pipe(map(res => res.exists));
+  public firstLogin() {
+    this.$user.user$.pipe(
+      take(1)
+    ).subscribe(
+      user => {
+        this.$firebase.collection('users').update(user.id, { firstLogin: false });
+      }
+    );
   }
 
   private loginCallback(profile: any) {
@@ -58,12 +63,39 @@ export class AuthService {
         if (res.exists) {
           this.$user.inital(res.data());
         } else {
-          this.$firebase.document('users', profile.id).set({ ...profile, ...{ firstLogin: false } });
-          this.$user.inital(profile);
+          const PROFILE = { ...profile, ...{ firstLogin: true } };
+          this.$firebase.document('users', profile.id).set(PROFILE);
+          this.$user.inital(PROFILE);
         }
         sessionStorage.setItem('user', JSON.stringify(profile.id));
+        this.userDBListener = this.$firebase.addCollectionListener('users', this.onUsersDBChanges.bind(this));
         this.$navigation.navigate('home');
       }
+    );
+  }
+
+  private getUserByCatch() {
+    this.$firebase
+      .document('users', JSON.parse(sessionStorage.getItem('user')))
+      .get()
+      .subscribe(
+        res => {
+          if (!res.exists) {
+            this.logout();
+          } else {
+            this.$user.inital(res.data());
+            this.userDBListener = this.$firebase.addCollectionListener('users', this.onUsersDBChanges.bind(this));
+          }
+        }
+      );
+  }
+
+  private onUsersDBChanges(users: any[]) {
+    this.$user.user$.pipe(
+      take(1),
+      filter(profile => users.findIndex(user => user.id === profile.id) > -1 || users.length === 0)
+    ).subscribe(
+      _ => this.logout()
     );
   }
 }

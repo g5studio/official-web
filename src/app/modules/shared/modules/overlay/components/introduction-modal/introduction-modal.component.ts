@@ -6,6 +6,7 @@ import { EModalSize } from '@utilities/enums/overlay.enum';
 import { WindowService } from '@services//window.service';
 import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 import { OverlayService } from '@services//overlay.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-introduction-modal',
@@ -18,14 +19,15 @@ export class IntroductionModalComponent extends UnsubOndestroy implements OnInit
 
   constructor(
     public $window: WindowService,
-    private $overlay: OverlayService
+    private $overlay: OverlayService,
+    private $auth: AuthService
   ) {
     super();
     this.$overlay.onClose$.pipe(
       takeUntil(this.onDestroy$)
     ).subscribe(
       _ => {
-        sessionStorage.setItem('first-login', JSON.stringify(false));
+        this.$auth.firstLogin();
       }
     );
   }
@@ -38,7 +40,7 @@ export class IntroductionModalComponent extends UnsubOndestroy implements OnInit
     'assets/images/introduction/intro2.png',
     'assets/images/introduction/intro3.png',
     'assets/images/introduction/intro4.png',
-  ]
+  ];
 
   ngOnInit(): void {
     this.$window.device$.pipe(

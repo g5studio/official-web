@@ -1,5 +1,5 @@
 import { filter, map, take, switchMap } from 'rxjs/operators';
-import { Subject, ReplaySubject, of } from 'rxjs';
+import { Subject, ReplaySubject, of, Subscription } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 
@@ -13,6 +13,15 @@ export class FirebaseService {
   ) {
   }
 
+  public addCollectionListener(name: string, fun: any) {
+    return this.$firebaseStore.collection(name).snapshotChanges().subscribe(
+      _ => fun(_)
+    );
+  }
+
+  public removeCollectionListener(listenter: Subscription) {
+    listenter.unsubscribe();
+  }
 
   public collection(name: string) {
     const errorHandler = (error) => {
