@@ -2,7 +2,7 @@
     <ul>
         <li class="BasicInfo__Guide">
             <span class="BasicInfo__Avatar">
-                <img [src]="this.user.photo" alt="user photo">
+                <img [src]="this.user.photo" alt="{{this.user.photo}}">
                 <span *ngIf='this.isEdit'><em class="icon-add-2"></em></span>
             </span>
 
@@ -22,7 +22,7 @@
             </div>
         </li>
         <li>
-
+            
         </li>
     </ul>
     <em *ngIf='!this.isEdit; else tSave' (click)='this.isEdit = true' class="icon-edit"></em>

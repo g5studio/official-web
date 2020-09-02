@@ -20,14 +20,16 @@ export class UserService {
 
 
   private user: ReplaySubject<IUser> = new ReplaySubject();
-  public user$ = this.user.asObservable();
+  public user$ = this.user.asObservable().pipe(
+    // tap(_ => console.log(_))
+  );
 
   private firstLogin$ = this.user$.pipe(
     filter(user => user.firstLogin),
     tap(_ => this.firstLoginPopup())
   );
 
-  public inital(userProfile: any) {
+  public inital(userProfile: IUser) {
     this.user.next(new User(userProfile));
   }
 

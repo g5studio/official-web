@@ -1,3 +1,4 @@
+import { IUser } from '@utilities/interfaces/user.interface';
 import { User } from '@user/models/user.model';
 import { Observable, Subscription } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -7,6 +8,7 @@ import * as fb from 'firebase/app';
 import { FirebaseService } from '@services//firebase.service';
 import { UserService } from '@user//services/user.service';
 import { map, take, filter, tap } from 'rxjs/operators';
+import { EUserProvider } from '@utilities/enums/user.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -30,11 +32,11 @@ export class AuthService {
     return !!JSON.parse(sessionStorage.getItem('user'));
   }
 
-  public login() {
-    const provider = new fb.auth.GoogleAuthProvider();
+  public login(way = EUserProvider.Google) {
+    const provider = this.getSingInProvider(way);
     this.$firebaseAuth.signInWithPopup(provider).then(
       res => {
-        this.loginCallback(res.additionalUserInfo.profile);
+        this.thirdpartSignup(res.additionalUserInfo.profile, way);
       }
     );
   }
@@ -57,22 +59,35 @@ export class AuthService {
     );
   }
 
-  private loginCallback(profile: any) {
+  private thirdpartSignup(profile: any, way: EUserProvider) {
     const Document = this.$firebase.document('users', profile.id);
     Document.get().subscribe(
       res => {
         if (res.exists) {
-          this.$user.inital(res.data());
+          const USER = new User(res.data());
+          this.initalUser(USER);
         } else {
-          const PROFILE = new User(profile);
-          this.$firebase.document('users', profile.id).set({ ...{}, ...PROFILE });
-          this.$user.inital(PROFILE);
+          const USER = new User(profile, way);
+          this.$firebase.document('users', USER.id).set({ ...{}, ...USER }).then(_ => this.initalUser(USER));
         }
-        sessionStorage.setItem('user', JSON.stringify(profile.id));
-        this.userDBListener = this.$firebase.addCollectionListener('users', this.onUsersDBChanges.bind(this));
-        this.$navigation.navigate('home');
       }
     );
+  }
+
+  private initalUser(user: IUser) {
+    this.$user.inital(user);
+    this.userDBListener = this.$firebase.addCollectionListener('users', this.onUsersDBChanges.bind(this));
+    this.$navigation.navigate('home');
+  }
+
+  private getSingInProvider(way: EUserProvider) {
+    let provider;
+    switch (way) {
+      case EUserProvider.Google:
+        provider = new fb.auth.GoogleAuthProvider();
+        break;
+    }
+    return provider;
   }
 
   private getUserByCatch() {
@@ -84,7 +99,8 @@ export class AuthService {
           if (!res.exists) {
             this.logout();
           } else {
-            this.$user.inital(res.data());
+            const USER = new User(res.data());
+            this.$user.inital(USER);
             this.userDBListener = this.$firebase.addCollectionListener('users', this.onUsersDBChanges.bind(this));
           }
         }
