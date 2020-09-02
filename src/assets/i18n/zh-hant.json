@@ -26,6 +26,18 @@
         },
         "Home": {
             "Activity": "活動剪影"
+        },
+        "Profile": {
+            "NickName": {
+                "Field": "暱稱"
+            },
+            "Identity": {
+                "Field": "身分",
+                "Guest": "訪客",
+                "Admin": "管理員",
+                "Student": "學生",
+                "Enterprise": "企業夥伴"
+            }
         }
     }
 }

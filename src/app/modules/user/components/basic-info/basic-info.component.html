@@ -8,7 +8,7 @@
 
             <div>
                 <div class="mb-4">
-                    <p>暱稱</p>
+                    <p>{{"Pages.Profile.NickName.Field" | translate}}</p>
                     <span>
                         <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
                             (ngModelChange)='this.modifyField("nickName", $event)' [(ngModel)]='this.fields.nickName'>
@@ -16,13 +16,13 @@
                     </span>
                 </div>
                 <div>
-                    <p>身分</p>
-                    <span>訪客</span>
+                    <p>{{"Pages.Profile.Identity.Field" | translate}}</p>
+                    <span>{{"Pages.Profile.Identity." + this.user.identity | translate}}</span>
                 </div>
             </div>
         </li>
         <li>
-            
+
         </li>
     </ul>
     <em *ngIf='!this.isEdit; else tSave' (click)='this.isEdit = true' class="icon-edit"></em>

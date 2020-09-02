@@ -1,8 +1,8 @@
 export enum EIdentity {
-    Guest,
-    Admin,
-    Student,
-    Enterprise
+    Guest = 'Guest',
+    Admin = 'Admin',
+    Student = 'Student',
+    Enterprise = 'Enterprise'
 }
 
 export enum EUserProvider {
