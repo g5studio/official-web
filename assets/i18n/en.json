@@ -26,6 +26,18 @@
         },
         "Home": {
             "Activity": "Activities"
+        },
+        "Profile": {
+            "NickName": {
+                "Field": "Nick Name"
+            },
+            "Identity": {
+                "Field": "Identity",
+                "Guest": "guest",
+                "Admin": "admin",
+                "Student": "student",
+                "Enterprise": "enterprise"
+            }
         }
     }
 }

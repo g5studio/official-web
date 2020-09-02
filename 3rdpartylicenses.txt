@@ -32,6 +32,9 @@ MIT
 @angular/fire
 MIT
 
+@angular/forms
+MIT
+
 @angular/platform-browser
 MIT
 
