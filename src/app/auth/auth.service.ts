@@ -81,11 +81,11 @@ export class AuthService {
     );
   }
 
-  private initalUser(user: IUser) {
+  private initalUser(user: IUser, login = true) {
     this.$user.inital(user);
     this.userDBListener = this.$firebase.addCollectionListener('users', this.onUsersDBChanges.bind(this));
     this.setIdle();
-    this.$navigation.navigate(sessionStorage.getItem('redirectUrl') || '/');
+    this.$navigation.navigate(login ? '/home' : sessionStorage.getItem('redirectUrl'));
   }
 
   private setIdle() {
@@ -118,7 +118,7 @@ export class AuthService {
             this.logout();
           } else {
             const USER = new User(res.data());
-            this.initalUser(USER);
+            this.initalUser(USER, false);
           }
         }
       );
