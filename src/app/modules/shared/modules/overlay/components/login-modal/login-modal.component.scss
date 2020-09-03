@@ -6,6 +6,7 @@
     height: 50vh;
     width: 100%;
     background-color: $menu-color;
+    position: relative;
 
     h1 {
         text-align: center;
@@ -13,10 +14,31 @@
         margin-bottom: 2rem;
     }
 
-    &__Field {
+    & > button {
+        color: $white;
+        @include border($white);
+        padding: 0.5rem 1rem;
+        width: max-content;
+        @include font-size("lg");
+        &:hover {
+            border-color: $chrome-yellow;
+            color: $chrome-yellow;
+        }
+
+        &:disabled {
+            border-color: $gray;
+            color: $gray;
+            cursor: not-allowed;
+        }
+    }
+
+    &__Input {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         input {
             display: inline-block;
-            width: 50%;
+            width: 40%;
             height: 3rem;
             color: $white;
             @include font-size("lg");
@@ -25,18 +47,35 @@
             }
             border-width: 1.5px;
             background-color: inherit;
-            &:focus {
-                // background-color: $white;
-            }
         }
         label {
-            @include font-size("lg");
+            em {
+                @include font-size("xxl");
+                cursor: auto;
+            }
             margin-right: 2rem;
+            margin-bottom: 0;
         }
+    }
 
-        &:not(:last-child) {
-            margin-bottom: 3rem;
+    &__Field {
+        margin-bottom: 1.5rem;
+        small {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            color: $rose;
+            margin: 0.5rem 0;
+            @include font-size("sm");
+            padding-left: calc(30px + 2rem);
         }
+    }
+
+    &__Image {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 50%;
     }
 }
 
@@ -50,19 +89,30 @@
             & > input {
                 width: 50%;
             }
+            margin-bottom: 3rem;
+        }
 
-            label {
-                @include font-size("xl");
-                margin-right: 4rem;
-            }
+        &__Image {
+            right: 2.5rem;
+            bottom: 2.5rem;
         }
     }
 }
 
 @media screen and (max-width: map-get($grid-breakpoints, "xl")) {
     .LoginModal {
+        height: auto;
         padding: 2rem;
         &__Field {
+            &:not(:last-child) {
+                margin-bottom: 0.25rem;
+            }
+            small {
+                padding-left: 0;
+            }
+        }
+
+        &__Input {
             & > input {
                 width: 100%;
             }
@@ -70,6 +120,14 @@
             label {
                 display: none;
             }
+        }
+
+        &__Image {
+            display: none;
+        }
+
+        & > button {
+            width: 100%;
         }
     }
 }

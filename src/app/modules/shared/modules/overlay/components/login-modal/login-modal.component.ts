@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Modal } from '@overlay/models/modal.model';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
+import { OverlayService } from '@services/overlay.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -15,7 +16,8 @@ export class LoginModalComponent extends UnsubOndestroy implements OnInit {
   @Input() modal: Modal;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private $overlay: OverlayService
   ) {
     super();
   }
@@ -26,9 +28,8 @@ export class LoginModalComponent extends UnsubOndestroy implements OnInit {
     this.inital();
   }
 
-  public test() {
-    // this.form.get('email').setValue('test');
-    console.log(this.form.get('email').value);
+  public login() {
+    this.$overlay.closeAll();
   }
 
   private inital() {
@@ -57,7 +58,6 @@ export class LoginModalComponent extends UnsubOndestroy implements OnInit {
   }
 
   private validatePassword(control: AbstractControl): ValidationErrors {
-    console.log(control.value.length)
     return control.value.length > 5
       ? null
       : { invalid: { message: 'User.Page.FirstLogin.ErrorMessages.NotMatchEmailRule' } };

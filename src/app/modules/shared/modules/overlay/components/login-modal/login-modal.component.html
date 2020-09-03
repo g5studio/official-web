@@ -1,16 +1,30 @@
 <app-modal [options]='this.modal.options'>
     <div class="LoginModal" [formGroup]="this.form">
-        <h1>{{"Pages.Landing.Login" | translate}}</h1>
+        <h1>{{"Pages.Landing.Welcome" | translate}}</h1>
         <div class="LoginModal__Field">
-            <label for="">信箱</label>
-            <input [class.is-invalid]="form.get('email').invalid && form.get('email').touched" placeholder="請輸入信箱"
-                formControlName="email" type="text" class="form-control" />
+            <div class="LoginModal__Input">
+                <label for=""><em class="icon-mail"></em></label>
+                <input [class.is-invalid]="form.get('email').invalid && form.get('email').touched" placeholder="請輸入信箱"
+                    formControlName="email" type="text" class="form-control" />
+            </div>
+            <small [ngStyle]="{'visibility': !this.form.get('email').invalid ? 'hidden' : 'visible'}">
+                <span class="icon-alert_2 pr-1"></span>
+                <span>格式有誤</span>
+            </small>
         </div>
         <div class="LoginModal__Field">
-            <label for="">密碼</label>
-            <input [class.is-invalid]="form.get('password').invalid && form.get('password').touched" placeholder="請輸入密碼"
-                formControlName="password" type="text" class="form-control" />
+            <div class="LoginModal__Input">
+                <label for=""><em class="icon-unlock"></em></label>
+                <input [class.is-invalid]="form.get('password').invalid && form.get('password').touched"
+                    placeholder="請輸入密碼" formControlName="password" type="password" class="form-control" />
+            </div>
+            <small [ngStyle]="{'visibility': !this.form.get('password').invalid ? 'hidden' : 'visible'}">
+                <span class="icon-alert_2 pr-1"></span>
+                <span>格式有誤</span>
+            </small>
         </div>
-        <!-- <button (click)='this.test()'>test</button> -->
+        <button [disabled]="form.get('password').invalid || form.get('email').invalid"
+            (click)='this.login()'>{{"Pages.Landing.Login" | translate}}</button>
+        <img class="LoginModal__Image" src="assets/images/error-401.png" alt="">
     </div>
 </app-modal>
