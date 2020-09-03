@@ -274,6 +274,9 @@ MIT
 @ngx-translate/http-loader
 MIT
 
+angular-user-idle
+MIT
+
 core-js
 MIT
 Copyright (c) 2014-2020 Denis Pushkarev
