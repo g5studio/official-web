@@ -8,7 +8,7 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { LanguageMenuComponent } from './components/language-menu/language-menu.component';
 import { CardModule } from './modules/card/card.module';
 import { ImageWaterMarkerComponent } from './components/image-water-marker/image-water-marker.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     CardModule,
     OverlayModule,
     CarouselModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   exports: [
@@ -36,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     OverlayModule,
     CarouselModule,
     FormsModule,
+    ReactiveFormsModule,
     ImageWaterMarkerComponent
   ]
 })

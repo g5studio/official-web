@@ -1,20 +1,46 @@
 @import "variables";
 
 .Error {
-    display: flex;
     height: 100%;
     width: 100%;
-    justify-content: center;
+    display: flex;
+    // justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding-top: 5rem;
+    span {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        h1 {
+            margin-right: 0.5rem;
+            color: $aqua-green;
+            font-size: 30px;
+            line-height: 30px;
+        }
+        color: $midnight;
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+    }
+    p {
+        color: $dark-gray-blue;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        margin: 0;
+        font-weight: bold;
+        margin-bottom: 3.5rem;
+    }
     img {
-        width: 100%;
+        width: 35rem;
+        height: 22.56rem;
     }
 }
 
-@media screen and (min-width: map-get($grid-breakpoints, "xxl")) {
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
     .Error {
         img {
-            width: 60%;
+            width: 100vw;
+            height: auto;
         }
     }
 }

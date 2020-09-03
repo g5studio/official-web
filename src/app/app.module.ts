@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FirebaseModule } from './modules/firebase/firebase.module';
+import { UserIdleModule } from 'angular-user-idle';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,7 +32,8 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     FirebaseModule,
     LayoutModule,
-    SharedModule
+    SharedModule,
+    UserIdleModule.forRoot({ idle: 3600 })
   ],
   providers: [],
   bootstrap: [AppComponent]

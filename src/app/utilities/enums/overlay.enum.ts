@@ -6,7 +6,8 @@ export enum EOverlayType {
 
 export enum EModalProvider {
     Introduction = 1,
-    Album
+    Album,
+    Login
 }
 
 export enum EModalSize {

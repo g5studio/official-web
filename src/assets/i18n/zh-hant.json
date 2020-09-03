@@ -22,7 +22,8 @@
     },
     "Pages": {
         "Landing": {
-            "Start": "立即開始"
+            "Start": "立即開始",
+            "Login": "登入"
         },
         "Home": {
             "Activity": "活動剪影"

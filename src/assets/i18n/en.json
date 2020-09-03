@@ -22,7 +22,8 @@
     },
     "Pages": {
         "Landing": {
-            "Start": "Start"
+            "Start": "Start Now",
+            "Login": "Login"
         },
         "Home": {
             "Activity": "Activities"

@@ -1,10 +1,12 @@
 @import "variables";
 @import "mixins";
+@import "animations";
 
 .Modal {
     position: absolute;
-
     &__Container {
+        animation-name: popup;
+        animation-duration: 0.25s;
         position: relative;
         @include g5-modal();
         height: 100%;

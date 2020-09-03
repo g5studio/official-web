@@ -78,7 +78,7 @@ $viewer-width: 32rem;
 
     &__Login {
         @include font-size("xl");
-        font-weight: bold;
+        // font-weight: bold;
         letter-spacing: 0.2rem;
         width: $viewer-width / 2;
         position: absolute;
@@ -105,6 +105,21 @@ $viewer-width: 32rem;
         position: fixed;
         right: 0;
         top: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        & > button {
+            letter-spacing: normal;
+            padding: 0.25rem 0.625rem;
+            @include border($white);
+            background-color: inherit;
+            color: $white;
+            &:hover {
+                // background-color: rgba($color: $body-bg, $alpha: 0.5);
+                @include border($chrome-yellow);
+                color: $chrome-yellow;
+            }
+        }
     }
 }
 

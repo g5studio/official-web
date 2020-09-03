@@ -1,5 +1,6 @@
 <div class="Landing">
     <div class="Landing__Navbar">
+        <button (click)='this.toggleLoginModal()' class="mr-2">{{"Pages.Landing.Login" | translate}}</button>
         <app-language-menu></app-language-menu>
     </div>
     <div class="Landing__Logo" [ngClass]='{"landing-logo-rotate": this.rotationStart}'>

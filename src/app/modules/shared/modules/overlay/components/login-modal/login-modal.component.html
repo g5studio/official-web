@@ -1,0 +1,16 @@
+<app-modal [options]='this.modal.options'>
+    <div class="LoginModal" [formGroup]="this.form">
+        <h1>{{"Pages.Landing.Login" | translate}}</h1>
+        <div class="LoginModal__Field">
+            <label for="">信箱</label>
+            <input [class.is-invalid]="form.get('email').invalid && form.get('email').touched" placeholder="請輸入信箱"
+                formControlName="email" type="text" class="form-control" />
+        </div>
+        <div class="LoginModal__Field">
+            <label for="">密碼</label>
+            <input [class.is-invalid]="form.get('password').invalid && form.get('password').touched" placeholder="請輸入密碼"
+                formControlName="password" type="text" class="form-control" />
+        </div>
+        <!-- <button (click)='this.test()'>test</button> -->
+    </div>
+</app-modal>

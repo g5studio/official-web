@@ -1,10 +1,12 @@
+import { EModalProvider, EModalSize } from '@utilities/enums/overlay.enum';
 import { tap, switchMap, takeUntil } from 'rxjs/operators';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { timer, of } from 'rxjs';
-import { NavigationService } from '@services//navigation.service';
 import { WindowService } from '@services//window.service';
 import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 import { AuthService } from 'src/app/auth/auth.service';
+import { OverlayService } from '@services/overlay.service';
+import { Modal } from '@overlay/models/modal.model';
 
 @Component({
   selector: 'app-landing',
@@ -15,7 +17,8 @@ export class LandingComponent extends UnsubOndestroy implements OnInit {
 
   constructor(
     public $auth: AuthService,
-    private $window: WindowService
+    private $window: WindowService,
+    private $overlay: OverlayService
   ) {
     super();
   }
@@ -47,6 +50,16 @@ export class LandingComponent extends UnsubOndestroy implements OnInit {
       device => {
         this.isVertical = this.$window.isMobile(device);
       }
+    );
+  }
+
+  public toggleLoginModal() {
+    this.$overlay.toggleModal(
+      new Modal(EModalProvider.Login, {
+        size: EModalSize.Large,
+        hideClose: true,
+        // hideBackground: true
+      })
     );
   }
 

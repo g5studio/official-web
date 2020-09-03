@@ -7,6 +7,9 @@ import { OverlayComponent } from './pages/overlay/overlay.component';
 import { ModalProviderComponent } from './pages/modal-provider/modal-provider.component';
 import { DialogProviderComponent } from './pages/dialog-provider/dialog-provider.component';
 import { NonAutoCarouselModalComponent } from './components/non-auto-carousel-modal/non-auto-carousel-modal.component';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -18,11 +21,14 @@ import { NonAutoCarouselModalComponent } from './components/non-auto-carousel-mo
     ModalProviderComponent,
     DialogProviderComponent,
     NonAutoCarouselModalComponent,
+    LoginModalComponent,
   ],
   exports: [
     OverlayComponent,
   ],
   imports: [
+    TranslateModule,
+    ReactiveFormsModule,
     CommonModule,
     CarouselModule
   ]

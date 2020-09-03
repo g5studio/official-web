@@ -9,6 +9,8 @@ import { FirebaseService } from '@services//firebase.service';
 import { UserService } from '@user//services/user.service';
 import { map, take, filter, tap } from 'rxjs/operators';
 import { EUserProvider } from '@utilities/enums/user.enum';
+import { UserIdleService } from 'angular-user-idle';
+import * as  moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,8 @@ export class AuthService {
     private $navigation: NavigationService,
     private $firebaseAuth: AngularFireAuth,
     private $firebase: FirebaseService,
-    private $user: UserService
+    private $user: UserService,
+    private $idle: UserIdleService
   ) {
     if (this.isLogin) {
       this.getUserByCatch();
@@ -32,6 +35,10 @@ export class AuthService {
     return !!JSON.parse(sessionStorage.getItem('user'));
   }
 
+  set redirectUrl(url: string) {
+    sessionStorage.setItem('redirectUrl', url);
+  }
+
   public login(way = EUserProvider.Google) {
     const provider = this.getSingInProvider(way);
     this.$firebaseAuth.signInWithPopup(provider).then(
@@ -42,7 +49,7 @@ export class AuthService {
   }
 
   public logout() {
-    sessionStorage.removeItem('user');
+    sessionStorage.clear();
     if (this.userDBListener) {
       this.$firebase.removeCollectionListener(this.userDBListener);
     }
@@ -77,7 +84,18 @@ export class AuthService {
   private initalUser(user: IUser) {
     this.$user.inital(user);
     this.userDBListener = this.$firebase.addCollectionListener('users', this.onUsersDBChanges.bind(this));
-    this.$navigation.navigate('home');
+    this.setIdle();
+    this.$navigation.navigate(sessionStorage.getItem('redirectUrl') || '/');
+  }
+
+  private setIdle() {
+    this.$idle.startWatching();
+    this.$idle.onTimerStart().subscribe(
+      _ => {
+        this.logout();
+        this.$idle.stopWatching();
+      }
+    );
   }
 
   private getSingInProvider(way: EUserProvider) {
@@ -100,8 +118,7 @@ export class AuthService {
             this.logout();
           } else {
             const USER = new User(res.data());
-            this.$user.inital(USER);
-            this.userDBListener = this.$firebase.addCollectionListener('users', this.onUsersDBChanges.bind(this));
+            this.initalUser(USER);
           }
         }
       );
@@ -115,4 +132,5 @@ export class AuthService {
       _ => this.logout()
     );
   }
+
 }
