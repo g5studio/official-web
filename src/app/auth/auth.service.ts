@@ -27,21 +27,25 @@ export class AuthService {
     this.$fbAuth.authState.subscribe(
       user => {
         if (user) {
-          sessionStorage.setItem('uid', user.uid);
-          this.$firebase.document('users', user.uid).get().subscribe(
-            userProfile => {
-              this.initalUser(userProfile.data());
-              this.$navigation.navigate(this.redirectUrl);
-            }
-          );
+          if (user.providerData[0].providerId === 'password' && !user.emailVerified) {
+            this.logout();
+          } else {
+            sessionStorage.setItem('uid', user.uid);
+            this.$firebase.document('users', user.uid).get().subscribe(
+              userProfile => {
+                this.initalUser(new User(userProfile.data(), user));
+                if (this.redirectUrl) {
+                  this.$navigation.navigate(this.redirectUrl);
+                }
+              }
+            );
+          }
         } else {
           this.logout();
         }
       }
     );
   }
-
-  private userDBListener: Subscription;
 
   get isLogin() {
     return !!sessionStorage.getItem('uid');
@@ -55,24 +59,41 @@ export class AuthService {
     return sessionStorage.getItem('redirectUrl');
   }
 
-  public login(way = EUserProvider.Google) {
-    this.$firebaseAuth.createUserWithEmailAndPassword('test@gmail.com', '123456').then(
+  public login({ email, password }): Promise<void> {
+    return this.$firebaseAuth.signInWithEmailAndPassword(email, password).then(
       res => {
-        console.log(res);
+        if (!res.user.emailVerified) {
+          window.alert('信箱尚未完成驗證');
+        } else {
+          this.redirectUrl = '/home';
+        }
       }
     ).catch(
       error => console.log(error)
     );
   }
 
-  public signIn(org = EUserProvider.Google) {
+  public signUpWithProvider(org = EUserProvider.Google): Promise<void> {
     const provider = this.getSingInProvider(org);
-    this.$firebaseAuth.signInWithPopup(provider).then(
+    return this.$firebaseAuth.signInWithPopup(provider).then(
       res => {
         if (res.additionalUserInfo.isNewUser) {
-          this.signUp(res.user.uid, res.additionalUserInfo.profile, org);
+          this.signUp(res.user, res.additionalUserInfo.profile, org);
+        } else {
+          this.redirectUrl = '/home';
         }
-        this.redirectUrl = '/home';
+      }
+    );
+  }
+
+  public signUpWithEmailAndPassword({ email, password }): Promise<void> {
+    return this.$firebaseAuth.createUserWithEmailAndPassword(email, password).then(
+      res => {
+        if (res.additionalUserInfo.isNewUser) {
+          res.user.sendEmailVerification().then(
+            _ => this.signUp(res.user, res.additionalUserInfo.profile)
+          );
+        }
       }
     );
   }
@@ -80,9 +101,6 @@ export class AuthService {
   public logout() {
     this.$fbAuth.signOut();
     sessionStorage.clear();
-    if (this.userDBListener) {
-      this.$firebase.removeCollectionListener(this.userDBListener);
-    }
     this.$navigation.navigate('landing');
   }
 
@@ -91,14 +109,16 @@ export class AuthService {
       take(1)
     ).subscribe(
       user => {
-        this.$firebase.collection('users').update(user.uid, { firstLogin: false });
+        this.$firebase.collection('users').update(user.profile.uid, { firstLogin: false });
       }
     );
   }
 
-  private signUp(uid: string, profile: any, org: EUserProvider) {
-    const USER_PROFILE = new User(profile, uid, org);
-    this.$firebase.document('users', uid).set({ ...USER_PROFILE });
+  private signUp(user: fb.User, profile: any, org?: EUserProvider) {
+    const USER_PROFILE = !!org ? new User(profile, user, org) : new User(profile, user);
+    this.$firebase.document('users', user.uid).set({ ...USER_PROFILE.profile }).then(
+      _ => this.$navigation.navigate('home')
+    );
   }
 
   private initalUser(profile: any) {
@@ -124,15 +144,6 @@ export class AuthService {
         break;
     }
     return provider;
-  }
-
-  private onUsersDBChanges(users: any[]) {
-    this.$user.user$.pipe(
-      take(1),
-      filter(profile => users.findIndex(user => user.id === profile.id) === -1 || users.length === 0)
-    ).subscribe(
-      _ => this.logout()
-    );
   }
 
 }

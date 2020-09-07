@@ -7,8 +7,7 @@
                 <input [class.is-invalid]="form.get('email').invalid && form.get('email').touched"
                     formControlName="email" type="text" class="form-control" />
             </div>
-            <small
-                [ngStyle]="{'visibility': form.get('email').invalid && form.get('email').touched ? 'visible' : 'hidden'}">
+            <small *ngIf="form.get('email').invalid && form.get('email').touched">
                 <span class="icon-alert_2 pr-1"></span>
                 <span>{{this.getErrorMessage('email', 'invalid') | translate}}</span>
             </small>
@@ -19,8 +18,7 @@
                 <input [class.is-invalid]="form.get('password').invalid && form.get('password').touched"
                     formControlName="password" type="password" class="form-control" />
             </div>
-            <small
-                [ngStyle]="{'visibility': form.get('password').invalid && form.get('password').touched ? 'visible' : 'hidden'}">
+            <small *ngIf="form.get('password').invalid && form.get('password').touched">
                 <span class="icon-alert_2 pr-1"></span>
                 <span>{{this.getErrorMessage('password', 'invalid') | translate}}</span>
             </small>

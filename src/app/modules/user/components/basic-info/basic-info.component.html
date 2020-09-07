@@ -2,7 +2,7 @@
     <ul>
         <li class="BasicInfo__Guide">
             <span class="BasicInfo__Avatar">
-                <img [src]="this.user.photo" alt="{{this.user.photo}}">
+                <img [src]="this.user.profile.photo || 'assets/images/logo.png'" alt="{{this.user.profile.photo}}">
                 <span *ngIf='this.isEdit'><em class="icon-add-2"></em></span>
             </span>
 
@@ -17,7 +17,7 @@
                 </div>
                 <div>
                     <p>{{"Pages.Profile.Identity.Field" | translate}}</p>
-                    <span>{{"Pages.Profile.Identity." + this.user.identity | translate}}</span>
+                    <span>{{"Pages.Profile.Identity." + this.user.profile.identity | translate}}</span>
                 </div>
             </div>
         </li>

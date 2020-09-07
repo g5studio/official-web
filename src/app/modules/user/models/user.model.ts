@@ -1,27 +1,42 @@
 import { IGoogleUser } from './../../../utilities/interfaces/user.interface';
 import { IUserProfile } from '@utilities/interfaces/user.interface';
 import { EUserProvider, EIdentity } from '@utilities/enums/user.enum';
-export class User implements IUserProfile {
-    public name: string;
-    public email: string;
-    public id: string;
-    public firstLogin: boolean;
-    public firstName: string;
-    public lastName: string;
-    public fullName: string;
-    public photo: string;
-    public nickName: string;
-    public identity: EIdentity;
-    constructor(profile: any, public uid: string, provider?: EUserProvider) {
+import * as fb from 'firebase/app';
+export class User {
+    public profile: IUserProfile = {
+        name: '',
+        email: '',
+        id: '',
+        firstLogin: true,
+        firstName: '',
+        lastName: '',
+        fullName: '',
+        photo: '',
+        nickName: '',
+        identity: EIdentity.Guest,
+        uid: ''
+    };
+    constructor(profile: any, private user: fb.User, provider?: EUserProvider) {
+        this.profile.uid = user.uid;
         if (!!provider) {
             this.createProfileByProvider(profile, provider);
         } else {
-            this.setUserProfile(profile);
+            if (profile) {
+                this.setUserProfile(profile);
+            } else {
+                this.createProfileByUser();
+            }
         }
     }
 
+    private createProfileByUser() {
+        this.profile.nickName = this.user.uid;
+        this.profile.email = this.user.email;
+        this.profile.photo = 'assets/images/logo.png';
+    }
+
     private setUserProfile(profile) {
-        Object.keys(profile).forEach(key => this[key] = profile[key]);
+        Object.keys(profile).forEach(key => this.profile[key] = profile[key]);
     }
 
     private createProfileByProvider(profile: any, provider: EUserProvider) {
@@ -32,14 +47,13 @@ export class User implements IUserProfile {
     }
 
     private syncGoogleAccount(userInfo: IGoogleUser) {
-        this.name = userInfo.name;
-        this.email = userInfo.email;
-        this.firstName = userInfo.family_name;
-        this.lastName = userInfo.given_name;
-        this.id = userInfo.id;
-        this.photo = userInfo.picture;
-        this.nickName = userInfo.name;
-        this.firstLogin = true;
-        this.identity = EIdentity.Guest;
+        this.profile.name = userInfo.name;
+        this.profile.email = userInfo.email;
+        this.profile.firstName = userInfo.family_name;
+        this.profile.lastName = userInfo.given_name;
+        this.profile.id = userInfo.id;
+        this.profile.photo = userInfo.picture;
+        this.profile.nickName = userInfo.name;
+        this.profile.identity = EIdentity.Guest;
     }
 }

@@ -1,6 +1,7 @@
 import { IUserProfile } from '@utilities/interfaces/user.interface';
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FirebaseService } from '@services/firebase.service';
+import { User } from '@user/models/user.model';
 
 @Component({
   selector: 'app-basic-info',
@@ -9,7 +10,7 @@ import { FirebaseService } from '@services/firebase.service';
 })
 export class BasicInfoComponent implements OnInit, OnChanges {
 
-  @Input() user: IUserProfile;
+  @Input() user: User;
   public isEdit = false;
   public fields: IUserProfile;
 
@@ -22,7 +23,7 @@ export class BasicInfoComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (!!changes.user.currentValue) {
-      this.fields = { ...{}, ...changes.user.currentValue };
+      this.fields = { ...{}, ...changes.user.currentValue.profile };
     }
   }
 
@@ -36,6 +37,6 @@ export class BasicInfoComponent implements OnInit, OnChanges {
 
   public submit() {
     this.isEdit = false;
-    this.$fb.collection('users').update(this.user.id, this.fields);
+    this.$fb.collection('users').update(this.user.profile.uid, this.fields);
   }
 }

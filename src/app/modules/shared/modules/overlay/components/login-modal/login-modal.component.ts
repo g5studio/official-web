@@ -32,8 +32,9 @@ export class LoginModalComponent extends UnsubOndestroy implements OnInit {
   }
 
   public login() {
-    this.$auth.login();
-    this.$overlay.closeAll();
+    this.$auth.login(this.form.getRawValue()).then(
+      _ => this.$overlay.closeAll()
+    );
   }
 
   public getErrorMessage(field: string, error: string) {

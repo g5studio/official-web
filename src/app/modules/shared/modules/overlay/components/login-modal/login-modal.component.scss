@@ -125,9 +125,7 @@
         // height: auto;
         padding: 2rem;
         &__Field {
-            &:not(:last-child) {
-                margin-bottom: 0.25rem;
-            }
+            margin-bottom: 1.5rem;
             small {
                 padding-left: 0;
             }

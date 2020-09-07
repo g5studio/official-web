@@ -68,7 +68,6 @@ export class LandingComponent extends UnsubOndestroy implements OnInit {
       new Modal(EModalProvider.Singup, {
         size: EModalSize.Middle,
         hideClose: true,
-        // hideBackground: true
       })
     );
   }

@@ -1,7 +1,16 @@
+@import "variables";
+@import "mixins";
+
 input {
     width: 80%;
     height: 100%;
     padding: 0 0.5rem;
+}
+
+p {
+    word-break: break-all;
+    max-width: 100%;
+    @include g5-outrange-hidden();
 }
 
 span {

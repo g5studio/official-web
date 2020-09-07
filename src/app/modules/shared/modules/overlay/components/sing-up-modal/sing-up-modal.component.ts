@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors }
 import { OverlayService } from '@services/overlay.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
+import { EUserProvider } from '@utilities/enums/user.enum';
 
 @Component({
   selector: 'app-sing-up-modal',
@@ -23,13 +24,30 @@ export class SingUpModalComponent extends UnsubOndestroy implements OnInit {
   }
 
   public form: FormGroup;
+  get userProvider(): typeof EUserProvider {
+    return EUserProvider;
+  }
+
+  public authErrorMsg: string;
 
   ngOnInit(): void {
     this.inital();
   }
 
-  public login() {
-    console.log(this.form.get('email').touched)
+  public signUpWithProvider(provider: EUserProvider) {
+    this.$auth.signUpWithProvider(provider).then(
+      _ => this.$overlay.closeAll()
+    ).catch(
+      error => this.authErrorMsg = error.message
+    )
+  }
+
+  public signUpWithEmailaAndPassword() {
+    this.$auth.signUpWithEmailAndPassword(this.form.getRawValue())
+      .then(_ => this.$overlay.closeAll())
+      .catch(
+        error => this.authErrorMsg = error.message
+      );
   }
 
   public getErrorMessage(field: string, error: string) {
@@ -43,7 +61,6 @@ export class SingUpModalComponent extends UnsubOndestroy implements OnInit {
       email: ['', [Validators.required, this.validateEmail]],
       password: ['', [Validators.required, this.validatePassword]]
     });
-    console.log(this.form.get('email').touched)
   }
 
   private validateEmail(control: AbstractControl): ValidationErrors {

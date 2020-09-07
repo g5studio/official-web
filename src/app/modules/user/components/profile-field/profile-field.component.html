@@ -1,5 +1,5 @@
 <ng-container *ngIf='!this.isEdit'>
-    {{this.model}}
+    <p>{{this.model}}</p>
 </ng-container>
 <input *ngIf='this.isEdit' (ngModelChange)='this.validation($event)' [(ngModel)]='this.value' type="text">
 <span *ngIf='!this.valid && this.isEdit'>

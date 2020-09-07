@@ -8,8 +8,7 @@
                     [class.is-invalid]="form.get('email').invalid && form.get('email').touched" formControlName="email"
                     type="text" class="form-control" />
             </div>
-            <small
-                [ngStyle]="{'visibility': form.get('email').invalid && form.get('email').touched ? 'visible' : 'hidden'}">
+            <small *ngIf="form.get('email').invalid && form.get('email').touched">
                 <span class="icon-alert_2 pr-1"></span>
                 <span>{{this.getErrorMessage('email', 'invalid') | translate}}</span>
             </small>
@@ -21,16 +20,22 @@
                     [class.is-invalid]="form.get('password').invalid && form.get('password').touched"
                     formControlName="password" type="password" class="form-control" />
             </div>
-            <small
-                [ngStyle]="{'visibility': form.get('password').invalid && form.get('password').touched ? 'visible' : 'hidden'}">
+            <small *ngIf="form.get('password').invalid && form.get('password').touched">
                 <span class="icon-alert_2 pr-1"></span>
                 <span>{{this.getErrorMessage('password', 'invalid') | translate}}</span>
             </small>
         </div>
+        <small *ngIf='this.authErrorMsg'>
+            <span class="icon-alert_2 pr-1"></span>
+            {{this.authErrorMsg}}
+        </small>
         <div class="SignupModal__Submit">
-            <span (click)='this.login()'><img src="assets/images/google.png" alt=""></span>
+            <span (click)='this.signUpWithProvider(this.userProvider.Google)'>
+                <button><img src="assets/images/google.png" alt=""></button>
+                Sign in with Google
+            </span>
             <button [disabled]="form.get('password').invalid || form.get('email').invalid"
-                (click)='this.login()'>{{"Pages.Landing.Submit" | translate}}</button>
+                (click)='this.signUpWithEmailaAndPassword()'>{{"Pages.Landing.Submit" | translate}}</button>
         </div>
     </div>
 </app-modal>
