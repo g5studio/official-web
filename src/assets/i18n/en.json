@@ -24,7 +24,13 @@
         "Landing": {
             "Start": "Start Now",
             "Login": "Login",
-            "Welcome": "Welcome"
+            "Welcome": "Welcome",
+            "Signup": "Sign Up",
+            "Submit": "Submit",
+            "Error": {
+                "Password": "The password has to be 8 to 20 characters, containing uppercase and lowercase letter, number and symbol (e.g. @, #, $, _ ).",
+                "Email": "Dose not match email rule."
+            }
         },
         "Home": {
             "Activity": "Activities"

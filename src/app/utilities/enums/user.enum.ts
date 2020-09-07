@@ -6,7 +6,7 @@ export enum EIdentity {
 }
 
 export enum EUserProvider {
-    Google,
+    Google = 1,
     FaceBook,
     Twitter,
     Github

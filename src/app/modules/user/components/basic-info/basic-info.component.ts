@@ -1,4 +1,4 @@
-import { IUser } from '@utilities/interfaces/user.interface';
+import { IUserProfile } from '@utilities/interfaces/user.interface';
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FirebaseService } from '@services/firebase.service';
 
@@ -9,9 +9,9 @@ import { FirebaseService } from '@services/firebase.service';
 })
 export class BasicInfoComponent implements OnInit, OnChanges {
 
-  @Input() user: IUser;
+  @Input() user: IUserProfile;
   public isEdit = false;
-  public fields: IUser;
+  public fields: IUserProfile;
 
   constructor(
     private $fb: FirebaseService

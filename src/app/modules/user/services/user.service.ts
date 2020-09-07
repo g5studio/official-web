@@ -1,6 +1,6 @@
 import { EModalProvider, EModalSize } from '@utilities/enums/overlay.enum';
 import { filter, tap, take } from 'rxjs/operators';
-import { IUser } from '@utilities/interfaces/user.interface';
+import { IUserProfile } from '@utilities/interfaces/user.interface';
 import { ReplaySubject, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { OverlayService } from '@services/overlay.service';
@@ -19,7 +19,7 @@ export class UserService {
   }
 
 
-  private user: ReplaySubject<IUser> = new ReplaySubject();
+  private user: ReplaySubject<IUserProfile> = new ReplaySubject();
   public user$ = this.user.asObservable().pipe(
     // tap(_ => console.log(_))
   );
@@ -29,8 +29,8 @@ export class UserService {
     tap(_ => this.firstLoginPopup())
   );
 
-  public inital(userProfile: IUser) {
-    this.user.next(new User(userProfile));
+  public inital(userProfile: IUserProfile) {
+    this.user.next(userProfile);
   }
 
   private firstLoginPopup() {

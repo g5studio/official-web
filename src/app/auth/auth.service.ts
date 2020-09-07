@@ -1,4 +1,3 @@
-import { IUser } from '@utilities/interfaces/user.interface';
 import { User } from '@user/models/user.model';
 import { Observable, Subscription } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -21,34 +20,65 @@ export class AuthService {
     private $navigation: NavigationService,
     private $firebaseAuth: AngularFireAuth,
     private $firebase: FirebaseService,
+    private $fbAuth: AngularFireAuth,
     private $user: UserService,
     private $idle: UserIdleService
   ) {
-    if (this.isLogin) {
-      this.getUserByCatch();
-    }
+    this.$fbAuth.authState.subscribe(
+      user => {
+        if (user) {
+          sessionStorage.setItem('uid', user.uid);
+          this.$firebase.document('users', user.uid).get().subscribe(
+            userProfile => {
+              this.initalUser(userProfile.data());
+              this.$navigation.navigate(this.redirectUrl);
+            }
+          );
+        } else {
+          this.logout();
+        }
+      }
+    );
   }
 
   private userDBListener: Subscription;
 
   get isLogin() {
-    return !!JSON.parse(sessionStorage.getItem('user'));
+    return !!sessionStorage.getItem('uid');
   }
 
   set redirectUrl(url: string) {
     sessionStorage.setItem('redirectUrl', url);
   }
 
+  get redirectUrl() {
+    return sessionStorage.getItem('redirectUrl');
+  }
+
   public login(way = EUserProvider.Google) {
-    const provider = this.getSingInProvider(way);
+    this.$firebaseAuth.createUserWithEmailAndPassword('test@gmail.com', '123456').then(
+      res => {
+        console.log(res);
+      }
+    ).catch(
+      error => console.log(error)
+    );
+  }
+
+  public signIn(org = EUserProvider.Google) {
+    const provider = this.getSingInProvider(org);
     this.$firebaseAuth.signInWithPopup(provider).then(
       res => {
-        this.thirdpartSignup(res.additionalUserInfo.profile, way);
+        if (res.additionalUserInfo.isNewUser) {
+          this.signUp(res.user.uid, res.additionalUserInfo.profile, org);
+        }
+        this.redirectUrl = '/home';
       }
     );
   }
 
   public logout() {
+    this.$fbAuth.signOut();
     sessionStorage.clear();
     if (this.userDBListener) {
       this.$firebase.removeCollectionListener(this.userDBListener);
@@ -61,31 +91,19 @@ export class AuthService {
       take(1)
     ).subscribe(
       user => {
-        this.$firebase.collection('users').update(user.id, { firstLogin: false });
+        this.$firebase.collection('users').update(user.uid, { firstLogin: false });
       }
     );
   }
 
-  private thirdpartSignup(profile: any, way: EUserProvider) {
-    const Document = this.$firebase.document('users', profile.id);
-    Document.get().subscribe(
-      res => {
-        if (res.exists) {
-          const USER = new User(res.data());
-          this.initalUser(USER);
-        } else {
-          const USER = new User(profile, way);
-          this.$firebase.document('users', USER.id).set({ ...{}, ...USER }).then(_ => this.initalUser(USER));
-        }
-      }
-    );
+  private signUp(uid: string, profile: any, org: EUserProvider) {
+    const USER_PROFILE = new User(profile, uid, org);
+    this.$firebase.document('users', uid).set({ ...USER_PROFILE });
   }
 
-  private initalUser(user: IUser, login = true) {
-    this.$user.inital(user);
-    this.userDBListener = this.$firebase.addCollectionListener('users', this.onUsersDBChanges.bind(this));
+  private initalUser(profile: any) {
     this.setIdle();
-    this.$navigation.navigate(login ? '/home' : sessionStorage.getItem('redirectUrl'));
+    this.$user.inital(profile);
   }
 
   private setIdle() {
@@ -106,22 +124,6 @@ export class AuthService {
         break;
     }
     return provider;
-  }
-
-  private getUserByCatch() {
-    this.$firebase
-      .document('users', JSON.parse(sessionStorage.getItem('user')))
-      .get()
-      .subscribe(
-        res => {
-          if (!res.exists) {
-            this.logout();
-          } else {
-            const USER = new User(res.data());
-            this.initalUser(USER, false);
-          }
-        }
-      );
   }
 
   private onUsersDBChanges(users: any[]) {

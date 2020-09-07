@@ -63,6 +63,16 @@ export class LandingComponent extends UnsubOndestroy implements OnInit {
     );
   }
 
+  public toggleSingupModal() {
+    this.$overlay.toggleModal(
+      new Modal(EModalProvider.Singup, {
+        size: EModalSize.Middle,
+        hideClose: true,
+        // hideBackground: true
+      })
+    );
+  }
+
   private onAnimationLogoRotationStart() {
     this.rotationStart = true;
   }

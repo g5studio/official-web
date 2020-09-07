@@ -1,10 +1,11 @@
 import { EIdentity } from '@utilities/enums/user.enum';
 
-export interface IUser {
+export interface IUserProfile {
     nickName: string;
     name: string;
     email: string;
     id: string;
+    uid: string;
     firstLogin: boolean;
     firstName: string;
     lastName: string;

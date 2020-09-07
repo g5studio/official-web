@@ -4,23 +4,25 @@
         <div class="LoginModal__Field">
             <div class="LoginModal__Input">
                 <label for=""><em class="icon-mail"></em></label>
-                <input [class.is-invalid]="form.get('email').invalid && form.get('email').touched" placeholder="請輸入信箱"
+                <input [class.is-invalid]="form.get('email').invalid && form.get('email').touched"
                     formControlName="email" type="text" class="form-control" />
             </div>
-            <small [ngStyle]="{'visibility': !this.form.get('email').invalid ? 'hidden' : 'visible'}">
+            <small
+                [ngStyle]="{'visibility': form.get('email').invalid && form.get('email').touched ? 'visible' : 'hidden'}">
                 <span class="icon-alert_2 pr-1"></span>
-                <span>格式有誤</span>
+                <span>{{this.getErrorMessage('email', 'invalid') | translate}}</span>
             </small>
         </div>
         <div class="LoginModal__Field">
             <div class="LoginModal__Input">
                 <label for=""><em class="icon-unlock"></em></label>
                 <input [class.is-invalid]="form.get('password').invalid && form.get('password').touched"
-                    placeholder="請輸入密碼" formControlName="password" type="password" class="form-control" />
+                    formControlName="password" type="password" class="form-control" />
             </div>
-            <small [ngStyle]="{'visibility': !this.form.get('password').invalid ? 'hidden' : 'visible'}">
+            <small
+                [ngStyle]="{'visibility': form.get('password').invalid && form.get('password').touched ? 'visible' : 'hidden'}">
                 <span class="icon-alert_2 pr-1"></span>
-                <span>格式有誤</span>
+                <span>{{this.getErrorMessage('password', 'invalid') | translate}}</span>
             </small>
         </div>
         <button [disabled]="form.get('password').invalid || form.get('email').invalid"

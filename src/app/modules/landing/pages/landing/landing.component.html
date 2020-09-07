@@ -13,6 +13,6 @@
             <app-carousel [opacity]="0.3" [isVertical]='this.isVertical' [images]='this.introductions'></app-carousel>
         </div>
         <button class="Landing__Login" [ngClass]='{"landing-start": this.rotationEnd}'
-            (click)='this.$auth.login()'>{{"Pages.Landing.Start" | translate}}</button>
+            (click)='this.toggleSingupModal()'>{{"Pages.Landing.Start" | translate}}</button>
     </div>
 </div>

@@ -1,7 +1,7 @@
 import { IGoogleUser } from './../../../utilities/interfaces/user.interface';
-import { IUser } from '@utilities/interfaces/user.interface';
+import { IUserProfile } from '@utilities/interfaces/user.interface';
 import { EUserProvider, EIdentity } from '@utilities/enums/user.enum';
-export class User implements IUser {
+export class User implements IUserProfile {
     public name: string;
     public email: string;
     public id: string;
@@ -12,27 +12,26 @@ export class User implements IUser {
     public photo: string;
     public nickName: string;
     public identity: EIdentity;
-    constructor(profile: any, provider?: EUserProvider) {
-        if (provider !== undefined) {
-            this.signup(profile, provider);
+    constructor(profile: any, public uid: string, provider?: EUserProvider) {
+        if (!!provider) {
+            this.createProfileByProvider(profile, provider);
         } else {
-            this.inital(profile);
+            this.setUserProfile(profile);
         }
-        sessionStorage.setItem('user', JSON.stringify(this.id));
     }
 
-    private inital(profile) {
+    private setUserProfile(profile) {
         Object.keys(profile).forEach(key => this[key] = profile[key]);
     }
 
-    private signup(profile: any, provider: EUserProvider) {
+    private createProfileByProvider(profile: any, provider: EUserProvider) {
         switch (provider) {
-            case EUserProvider.Google: this.asyncGoogleAccount(profile as IGoogleUser); break;
+            case EUserProvider.Google: this.syncGoogleAccount(profile as IGoogleUser); break;
             case EUserProvider.FaceBook: break;
         }
     }
 
-    private asyncGoogleAccount(userInfo: IGoogleUser) {
+    private syncGoogleAccount(userInfo: IGoogleUser) {
         this.name = userInfo.name;
         this.email = userInfo.email;
         this.firstName = userInfo.family_name;

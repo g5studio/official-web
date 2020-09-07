@@ -10,6 +10,7 @@ import { NonAutoCarouselModalComponent } from './components/non-auto-carousel-mo
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { SingUpModalComponent } from './components/sing-up-modal/sing-up-modal.component';
 
 
 
@@ -22,6 +23,7 @@ import { TranslateModule } from '@ngx-translate/core';
     DialogProviderComponent,
     NonAutoCarouselModalComponent,
     LoginModalComponent,
+    SingUpModalComponent,
   ],
   exports: [
     OverlayComponent,

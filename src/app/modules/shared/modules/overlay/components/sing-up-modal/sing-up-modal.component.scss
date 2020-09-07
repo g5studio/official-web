@@ -1,7 +1,7 @@
 @import "variables";
 @import "mixins";
 
-.LoginModal {
+.SignupModal {
     padding: 3rem;
     height: auto;
     width: 100%;
@@ -14,31 +14,13 @@
         margin-bottom: 2rem;
     }
 
-    & > button {
-        color: $white;
-        @include border($white);
-        padding: 0.5rem 1rem;
-        width: max-content;
-        @include font-size("lg");
-        &:hover {
-            border-color: $chrome-yellow;
-            color: $chrome-yellow;
-        }
-
-        &:disabled {
-            border-color: $gray;
-            color: $gray;
-            cursor: not-allowed;
-        }
-    }
-
     &__Input {
         display: flex;
         flex-direction: row;
         align-items: center;
         input {
             display: inline-block;
-            width: 60%;
+            width: 100%;
             height: 3rem;
             color: $white;
             @include font-size("lg");
@@ -71,45 +53,60 @@
         }
     }
 
-    &__Image {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        height: 50%;
-        visibility: hidden;
+    &__Submit {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        & > span {
+            @include border($white);
+            border-radius: 100%;
+            border-width: 1.5px;
+            padding: 0.4rem;
+            & > img {
+                width: 1.5rem;
+            }
+            cursor: pointer;
+            &:hover {
+                border-color: $chrome-yellow;
+            }
+        }
+        & > button {
+            color: $white;
+            @include border($white);
+            padding: 0.5rem 1rem;
+            width: max-content;
+            @include font-size("lg");
+            &:hover {
+                border-color: $chrome-yellow;
+                color: $chrome-yellow;
+            }
+
+            &:disabled {
+                border-color: $gray;
+                color: $gray;
+                cursor: not-allowed;
+            }
+        }
     }
 }
 
 @media screen and (min-width: map-get($grid-breakpoints, "xxl")) {
-    .LoginModal {
+    .SignupModal {
         // height: 50vh;
         h1 {
             margin-bottom: 5rem;
             @include font-size("xxxl");
         }
         &__Field {
-            & > input {
-                width: 50%;
-            }
             margin-bottom: 3rem;
-        }
-
-        &__Image {
-            right: 2.5rem;
-            bottom: 2.5rem;
-            visibility: visible;
-        }
-
-        &__Input {
-            input {
-                width: 40%;
-            }
         }
     }
 }
 
-@media screen and (min-width: map-get($grid-breakpoints, "xl")) and (max-width: map-get($grid-breakpoints, "xxl")) {
-    .LoginModal {
+@media screen and (min-width: map-get($grid-breakpoints, "xl")) {
+    .SignupModal {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -121,7 +118,7 @@
 }
 
 @media screen and (max-width: map-get($grid-breakpoints, "xl")) {
-    .LoginModal {
+    .SignupModal {
         // height: auto;
         padding: 2rem;
         &__Field {
@@ -141,10 +138,6 @@
             label {
                 display: none;
             }
-        }
-
-        &__Image {
-            display: none;
         }
 
         & > button {

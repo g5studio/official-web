@@ -24,7 +24,13 @@
         "Landing": {
             "Start": "立即開始",
             "Login": "登入",
-            "Welcome": "歡迎使用"
+            "Welcome": "歡迎使用",
+            "Signup": "註冊帳號",
+            "Submit": "送出",
+            "Error": {
+                "Password": "長度必須8到20位元字元；必須包含大小寫字母、數字和特殊符號（如@, #, $, _等）",
+                "Email": "郵箱格式錯誤"
+            }
         },
         "Home": {
             "Activity": "活動剪影"

@@ -1,19 +1,16 @@
-import { takeUntil } from 'rxjs/operators';
 import { Component, OnInit, Input } from '@angular/core';
 import { Modal } from '@overlay/models/modal.model';
-import { FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { OverlayService } from '@services/overlay.service';
-import { FirebaseService } from '@services/firebase.service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 
 @Component({
-  selector: 'app-login-modal',
-  templateUrl: './login-modal.component.html',
-  styleUrls: ['./login-modal.component.scss'],
-  providers: []
+  selector: 'app-sing-up-modal',
+  templateUrl: './sing-up-modal.component.html',
+  styleUrls: ['./sing-up-modal.component.scss']
 })
-export class LoginModalComponent extends UnsubOndestroy implements OnInit {
+export class SingUpModalComponent extends UnsubOndestroy implements OnInit {
 
   @Input() modal: Modal;
 
@@ -32,8 +29,7 @@ export class LoginModalComponent extends UnsubOndestroy implements OnInit {
   }
 
   public login() {
-    this.$auth.login();
-    this.$overlay.closeAll();
+    console.log(this.form.get('email').touched)
   }
 
   public getErrorMessage(field: string, error: string) {
@@ -47,6 +43,7 @@ export class LoginModalComponent extends UnsubOndestroy implements OnInit {
       email: ['', [Validators.required, this.validateEmail]],
       password: ['', [Validators.required, this.validatePassword]]
     });
+    console.log(this.form.get('email').touched)
   }
 
   private validateEmail(control: AbstractControl): ValidationErrors {
