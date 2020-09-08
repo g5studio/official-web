@@ -32,7 +32,6 @@ export abstract class AbstractNgModel implements ControlValueAccessor {
   public notifyValueChange() {
     if (this.onChange) {
       this.onChange(this.model);
-      // this.onchange.emit(this.model);
     }
   }
 

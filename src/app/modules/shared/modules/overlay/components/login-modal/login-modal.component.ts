@@ -47,7 +47,7 @@ export class LoginModalComponent extends UnsubOndestroy implements OnInit {
   private inital() {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, this.validateEmail]],
-      password: ['', [Validators.required, this.validatePassword]]
+      password: ['', [Validators.required]]
     });
   }
 
@@ -56,12 +56,4 @@ export class LoginModalComponent extends UnsubOndestroy implements OnInit {
       ? null
       : { invalid: { message: EMessage.EmailNotMeetRules } };
   }
-
-  private validatePassword(control: AbstractControl): ValidationErrors {
-    // return /(?=.*[\W_])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,20}/.test(control.value)
-    //   ? null
-    //   : { invalid: { message: 'Pages.Landing.Error.Password' } };
-    return null;
-  }
-
 }

@@ -28,7 +28,6 @@ export class OverlayService {
   private popup: Subject<MessagePopup> = new Subject();
   public popup$ = this.popup.asObservable().pipe(
     startWith(null as MessagePopup),
-    tap(_ => console.log(_))
   );
 
   public toggleModal(modal: Modal) {

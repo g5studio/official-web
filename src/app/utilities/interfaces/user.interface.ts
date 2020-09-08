@@ -1,8 +1,7 @@
-import { EIdentity } from '@utilities/enums/user.enum';
+import { EIdentity, EGender } from '@utilities/enums/user.enum';
 
 export interface IUserProfile {
     nickName: string;
-    name: string;
     email: string;
     id: string;
     uid: string;
@@ -12,6 +11,8 @@ export interface IUserProfile {
     fullName: string;
     photo: string;
     identity: EIdentity;
+    address?: string;
+    gender?: EGender;
 }
 
 export interface IGoogleUser {

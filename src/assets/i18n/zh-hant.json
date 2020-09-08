@@ -41,6 +41,14 @@
                 "Admin": "管理員",
                 "Student": "學生",
                 "Enterprise": "企業夥伴"
+            },
+            "UserProfile": {
+                "Title": "使用者資料",
+                "Fields": {
+                    "FirstName": "姓氏",
+                    "LastName": "人名",
+                    "Address": "地址"
+                }
             }
         }
     },

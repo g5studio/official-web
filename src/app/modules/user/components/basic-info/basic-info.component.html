@@ -1,30 +1,68 @@
 <div class="BasicInfo" *ngIf='this.user'>
-    <ul>
-        <li class="BasicInfo__Guide">
-            <span class="BasicInfo__Avatar">
-                <img [src]="this.user.profile.photo || 'assets/images/logo.png'" alt="{{this.user.profile.photo}}">
-                <span *ngIf='this.isEdit'><em class="icon-add-2"></em></span>
-            </span>
-
-            <div>
-                <div class="mb-4">
-                    <p>{{"Pages.Profile.NickName.Field" | translate}}</p>
+    <div class="BasicInfo__Guide">
+        <span class="BasicInfo__Avatar">
+            <img [src]="this.user.profile.photo || 'assets/images/logo.png'" alt="{{this.user.profile.photo}}">
+            <span *ngIf='this.isEdit'><em class="icon-add-2"></em></span>
+        </span>
+        <ul>
+            <li class="mb-4">
+                <p>{{"Pages.Profile.NickName.Field" | translate}}</p>
+                <span>
+                    <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
+                        (ngModelChange)='this.modifyField("nickName", $event)' [(ngModel)]='this.fields.nickName'>
+                    </app-profile-field>
+                </span>
+            </li>
+            <li>
+                <p>{{"Pages.Profile.Identity.Field" | translate}}</p>
+                <span>{{"Pages.Profile.Identity." + this.user.profile.identity | translate}}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="BasicInfo__Container">
+        <div class="BasicInfo__Milestone">
+            <h1>學習里程碑</h1>
+            <app-learning-process></app-learning-process>
+        </div>
+        <div class="BasicInfo__Profile">
+            <h1>{{"Pages.Profile.UserProfile.Title" | translate}}</h1>
+            <ul>
+                <li>
+                    <p>{{"Pages.Profile.UserProfile.Fields.FirstName" | translate}}</p>
                     <span>
                         <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
-                            (ngModelChange)='this.modifyField("nickName", $event)' [(ngModel)]='this.fields.nickName'>
+                            (ngModelChange)='this.modifyField("firstName", $event)' [(ngModel)]='this.fields.firstName'>
                         </app-profile-field>
                     </span>
-                </div>
-                <div>
-                    <p>{{"Pages.Profile.Identity.Field" | translate}}</p>
-                    <span>{{"Pages.Profile.Identity." + this.user.profile.identity | translate}}</span>
-                </div>
-            </div>
-        </li>
-        <li>
+                </li>
+                <li>
+                    <p>{{"Pages.Profile.UserProfile.Fields.LastName" | translate}}</p>
+                    <span>
+                        <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
+                            (ngModelChange)='this.modifyField("lastName", $event)' [(ngModel)]='this.fields.lastName'>
+                        </app-profile-field>
+                    </span>
+                </li>
+                <!-- <li>
+                    <p>性別</p>
+                    <span>
+                        <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
+                            (ngModelChange)='this.modifyField("gender", $event)' [(ngModel)]='this.fields.gender'>
+                        </app-profile-field>
+                    </span>
+                </li> -->
+                <li>
+                    <p>{{"Pages.Profile.UserProfile.Fields.Address" | translate}}</p>
+                    <span>
+                        <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
+                            (ngModelChange)='this.modifyField("address", $event)' [(ngModel)]='this.fields.address'>
+                        </app-profile-field>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-        </li>
-    </ul>
     <em *ngIf='!this.isEdit; else tSave' (click)='this.isEdit = true' class="icon-edit"></em>
     <ng-template #tSave>
         <em (click)='this.submit()' class="icon-done"></em>

@@ -41,6 +41,14 @@
                 "Admin": "admin",
                 "Student": "student",
                 "Enterprise": "enterprise"
+            },
+            "UserProfile": {
+                "Title": "User Profile",
+                "Fields": {
+                    "FirstName": "First name",
+                    "LastName": "Last name",
+                    "Address": "Address"
+                }
             }
         }
     },

@@ -25,3 +25,9 @@ span {
         // display: inline-block;
     }
 }
+
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
+    input {
+        width: 100%;
+    }
+}

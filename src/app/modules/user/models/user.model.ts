@@ -1,10 +1,9 @@
 import { IGoogleUser } from './../../../utilities/interfaces/user.interface';
 import { IUserProfile } from '@utilities/interfaces/user.interface';
-import { EUserProvider, EIdentity } from '@utilities/enums/user.enum';
+import { EUserProvider, EIdentity, EGender } from '@utilities/enums/user.enum';
 import * as fb from 'firebase/app';
 export class User {
     public profile: IUserProfile = {
-        name: '',
         email: '',
         id: '',
         firstLogin: true,
@@ -14,7 +13,9 @@ export class User {
         photo: '',
         nickName: '',
         identity: EIdentity.Guest,
-        uid: ''
+        uid: '',
+        gender: EGender.Empty,
+        address: ''
     };
     constructor(profile: any, private user: fb.User, provider?: EUserProvider) {
         this.profile.uid = user.uid;
@@ -47,7 +48,7 @@ export class User {
     }
 
     private syncGoogleAccount(userInfo: IGoogleUser) {
-        this.profile.name = userInfo.name;
+        this.profile.fullName = userInfo.name;
         this.profile.email = userInfo.email;
         this.profile.firstName = userInfo.family_name;
         this.profile.lastName = userInfo.given_name;

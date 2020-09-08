@@ -11,3 +11,9 @@ export enum EUserProvider {
     Twitter,
     Github
 }
+
+export enum EGender {
+    Empty = 0,
+    Male,
+    Female
+}
