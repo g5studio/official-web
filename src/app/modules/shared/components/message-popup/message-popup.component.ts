@@ -10,7 +10,7 @@ export class MessagePopupComponent implements OnInit {
 
   @Input() time = 0;
   @Input() alert = false;
-  @Input() central: boolean;
+  @Input() central = true;
   @Output() onclose = new EventEmitter();
 
   constructor() { }

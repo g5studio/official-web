@@ -16,3 +16,7 @@
         </app-layout-card>
     </div>
 </div>
+
+<app-message-popup (onclose)='this.$overlay.hidePopup()' [time] = '2' *ngIf='this.$overlay.popup$ | async as popup'>
+    {{popup.options.message | translate}}
+</app-message-popup>

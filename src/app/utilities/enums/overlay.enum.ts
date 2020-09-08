@@ -28,13 +28,15 @@ export enum EDeviceType {
 }
 
 export enum EMessage {
-    UserNotFund = 'Pages.Landing.Error.UserNotFound',
-    InvalidPassword = 'Pages.Landing.Error.InvalidPassword',
-    EmailUnverified = 'Pages.Landing.Error.EmailUnverified',
-    VerificationLetterSent = 'Pages.Landing.Notice.VerificationLetterSent',
-    UnknowError = 'Pages.Landing.Error.Unknow',
-    EmailNotMeetRules = 'Pages.Landing.Error.Email',
-    PasswordNotMeetRules = 'Pages.Landing.Error.Password',
+    UserNotFund = 'Messages.Error.UserNotFound',
+    InvalidPassword = 'Messages.Error.InvalidPassword',
+    EmailUnverified = 'Messages.Error.EmailUnverified',
+    VerificationLetterSent = 'Messages.System.VerificationLetterSent',
+    UnknowError = 'Messages.Error.Unknow',
+    EmailNotMeetRules = 'Messages.Error.Email',
+    PasswordNotMeetRules = 'Messages.Error.Password',
+    ModifiedSuccessfully = 'Messages.System.ModifiedSuccessfully',
+    ModifiedFailed = 'Messages.Error.ModifiedFailed'
 }
 
 

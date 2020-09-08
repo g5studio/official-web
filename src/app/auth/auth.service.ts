@@ -1,15 +1,13 @@
 import { User } from '@user/models/user.model';
-import { Observable, Subscription } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { NavigationService } from '@services//navigation.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as fb from 'firebase/app';
 import { FirebaseService } from '@services//firebase.service';
 import { UserService } from '@user//services/user.service';
-import { map, take, filter, tap } from 'rxjs/operators';
+import { take, } from 'rxjs/operators';
 import { EUserProvider } from '@utilities/enums/user.enum';
 import { UserIdleService } from 'angular-user-idle';
-import * as  moment from 'moment';
 import { IMessagePopupOptions } from '@utilities/interfaces/overlay.interface';
 import { OverlayService } from '@services/overlay.service';
 import { MessagePopup } from '@overlay/models/modal.model';
