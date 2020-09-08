@@ -4,9 +4,32 @@
 .Profile {
     display: flex;
     flex-direction: row;
-    &__Basic {
+    &__Basic,
+    &__Dashboard {
         height: calc(#{$page-height} - 4rem);
         @include scroll;
+    }
+
+    &__Dashboard {
+        & > span {
+            display: flex;
+            border-bottom: 0.5px solid $menu-color;
+            padding: 0 1rem 1rem 1rem;
+            & > h1 {
+                display: flex;
+                align-items: baseline;
+                @include font-size("lg");
+                color: $white;
+                letter-spacing: 0.125rem;
+                em {
+                    cursor: auto;
+                    @include font-size("md");
+                    margin-right: 0.5rem;
+                }
+            }
+
+            @include box-shadow($menu-color);
+        }
     }
 }
 

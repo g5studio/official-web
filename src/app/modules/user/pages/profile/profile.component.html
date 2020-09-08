@@ -9,14 +9,19 @@
         </app-layout-card>
     </div>
     <div class="col-12 col-md-6">
-        <app-layout-card>
+        <app-layout-card hideHead>
             <ng-container body>
-                2
+                <div class="Profile__Dashboard">
+                    <span>
+                        <h1><em class="icon-portfolio"></em> 學習狀況總覽</h1>
+                    </span>
+
+                </div>
             </ng-container>
         </app-layout-card>
     </div>
 </div>
 
-<app-message-popup (onclose)='this.$overlay.hidePopup()' [time] = '2' *ngIf='this.$overlay.popup$ | async as popup'>
+<app-message-popup (onclose)='this.$overlay.hidePopup()' [time]='2' *ngIf='this.$overlay.popup$ | async as popup'>
     {{popup.options.message | translate}}
 </app-message-popup>
