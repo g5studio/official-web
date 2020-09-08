@@ -1,4 +1,4 @@
-import { IModalOptions } from '@utilities/interfaces/overlay.interface';
+import { IModalOptions, IMessagePopupOptions } from '@utilities/interfaces/overlay.interface';
 import { EModalSize, EModalProvider } from '@utilities/enums/overlay.enum';
 
 export class Modal {
@@ -12,5 +12,13 @@ export class Modal {
 
     private initalModalOptions() {
         this.options.size = this.options.size || EModalSize.Small;
+    }
+}
+
+export class MessagePopup {
+    constructor(
+        public options: IMessagePopupOptions
+    ) {
+
     }
 }

@@ -18,7 +18,7 @@ export class LandingComponent extends UnsubOndestroy implements OnInit {
   constructor(
     public $auth: AuthService,
     private $window: WindowService,
-    private $overlay: OverlayService
+    public $overlay: OverlayService
   ) {
     super();
   }
@@ -58,7 +58,6 @@ export class LandingComponent extends UnsubOndestroy implements OnInit {
       new Modal(EModalProvider.Login, {
         size: EModalSize.Large,
         hideClose: true,
-        // hideBackground: true
       })
     );
   }
@@ -66,7 +65,7 @@ export class LandingComponent extends UnsubOndestroy implements OnInit {
   public toggleSingupModal() {
     this.$overlay.toggleModal(
       new Modal(EModalProvider.Singup, {
-        size: EModalSize.Middle,
+        size: EModalSize.Large,
         hideClose: true,
       })
     );

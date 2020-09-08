@@ -27,4 +27,12 @@ export enum EDeviceType {
     Mobile = 767
 }
 
+export enum EMessage {
+    UserNotFund = 'Pages.Landing.Error.UserNotFound',
+    InvalidPassword = 'Pages.Landing.Error.InvalidPassword',
+    EmailUnverified = 'Pages.Landing.Error.EmailUnverified',
+    VerificationLetterSent = 'Pages.Landing.Notice.VerificationLetterSent',
+    UnknowError = 'Pages.Landing.Error.Unknow'
+}
+
 

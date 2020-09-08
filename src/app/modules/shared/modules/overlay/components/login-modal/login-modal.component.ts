@@ -51,15 +51,11 @@ export class LoginModalComponent extends UnsubOndestroy implements OnInit {
   }
 
   private validateEmail(control: AbstractControl): ValidationErrors {
-    return /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/.test(control.value)
-      ? null
-      : { invalid: { message: 'Pages.Landing.Error.Email' } };
+    return null;
   }
 
   private validatePassword(control: AbstractControl): ValidationErrors {
-    return /(?=.*[\W_])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,20}/.test(control.value)
-      ? null
-      : { invalid: { message: 'Pages.Landing.Error.Password' } };
+    return null;
   }
 
 }

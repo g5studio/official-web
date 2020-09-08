@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject, ReplaySubject } from 'rxjs';
 import { EOverlayType, EModalProvider, EDialogProvider } from '@utilities/enums/overlay.enum';
 import { startWith, tap } from 'rxjs/operators';
-import { Modal } from '@overlay/models/modal.model';
+import { Modal, MessagePopup } from '@overlay/models/modal.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,11 @@ export class OverlayService {
   private dialog: ReplaySubject<EDialogProvider> = new ReplaySubject(1);
   public dialog$ = this.modal.asObservable().pipe();
 
+  private popup: Subject<MessagePopup> = new Subject();
+  public popup$ = this.popup.asObservable().pipe(
+    startWith(null as MessagePopup)
+  );
+
   public toggleModal(modal: Modal) {
     event?.stopPropagation();
     this.modal.next(modal);
@@ -42,5 +47,8 @@ export class OverlayService {
     this.onClose.next();
     this.overlay.next(EOverlayType.Close);
   }
+
+  public showPopup = (message: MessagePopup) => this.popup.next(message);
+  public hidePopup = () => this.popup.next(null);
 
 }

@@ -1,10 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Modal } from '@overlay/models/modal.model';
+import { Modal, MessagePopup } from '@overlay/models/modal.model';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { OverlayService } from '@services/overlay.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 import { EUserProvider } from '@utilities/enums/user.enum';
+import { IMessagePopupOptions } from '@utilities/interfaces/overlay.interface';
+import { EMessage } from '@utilities/enums/overlay.enum';
 
 @Component({
   selector: 'app-sing-up-modal',
@@ -39,12 +41,19 @@ export class SingUpModalComponent extends UnsubOndestroy implements OnInit {
       _ => this.$overlay.closeAll()
     ).catch(
       error => this.authErrorMsg = error.message
-    )
+    );
   }
 
   public signUpWithEmailaAndPassword() {
     this.$auth.signUpWithEmailAndPassword(this.form.getRawValue())
-      .then(_ => this.$overlay.closeAll())
+      .then(_ => {
+        this.$overlay.closeAll();
+        const MESSAGE_OTIONS: IMessagePopupOptions = {
+          alert: false,
+          message: EMessage.VerificationLetterSent
+        };
+        this.$overlay.showPopup(new MessagePopup(MESSAGE_OTIONS));
+      })
       .catch(
         error => this.authErrorMsg = error.message
       );

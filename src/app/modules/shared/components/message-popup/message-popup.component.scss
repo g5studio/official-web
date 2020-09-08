@@ -1,0 +1,70 @@
+@import "variables";
+@import "mixins";
+
+.PopupMessage {
+    box-shadow: 0px 0px 8px 1px $body-bg;
+    z-index: map-get($map: $layout-level, $key: "priority");
+    position: fixed;
+    top: 3.5rem;
+    left: calc(50%);
+    transform: translate(-25%);
+    &--central {
+        transform: translate(-50%);
+    }
+    width: 32.5rem;
+    @include border($water-grass);
+    background-color: $light-green;
+    color: $water-grass;
+    &__Container {
+        font-weight: bold;
+        display: flex;
+        position: relative;
+        padding: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        em {
+            line-height: 1rem;
+            color: $dark-gray-blue;
+            font-weight: bold;
+        }
+    }
+}
+
+.alert {
+    color: $red-4;
+    background-color: $red-9;
+    border-color: $red-4;
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, "xxl")) {
+    .PopupMessage {
+        &__Container {
+            &::ng-deep {
+                @include font-size("lg");
+            }
+        }
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "xl")) {
+    .PopupMessage {
+        transform: translate(-50%);
+        &--central {
+            transform: translate(-50%);
+        }
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
+    .PopupMessage {
+        left: 0;
+        transform: translate(0);
+        width: 100vw;
+        &--central {
+            left: 0;
+            transform: translate(0);
+            width: 100vw;
+        }
+    }
+}

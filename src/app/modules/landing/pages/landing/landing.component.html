@@ -16,3 +16,8 @@
             (click)='this.toggleSingupModal()'>{{"Pages.Landing.Start" | translate}}</button>
     </div>
 </div>
+
+<app-message-popup [alert]='popup.options.alert' [time]='3' [central]='true'
+    *ngIf='this.$overlay.popup$ | async as popup' (onclose)='this.$overlay.hidePopup()'>
+    {{popup.options.message | translate}}
+</app-message-popup>

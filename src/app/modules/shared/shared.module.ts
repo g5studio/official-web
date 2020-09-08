@@ -9,6 +9,7 @@ import { LanguageMenuComponent } from './components/language-menu/language-menu.
 import { CardModule } from './modules/card/card.module';
 import { ImageWaterMarkerComponent } from './components/image-water-marker/image-water-marker.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MessagePopupComponent } from './components/message-popup/message-popup.component';
 
 
 
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TooltipComponent,
     LanguageMenuComponent,
     ImageWaterMarkerComponent,
+    MessagePopupComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CarouselModule,
     FormsModule,
     ReactiveFormsModule,
-    ImageWaterMarkerComponent
+    ImageWaterMarkerComponent,
+    MessagePopupComponent
   ]
 })
 export class SharedModule { }

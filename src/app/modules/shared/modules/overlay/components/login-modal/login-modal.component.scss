@@ -84,14 +84,14 @@
     .LoginModal {
         // height: 50vh;
         h1 {
-            margin-bottom: 5rem;
-            @include font-size("xxxl");
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
         }
         &__Field {
             & > input {
                 width: 50%;
             }
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         &__Image {

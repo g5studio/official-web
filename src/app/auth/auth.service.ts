@@ -10,6 +10,10 @@ import { map, take, filter, tap } from 'rxjs/operators';
 import { EUserProvider } from '@utilities/enums/user.enum';
 import { UserIdleService } from 'angular-user-idle';
 import * as  moment from 'moment';
+import { IMessagePopupOptions } from '@utilities/interfaces/overlay.interface';
+import { OverlayService } from '@services/overlay.service';
+import { MessagePopup } from '@overlay/models/modal.model';
+import { EMessage } from '@utilities/enums/overlay.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -22,24 +26,13 @@ export class AuthService {
     private $firebase: FirebaseService,
     private $fbAuth: AngularFireAuth,
     private $user: UserService,
-    private $idle: UserIdleService
+    private $idle: UserIdleService,
+    private $overlay: OverlayService
   ) {
     this.$fbAuth.authState.subscribe(
       user => {
-        if (user) {
-          if (user.providerData[0].providerId === 'password' && !user.emailVerified) {
-            this.logout();
-          } else {
-            sessionStorage.setItem('uid', user.uid);
-            this.$firebase.document('users', user.uid).get().subscribe(
-              userProfile => {
-                this.initalUser(new User(userProfile.data(), user));
-                if (this.redirectUrl) {
-                  this.$navigation.navigate(this.redirectUrl);
-                }
-              }
-            );
-          }
+        if (!!user && (user?.providerData[0].providerId !== 'password' || user?.emailVerified)) {
+          this.loginCallback(user);
         } else {
           this.logout();
         }
@@ -63,13 +56,23 @@ export class AuthService {
     return this.$firebaseAuth.signInWithEmailAndPassword(email, password).then(
       res => {
         if (!res.user.emailVerified) {
-          window.alert('信箱尚未完成驗證');
+          const MESSAGE_OPTIONS: IMessagePopupOptions = {
+            alert: true,
+            message: EMessage.EmailUnverified
+          };
+          this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
         } else {
           this.redirectUrl = '/home';
         }
       }
     ).catch(
-      error => console.log(error)
+      error => {
+        const MESSAGE_OPTIONS: IMessagePopupOptions = {
+          alert: true,
+          message: this.getErrorMsg(error.code)
+        };
+        this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
+      }
     );
   }
 
@@ -114,16 +117,34 @@ export class AuthService {
     );
   }
 
+  private getErrorMsg(code: string) {
+    if (code.includes('user-not-found')) {
+      return EMessage.UserNotFund;
+    } else if (code.includes('wrong-password')) {
+      return EMessage.InvalidPassword;
+    } else {
+      return EMessage.UnknowError;
+    }
+  }
+
+  private loginCallback(user: fb.User) {
+    sessionStorage.setItem('uid', user.uid);
+    this.$firebase.document('users', user.uid).get().subscribe(
+      userProfile => {
+        this.setIdle();
+        this.$user.inital(new User(userProfile.data(), user));
+        if (this.redirectUrl) {
+          this.$navigation.navigate(this.redirectUrl);
+        }
+      }
+    );
+  }
+
   private signUp(user: fb.User, profile: any, org?: EUserProvider) {
     const USER_PROFILE = !!org ? new User(profile, user, org) : new User(profile, user);
     this.$firebase.document('users', user.uid).set({ ...USER_PROFILE.profile }).then(
       _ => this.$navigation.navigate('home')
     );
-  }
-
-  private initalUser(profile: any) {
-    this.setIdle();
-    this.$user.inital(profile);
   }
 
   private setIdle() {

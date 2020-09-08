@@ -36,13 +36,6 @@
     min-height: 15rem;
 }
 
-.md {
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 90vw;
-}
-
 .lg {
     top: 50%;
     left: 50%;
@@ -56,12 +49,8 @@
         width: 25rem;
     }
 
-    .md {
-        width: 30vw;
-    }
-
     .lg {
         // height: 70vh;
-        width: 50vw;
+        width: 40vw;
     }
 }
