@@ -26,18 +26,7 @@
             "Login": "Login",
             "Welcome": "Welcome",
             "Signup": "Sign Up",
-            "Submit": "Submit",
-            "Error": {
-                "Password": "The password has to be 8 to 20 characters, containing uppercase and lowercase letter, number and symbol (e.g. @, #, $, _ ).",
-                "Email": "Dose not match email rule.",
-                "UserNotFound": "User not found , please check again.",
-                "InvalidPassword": "The password is invalid or the user does not have a password.",
-                "EmailUnverified": "Email has not been verified.",
-                "Unknow": "Unknow error , please contact customer service."
-            },
-            "Notice": {
-                "VerificationLetterSent": "The verification letter has been sent, please follow the step to verify your email address."
-            }
+            "Submit": "Submit"
         },
         "Home": {
             "Activity": "Activities"
@@ -52,7 +41,30 @@
                 "Admin": "admin",
                 "Student": "student",
                 "Enterprise": "enterprise"
+            },
+            "UserProfile": {
+                "Title": "User Profile",
+                "Fields": {
+                    "FirstName": "First name",
+                    "LastName": "Last name",
+                    "Address": "Address"
+                }
             }
+        }
+    },
+    "Messages": {
+        "Error": {
+            "Password": "The password has to be 8 to 20 characters, containing uppercase and lowercase letter, number and symbol (e.g. @, #, $, _ ).",
+            "Email": "Dose not match email rule.",
+            "UserNotFound": "User not found , please check again.",
+            "InvalidPassword": "The password is invalid or the user does not have a password.",
+            "EmailUnverified": "Email has not been verified.",
+            "Unknow": "Unknow error , please contact customer service.",
+            "ModifiedFailed": "Modify failed , please try again."
+        },
+        "System": {
+            "VerificationLetterSent": "The verification letter has been sent, please follow the step to verify your email address.",
+            "ModifiedSuccessfully": "Successfully modified."
         }
     }
 }
