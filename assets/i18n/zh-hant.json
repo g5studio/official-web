@@ -24,7 +24,20 @@
         "Landing": {
             "Start": "立即開始",
             "Login": "登入",
-            "Welcome": "歡迎使用"
+            "Welcome": "歡迎使用",
+            "Signup": "註冊帳號",
+            "Submit": "送出",
+            "Error": {
+                "Password": "長度必須8到20位元字元；必須包含大小寫字母、數字和特殊符號（如@, #, $, _等）。",
+                "Email": "郵箱格式錯誤。",
+                "UserNotFound": "查無使用者，請確認輸入是否正確或註冊。",
+                "InvalidPassword": "密碼錯誤，請重新輸入。",
+                "EmailUnverified": "信箱尚未完成驗證，請至註冊信箱啟用帳號。",
+                "Unknow": "發生未知錯誤，請聯絡客服人員。"
+            },
+            "Notice": {
+                "VerificationLetterSent": "驗證信已發送，請到註冊信箱驗證後重新登入。"
+            }
         },
         "Home": {
             "Activity": "活動剪影"
