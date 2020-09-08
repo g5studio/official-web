@@ -6,6 +6,7 @@ import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 import { OverlayService } from '@services/overlay.service';
 import { FirebaseService } from '@services/firebase.service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { EMessage } from '@utilities/enums/overlay.enum';
 
 @Component({
   selector: 'app-login-modal',
@@ -51,10 +52,15 @@ export class LoginModalComponent extends UnsubOndestroy implements OnInit {
   }
 
   private validateEmail(control: AbstractControl): ValidationErrors {
-    return null;
+    return /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/.test(control.value)
+      ? null
+      : { invalid: { message: EMessage.EmailNotMeetRules } };
   }
 
   private validatePassword(control: AbstractControl): ValidationErrors {
+    // return /(?=.*[\W_])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,20}/.test(control.value)
+    //   ? null
+    //   : { invalid: { message: 'Pages.Landing.Error.Password' } };
     return null;
   }
 

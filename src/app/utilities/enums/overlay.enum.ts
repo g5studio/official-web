@@ -32,7 +32,9 @@ export enum EMessage {
     InvalidPassword = 'Pages.Landing.Error.InvalidPassword',
     EmailUnverified = 'Pages.Landing.Error.EmailUnverified',
     VerificationLetterSent = 'Pages.Landing.Notice.VerificationLetterSent',
-    UnknowError = 'Pages.Landing.Error.Unknow'
+    UnknowError = 'Pages.Landing.Error.Unknow',
+    EmailNotMeetRules = 'Pages.Landing.Error.Email',
+    PasswordNotMeetRules = 'Pages.Landing.Error.Password',
 }
 
 
