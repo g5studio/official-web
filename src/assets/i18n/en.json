@@ -49,6 +49,20 @@
                     "LastName": "Last name",
                     "Address": "Address"
                 }
+            },
+            "LearningDashboard": {
+                "Guest": "Upgrade Account",
+                "Student": {
+                    "Title": "Dashboard"
+                }
+            },
+            "LearningProcess": {
+                "Title": "Process"
+            },
+            "EditProfile": {
+                "Title": "Edit User Profile",
+                "Submit": "Submit",
+                "Optional": "Optional"
             }
         }
     },
@@ -60,7 +74,8 @@
             "InvalidPassword": "The password is invalid or the user does not have a password.",
             "EmailUnverified": "Email has not been verified.",
             "Unknow": "Unknow error , please contact customer service.",
-            "ModifiedFailed": "Modify failed , please try again."
+            "ModifiedFailed": "Modify failed , please try again.",
+            "FieldRequired": "Field required"
         },
         "System": {
             "VerificationLetterSent": "The verification letter has been sent, please follow the step to verify your email address.",

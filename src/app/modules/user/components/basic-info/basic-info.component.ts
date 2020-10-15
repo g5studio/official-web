@@ -4,9 +4,11 @@ import { FirebaseService } from '@services/firebase.service';
 import { User } from '@user/models/user.model';
 import { OverlayService } from '@services/overlay.service';
 import { IMessagePopupOptions } from '@utilities/interfaces/overlay.interface';
-import { EMessage } from '@utilities/enums/overlay.enum';
+import { EDialogProvider, EMessage } from '@utilities/enums/overlay.enum';
 import { MessagePopup } from '@overlay/models/modal.model';
 import { error } from 'protractor';
+import { EIdentity } from '@utilities/enums/user.enum';
+import { Dialog } from '@overlay/models/dialog.model';
 
 @Component({
   selector: 'app-basic-info',
@@ -24,6 +26,10 @@ export class BasicInfoComponent implements OnInit, OnChanges {
     private $overlay: OverlayService
   ) { }
 
+  get isStudent() {
+    return this.user.profile.identity === EIdentity.Student;
+  }
+
   ngOnInit(): void {
   }
 
@@ -39,6 +45,14 @@ export class BasicInfoComponent implements OnInit, OnChanges {
 
   public modifyField(key: string, value: string) {
     this.fields[key] = value;
+  }
+
+  public toggleEditDialog() {
+    this.$overlay.toggleDialog(new Dialog(EDialogProvider.UserProfileEdit,{
+      config: {
+        profile: this.user.profile
+      }
+    }));
   }
 
   public submit() {

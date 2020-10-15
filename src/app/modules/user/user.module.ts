@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BasicInfoComponent } from './components/basic-info/basic-info.component';
 import { ProfileFieldComponent } from './components/profile-field/profile-field.component';
 import { LearningProcessComponent } from './components/learning-process/learning-process.component';
+import { LearningDashboardComponent } from './components/learning-dashboard/learning-dashboard.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { LearningProcessComponent } from './components/learning-process/learning
     ProfileComponent,
     BasicInfoComponent,
     ProfileFieldComponent,
-    LearningProcessComponent
+    LearningProcessComponent,
+    LearningDashboardComponent
   ],
   imports: [
     CommonModule,

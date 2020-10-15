@@ -1,10 +1,11 @@
 <div *ngIf='this.$overlay.overlay$ | async as overlay' class="Overlay">
-    <div class="Overlay__Container" [ngSwitch]='overlay'>
-        <ng-container *ngSwitchCase='"modal"'>
-            <app-modal-provider></app-modal-provider>
-        </ng-container>
-        <ng-container *ngSwitchCase='"dialog"'>
-            <app-dialog-provider></app-dialog-provider>
-        </ng-container>
-    </div>
+  <div class="Overlay__Container" [ngSwitch]='overlay'>
+    <ng-container *ngSwitchCase='"modal"'>
+      <app-modal-provider></app-modal-provider>
+    </ng-container>
+    <ng-container *ngSwitchCase='"dialog"'>
+      <app-dialog-provider></app-dialog-provider>
+    </ng-container>
+    <app-loading *ngIf="this.$overlay.loading$ | async as loading"></app-loading>
+  </div>
 </div>

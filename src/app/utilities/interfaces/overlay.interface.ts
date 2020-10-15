@@ -7,6 +7,14 @@ export interface IModalOptions {
     config?: any;
 }
 
+export interface IDialogOptions {
+    size?: EModalSize;
+    hideClose?: boolean;
+    disabledOutsideClose?: boolean;
+    hideBackground?: boolean;
+    config?: any;
+}
+
 export interface IMessagePopupOptions {
     alert: boolean;
     message: EMessage;

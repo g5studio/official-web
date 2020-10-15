@@ -1,0 +1,38 @@
+@import "variables";
+@import "mixins";
+@import "animations";
+
+.Dialog {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  &__Container {
+    animation-name: popup;
+    animation-duration: 0.25s;
+    position: relative;
+    @include g5-modal();
+    @include scroll();
+    height: 100%;
+    max-height: 100vh;
+    width: 800px;
+    em {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: $black;
+      @include font-size("lg");
+      font-weight: bold;
+    }
+  }
+}
+
+@media screen and (max-width: map-get($map: $grid-breakpoints, $key: "md")) {
+  .Dialog {
+    left: 0;
+    transform: translateX(0);
+    &__Container {
+      width: 100vw;
+    }
+  }
+}

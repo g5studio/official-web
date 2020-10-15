@@ -11,6 +11,9 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { SingUpModalComponent } from './components/sing-up-modal/sing-up-modal.component';
+import { UserProfileEditDialogComponent } from './components/user-profile-edit-dialog/user-profile-edit-dialog.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { LoadingComponent } from './pages/loading/loading.component';
 
 
 
@@ -24,6 +27,9 @@ import { SingUpModalComponent } from './components/sing-up-modal/sing-up-modal.c
     NonAutoCarouselModalComponent,
     LoginModalComponent,
     SingUpModalComponent,
+    UserProfileEditDialogComponent,
+    DialogComponent,
+    LoadingComponent,
   ],
   exports: [
     OverlayComponent,

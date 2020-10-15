@@ -1,0 +1,57 @@
+@import "variables";
+@import "mixins";
+
+.UserProfileEdit {
+  color: $midnight;
+
+  h1 {
+    border-bottom: 1px solid $sliver;
+    padding: 1.5rem 3rem 1.5rem 3rem;
+  }
+
+  &__Container {
+    padding: 1.5rem 3rem 1.5rem 3rem;
+    ul {
+      li {
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  &__Button {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    button {
+      @include border($menu-color);
+      background-color: $white;
+      color: $menu-color;
+      padding: 0.5rem 1rem;
+      width: max-content;
+      @include font-size("sm");
+      &:hover {
+        color: $white;
+        background-color: $menu-color;
+      }
+
+      &:disabled {
+        border-color: $gray;
+        color: $gray;
+        background-color: $white;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__Field {
+    small {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}

@@ -10,6 +10,7 @@ import { CardModule } from './modules/card/card.module';
 import { ImageWaterMarkerComponent } from './components/image-water-marker/image-water-marker.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagePopupComponent } from './components/message-popup/message-popup.component';
+import { ButtonComponent } from './components/button/button.component';
 
 
 
@@ -20,6 +21,7 @@ import { MessagePopupComponent } from './components/message-popup/message-popup.
     LanguageMenuComponent,
     ImageWaterMarkerComponent,
     MessagePopupComponent,
+    ButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { MessagePopupComponent } from './components/message-popup/message-popup.
     FormsModule,
     ReactiveFormsModule,
     ImageWaterMarkerComponent,
-    MessagePopupComponent
+    MessagePopupComponent,
+    ButtonComponent
   ]
 })
 export class SharedModule { }

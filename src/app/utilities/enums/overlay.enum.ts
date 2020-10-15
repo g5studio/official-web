@@ -18,7 +18,7 @@ export enum EModalSize {
 }
 
 export enum EDialogProvider {
-
+    UserProfileEdit = 1
 }
 
 export enum EDeviceType {
