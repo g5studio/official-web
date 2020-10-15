@@ -47,7 +47,8 @@
                 "Fields": {
                     "FirstName": "First name",
                     "LastName": "Last name",
-                    "Address": "Address"
+                    "Address": "Address",
+                    "Gender": "Gender"
                 }
             },
             "LearningDashboard": {

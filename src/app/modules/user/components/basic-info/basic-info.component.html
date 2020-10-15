@@ -8,9 +8,7 @@
       <li class="mb-4">
         <p>{{"Pages.Profile.NickName.Field" | translate}}</p>
         <span>
-          <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
-            (ngModelChange)='this.modifyField("nickName", $event)' [(ngModel)]='this.fields.nickName'>
-          </app-profile-field>
+          {{this.user.profile.nickName || "-"}}
         </span>
       </li>
       <li>
@@ -20,52 +18,46 @@
     </ul>
   </div>
   <div class="BasicInfo__Container">
-    <div *ngIf='this.isStudent' class="BasicInfo__Milestone">
-      <h1>{{"Pages.Profile.LearningProcess.Title" | translate}}</h1>
-      <app-learning-process></app-learning-process>
+    <div class="BasicInfo__Info">
+      <div *ngIf='this.isStudent' class="BasicInfo__Milestone">
+        <h1>{{"Pages.Profile.LearningProcess.Title" | translate}}</h1>
+        <app-learning-process></app-learning-process>
+      </div>
+      <div class="BasicInfo__Profile">
+        <h1>{{"Pages.Profile.UserProfile.Title" | translate}}</h1>
+        <ul>
+          <li>
+            <p>{{"Pages.Profile.UserProfile.Fields.FirstName" | translate}}</p>
+            <span>
+              {{this.user.profile.firstName || "-"}}
+            </span>
+          </li>
+          <li>
+            <p>{{"Pages.Profile.UserProfile.Fields.LastName" | translate}}</p>
+            <span>
+              {{this.user.profile.lastName || "-"}}
+            </span>
+          </li>
+          <li>
+            <p>{{"Pages.Profile.UserProfile.Fields.Gender" | translate}}</p>
+            <span>
+              {{this.user.profile.gender || "-"}}
+            </span>
+          </li>
+          <li>
+            <p>{{"Pages.Profile.UserProfile.Fields.Address" | translate}}</p>
+            <span>
+              {{this.user.profile.address || "-"}}
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="BasicInfo__Profile">
-      <h1>{{"Pages.Profile.UserProfile.Title" | translate}}</h1>
-      <ul>
-        <li>
-          <p>{{"Pages.Profile.UserProfile.Fields.FirstName" | translate}}</p>
-          <span>
-            <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
-              (ngModelChange)='this.modifyField("firstName", $event)' [(ngModel)]='this.fields.firstName'>
-            </app-profile-field>
-          </span>
-        </li>
-        <li>
-          <p>{{"Pages.Profile.UserProfile.Fields.LastName" | translate}}</p>
-          <span>
-            <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
-              (ngModelChange)='this.modifyField("lastName", $event)' [(ngModel)]='this.fields.lastName'>
-            </app-profile-field>
-          </span>
-        </li>
-        <!-- <li>
-                    <p>性別</p>
-                    <span>
-                        <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
-                            (ngModelChange)='this.modifyField("gender", $event)' [(ngModel)]='this.fields.gender'>
-                        </app-profile-field>
-                    </span>
-                </li> -->
-        <li>
-          <p>{{"Pages.Profile.UserProfile.Fields.Address" | translate}}</p>
-          <span>
-            <app-profile-field [validator]='this.validator' [isEdit]='this.isEdit'
-              (ngModelChange)='this.modifyField("address", $event)' [(ngModel)]='this.fields.address'>
-            </app-profile-field>
-          </span>
-        </li>
-      </ul>
+
+    <div class="BasicInfo__Edit">
+      <span (click)='this.toggleEditDialog()'>
+        <em class="icon-edit"></em>
+      </span>
     </div>
   </div>
-
-  <em *ngIf='!this.isEdit; else tSave' (click)='this.toggleEditDialog()' class="icon-edit"></em>
-  <ng-template #tSave>
-    <em (click)='this.submit()' class="icon-done"></em>
-  </ng-template>
-
 </div>

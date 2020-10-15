@@ -18,8 +18,6 @@ import { Dialog } from '@overlay/models/dialog.model';
 export class BasicInfoComponent implements OnInit, OnChanges {
 
   @Input() user: User;
-  public isEdit = false;
-  public fields: IUserProfile;
 
   constructor(
     private $fb: FirebaseService,
@@ -34,47 +32,18 @@ export class BasicInfoComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (!!changes.user.currentValue) {
-      this.fields = { ...{}, ...changes.user.currentValue.profile };
-    }
+
   }
 
   public validator(input: string): boolean {
     return input.length > 0;
   }
 
-  public modifyField(key: string, value: string) {
-    this.fields[key] = value;
-  }
-
   public toggleEditDialog() {
-    this.$overlay.toggleDialog(new Dialog(EDialogProvider.UserProfileEdit,{
+    this.$overlay.toggleDialog(new Dialog(EDialogProvider.UserProfileEdit, {
       config: {
         profile: this.user.profile
       }
     }));
-  }
-
-  public submit() {
-    this.isEdit = false;
-    this.$fb.collection('users').update(this.user.profile.uid, this.fields)
-      .then(
-        res => {
-          const MESSAGE_OPTIONS: IMessagePopupOptions = {
-            alert: false,
-            message: EMessage.ModifiedSuccessfully
-          };
-          this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
-        }
-      )
-      .catch(
-        _ => {
-          const MESSAGE_OPTIONS: IMessagePopupOptions = {
-            alert: true,
-            message: EMessage.ModifiedFailed
-          };
-          this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
-        }
-      );
   }
 }

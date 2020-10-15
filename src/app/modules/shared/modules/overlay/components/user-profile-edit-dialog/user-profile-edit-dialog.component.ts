@@ -1,10 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessagePopup } from '@overlay/models/modal.model';
-import { FirebaseService } from '@services/firebase.service';
 import { OverlayService } from '@services/overlay.service';
-import { EMessage } from '@utilities/enums/overlay.enum';
-import { IDialogOptions, IMessagePopupOptions } from '@utilities/interfaces/overlay.interface';
+import { UserService } from '@user/services/user.service';
+import { IDialogOptions } from '@utilities/interfaces/overlay.interface';
 
 @Component({
   selector: 'app-user-profile-edit-dialog',
@@ -17,7 +15,7 @@ export class UserProfileEditDialogComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private $fb: FirebaseService,
+    private $user: UserService,
     private $overlay: OverlayService
   ) { }
 
@@ -25,7 +23,6 @@ export class UserProfileEditDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.initial();
-    console.log(this.options.config);
   }
 
   public getFieldInvalid(field: string) {
@@ -36,27 +33,7 @@ export class UserProfileEditDialogComponent implements OnInit {
   public submit() {
     this.profile.get('fullName').setValue(`${this.profile.get('firstName').value}${this.profile.get('lastName').value}`);
     this.$overlay.startLoading();
-    this.$fb.collection('users').update(this.options.config.profile.uid, this.profile.getRawValue())
-      .then(
-        res => {
-          this.$overlay.closeAll();
-          this.$overlay.finishLoading();
-          const MESSAGE_OPTIONS: IMessagePopupOptions = {
-            alert: false,
-            message: EMessage.ModifiedSuccessfully
-          };
-          this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
-        }
-      )
-      .catch(
-        _ => {
-          const MESSAGE_OPTIONS: IMessagePopupOptions = {
-            alert: true,
-            message: EMessage.ModifiedFailed
-          };
-          this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
-        }
-      );
+    this.$user.updateUserProfile(this.profile.getRawValue());
   }
 
   private initial() {

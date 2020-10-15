@@ -47,7 +47,8 @@
                 "Fields": {
                     "FirstName": "姓氏",
                     "LastName": "人名",
-                    "Address": "地址"
+                    "Address": "地址",
+                    "Gender": "性別"
                 }
             },
             "LearningDashboard": {
