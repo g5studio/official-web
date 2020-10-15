@@ -7,10 +7,10 @@ export class Modal {
         public provider: EModalProvider,
         public options?: IModalOptions
     ) {
-        this.initalModalOptions();
+        this.initialModalOptions();
     }
 
-    private initalModalOptions() {
+    private initialModalOptions() {
         this.options.size = this.options.size || EModalSize.Small;
     }
 }

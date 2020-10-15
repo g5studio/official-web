@@ -1,3 +1,3 @@
-<div *ngIf='this.$overlay.dialog$ | async as dialog' [ngSwitch]='dialog'>
-
+<div *ngIf='this.$overlay.dialog$ | async as dialog' [ngSwitch]='dialog.provider'>
+  <app-user-profile-edit-dialog [options] = "dialog.options" *ngSwitchCase="this.provider.UserProfileEdit"></app-user-profile-edit-dialog>
 </div>

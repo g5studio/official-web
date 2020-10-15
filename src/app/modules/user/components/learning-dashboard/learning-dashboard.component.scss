@@ -1,0 +1,49 @@
+@import "variables";
+@import "mixins";
+
+.LearningDashboard {
+    user-select: none;
+  &__Header {
+    display: flex;
+    border-bottom: 0.5px solid $menu-color;
+    padding: 0 1rem 1rem 1rem;
+    & > h1 {
+      display: flex;
+      align-items: baseline;
+      @include font-size("lg");
+      color: $white;
+      letter-spacing: 0.125rem;
+      em {
+        cursor: auto;
+        @include font-size("md");
+        margin-right: 0.5rem;
+      }
+    }
+    @include box-shadow($menu-color);
+  }
+  &__Lock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    // box-shadow: 0px 0px 3px 1px $black;
+    background-color: rgba($black, 0.5);
+    h1 {
+        color: $dark-gray-blue;
+        margin-bottom: 2.5rem;
+    }
+    em {
+        @include font-size('xxl');
+        color: $dark-gray-blue;
+        &:hover {
+            color: $chrome-yellow;
+        }
+    }
+  }
+}

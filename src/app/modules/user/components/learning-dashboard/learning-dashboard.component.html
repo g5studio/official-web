@@ -1,0 +1,19 @@
+<div *ngIf='this.$user.user$ | async as user' class="LearningDashboard">
+  <ng-container [ngSwitch]='user.profile?.identity'>
+    <ng-template *ngSwitchCase='this.identity.Guest' [ngTemplateOutlet]='tGuest'></ng-template>
+    <ng-template *ngSwitchCase='this.identity.Student' [ngTemplateOutlet]='tStudent'></ng-template>
+  </ng-container>
+</div>
+
+<ng-template #tGuest>
+  <div class="LearningDashboard__Lock">
+      <h1>{{"Pages.Profile.LearningDashboard.Guest" | translate}}</h1>
+    <em class="icon-lock"></em>
+  </div>
+</ng-template>
+
+<ng-template #tStudent>
+  <div class="LearningDashboard__Header">
+    <h1><em class="icon-portfolio"></em>{{"Pages.Profile.LearningDashboard.Student.Title" | translate}}</h1>
+  </div>
+</ng-template>

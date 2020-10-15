@@ -1,0 +1,57 @@
+<app-dialog>
+  <div class="UserProfileEdit" [formGroup]="this.profile">
+    <h1>{{"Pages.Profile.EditProfile.Title" | translate}}</h1>
+    <div class="UserProfileEdit__Container">
+      <ul>
+        <li class="row">
+          <div class="UserProfileEdit__Field col-md-6 col-12">
+            <p class="mb-2">{{"Pages.Profile.NickName.Field" | translate}}</p>
+            <input [class.invalid]="this.getFieldInvalid('nickName')" formControlName="nickName" type="text"
+              class="form-control">
+            <small *ngIf="this.getFieldInvalid('nickName')">
+              <em class="g5-font-rose-xs icon-alert_2 mr-1"></em>
+              <p class="g5-font-rose-xs">{{"Messages.Error.FieldRequired" | translate}}</p>
+            </small>
+          </div>
+        </li>
+        <li class="row">
+          <div class="UserProfileEdit__Field col-md-6 col-12 mb-3 mb-md-0">
+            <p class="mb-2">{{"Pages.Profile.UserProfile.Fields.FirstName" | translate}}</p>
+            <input [class.invalid]="this.getFieldInvalid('firstName')" formControlName="firstName" type="text"
+              class="form-control">
+            <small *ngIf="this.getFieldInvalid('firstName')">
+              <em class="g5-font-rose-xs icon-alert_2 mr-1"></em>
+              <p class="g5-font-rose-xs">{{"Messages.Error.FieldRequired" | translate}}</p>
+            </small>
+          </div>
+          <div class="UserProfileEdit__Field col-md-6 col-12">
+            <p class="mb-2">{{"Pages.Profile.UserProfile.Fields.LastName" | translate}}</p>
+            <input [class.invalid]="this.getFieldInvalid('lastName')" formControlName="lastName" type="text"
+              class="form-control">
+            <small *ngIf="this.getFieldInvalid('lastName')">
+              <em class="g5-font-rose-xs icon-alert_2 mr-1"></em>
+              <p class="g5-font-rose-xs">{{"Messages.Error.FieldRequired" | translate}}</p>
+            </small>
+          </div>
+        </li>
+        <li class="row">
+          <div class="UserProfileEdit__Field col-md-6 col-12 mb-3 mb-md-0">
+            <p class="mb-2">
+                {{"Pages.Profile.UserProfile.Fields.Address" | translate}}
+                <em class="g5-font-hint">- {{"Pages.Profile.EditProfile.Optional" | translate}}</em>
+            </p>
+            <input [class.invalid]="this.getFieldInvalid('address')" formControlName="address" type="text"
+              class="form-control">
+            <small *ngIf="this.getFieldInvalid('address')">
+              <em class="g5-font-rose-xs icon-alert_2 mr-1"></em>
+              <p class="g5-font-rose-xs">{{"Messages.Error.FieldRequired" | translate}}</p>
+            </small>
+          </div>
+        </li>
+      </ul>
+      <div class="UserProfileEdit__Button">
+        <button (click) = "this.submit()" [disabled] = "this.profile.invalid">{{"Pages.Profile.EditProfile.Submit" | translate}}</button>
+      </div>
+    </div>
+  </div>
+</app-dialog>

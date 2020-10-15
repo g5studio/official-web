@@ -30,6 +30,10 @@ export class User {
         }
     }
 
+    public refreshUserProfile(profile: any) {
+        this.profile = { ...this.profile, ...profile };
+    }
+
     private createProfileByUser() {
         this.profile.nickName = this.user.uid;
         this.profile.email = this.user.email;
