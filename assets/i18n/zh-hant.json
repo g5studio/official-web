@@ -47,8 +47,23 @@
                 "Fields": {
                     "FirstName": "姓氏",
                     "LastName": "人名",
-                    "Address": "地址"
+                    "Address": "地址",
+                    "Gender": "性別"
                 }
+            },
+            "LearningDashboard": {
+                "Guest": "升級帳號解鎖專屬功能",
+                "Student": {
+                    "Title": "學習狀況總覽"
+                }
+            },
+            "LearningProcess": {
+                "Title": "學習里程碑"
+            },
+            "EditProfile": {
+                "Title": "編輯個人資料",
+                "Submit": "送出",
+                "Optional": "選填"
             }
         }
     },
@@ -60,7 +75,8 @@
             "InvalidPassword": "密碼錯誤，請重新輸入。",
             "EmailUnverified": "信箱尚未完成驗證，請至註冊信箱啟用帳號。",
             "Unknow": "發生未知錯誤，請聯絡客服人員。",
-            "ModifiedFailed": "修改失敗，請重新操作。"
+            "ModifiedFailed": "修改失敗，請重新操作。",
+            "FieldRequired": "此欄位不得為空"
         },
         "System": {
             "VerificationLetterSent": "驗證信已發送，請到註冊信箱驗證後重新登入。",
