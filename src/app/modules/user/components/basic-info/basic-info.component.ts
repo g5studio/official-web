@@ -9,20 +9,23 @@ import { MessagePopup } from '@overlay/models/modal.model';
 import { error } from 'protractor';
 import { EIdentity } from '@utilities/enums/user.enum';
 import { Dialog } from '@overlay/models/dialog.model';
+import { ProfileOptions } from '@utilities/abstract/user-profile-options';
 
 @Component({
   selector: 'app-basic-info',
   templateUrl: './basic-info.component.html',
   styleUrls: ['./basic-info.component.scss']
 })
-export class BasicInfoComponent implements OnInit, OnChanges {
+export class BasicInfoComponent extends ProfileOptions implements OnInit, OnChanges {
 
   @Input() user: User;
 
   constructor(
     private $fb: FirebaseService,
     private $overlay: OverlayService
-  ) { }
+  ) { 
+    super();
+  }
 
   get isStudent() {
     return this.user.profile.identity === EIdentity.Student;

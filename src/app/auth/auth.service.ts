@@ -135,10 +135,8 @@ export class AuthService {
   private loginCallback(user: fb.User) {
     sessionStorage.setItem('uid', user.uid);
     this.$overlay.startLoading();
-    console.log('start')
     this.$firebase.document('users', user.uid).get().subscribe(
       userProfile => {
-        console.log('end')
         this.$overlay.finishLoading();
         this.setIdle();
         this.$user.inital(new User(userProfile.data(), user));

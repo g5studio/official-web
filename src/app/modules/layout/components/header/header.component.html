@@ -7,7 +7,7 @@
         <app-language-menu></app-language-menu>
         <app-menu-item (onclick)='this.$navigation.navigate(this.profile.path)' [size]='"xl"' [parms]='this.profile'>
             {{this.profile.i18n | translate}}</app-menu-item>
-        <button (click)='this.expand(tmenu)' class="Header__MenuIcon"><em class="icon-list"></em></button>
+        <button (click)='this.expand(tmenu, $event)' class="Header__MenuIcon"><em class="icon-list"></em></button>
     </div>
     <div [ngStyle]="{'visibility': this.isOpen ? 'visible' : 'hidden'}" class="Header__Menu">
         <div #tmenu>
