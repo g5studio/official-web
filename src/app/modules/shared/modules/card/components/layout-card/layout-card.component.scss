@@ -7,7 +7,7 @@
     flex-direction: column;
     width: 100%;
     &__Container {
-        // height: 100vh;
+        height: 100%;
         padding: 1rem 0;
         background-color: $layout-card-bg-color;
         border-radius: 1rem;
@@ -43,5 +43,6 @@
 
     &__Body {
         padding: 1rem 1rem 0 1rem;
+        height:  calc(100% - 2.375rem);
     }
 }

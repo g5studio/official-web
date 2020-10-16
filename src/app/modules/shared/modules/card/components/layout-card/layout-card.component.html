@@ -1,4 +1,4 @@
-<div class="LayoutCard">
+<div class="LayoutCard" [class.h-100]='this.fullHeight !== undefined'>
   <div class="LayoutCard__Container">
     <div *ngIf='this.hideHead === undefined' class="LayoutCard__Head">
       <ng-content></ng-content>

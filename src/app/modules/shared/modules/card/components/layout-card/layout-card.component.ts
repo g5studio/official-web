@@ -11,6 +11,7 @@ export class LayoutCardComponent implements OnInit {
 
   @Input() hideHead;
   @Input() linkPath;
+  @Input() fullHeight;
 
 
   constructor(

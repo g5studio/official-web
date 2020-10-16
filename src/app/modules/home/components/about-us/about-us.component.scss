@@ -3,20 +3,38 @@
 
 .AboutUs {
   padding: 0 1.5rem;
+  height: 100%;
   ul {
+    height: 100%;
     li {
+      display: flex;
+      align-items: center;
       & > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         width: 100%;
-        height: 8rem;
+        min-height: 8rem;
         @include border($link-water);
-        padding: 0.5rem;
+        padding: 0.5rem 1rem;
         h1 {
           @include font-size("md");
-          text-align: center;
+          text-align: right;
         }
 
         img {
-          width: 5rem;
+          width: 8rem;
+        }
+
+        & > div {
+          flex: 1;
+          height: 100%;
+          ul {
+            li {
+              display: flex;
+              justify-content: flex-end;
+            }
+          }
         }
       }
     }
