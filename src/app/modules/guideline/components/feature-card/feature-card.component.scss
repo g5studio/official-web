@@ -1,0 +1,14 @@
+@import "variables";
+@import "mixins";
+
+.FeatureCard {
+    cursor: pointer;
+    opacity: 0.6;
+    @include g5-modal();
+    padding: 0.5rem 1rem;
+    max-width: 10rem;
+    &:hover {
+        opacity: 1;
+        transition: 0.5s;
+    }
+}

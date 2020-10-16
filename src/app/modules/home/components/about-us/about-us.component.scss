@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixins";
+
+.AboutUs {
+  padding: 0 1.5rem;
+  ul {
+    li {
+      & > div {
+        width: 100%;
+        height: 8rem;
+        @include border($link-water);
+        padding: 0.5rem;
+        h1 {
+          @include font-size("md");
+          text-align: center;
+        }
+
+        img {
+          width: 5rem;
+        }
+      }
+    }
+  }
+
+  &__Tutor {
+    background-color: $logo-bg;
+  }
+
+  &__Case {
+  }
+}

@@ -1,0 +1,15 @@
+@import "variables";
+@import "mixins";
+
+.layout-page-title {
+  display: flex;
+  align-items: baseline;
+  @include font-size("lg");
+  color: $white;
+  letter-spacing: 0.125rem;
+  em {
+    cursor: auto;
+    @include font-size("md");
+    margin-right: 0.5rem;
+  }
+}

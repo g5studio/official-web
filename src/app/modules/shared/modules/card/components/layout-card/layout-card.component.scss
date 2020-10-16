@@ -16,6 +16,15 @@
     &__Head {
         border-bottom: 0.5px solid $menu-color;
         padding: 0 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        & > em {
+            &:hover {
+                color: $logo-bg;
+            }
+        }
         &::ng-deep > h1 {
             display: flex;
             align-items: baseline;
