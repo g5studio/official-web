@@ -11,6 +11,7 @@ import { ImageWaterMarkerComponent } from './components/image-water-marker/image
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagePopupComponent } from './components/message-popup/message-popup.component';
 import { ButtonComponent } from './components/button/button.component';
+import { DropdownModule } from './modules/dropdown/dropdown.module';
 
 
 
@@ -30,7 +31,8 @@ import { ButtonComponent } from './components/button/button.component';
     OverlayModule,
     CarouselModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DropdownModule
   ],
   exports: [
     TooltipDirective,
@@ -44,7 +46,8 @@ import { ButtonComponent } from './components/button/button.component';
     ReactiveFormsModule,
     ImageWaterMarkerComponent,
     MessagePopupComponent,
-    ButtonComponent
+    ButtonComponent,
+    DropdownModule
   ]
 })
 export class SharedModule { }

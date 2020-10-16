@@ -40,7 +40,7 @@
           <li>
             <p>{{"Pages.Profile.UserProfile.Fields.Gender" | translate}}</p>
             <span>
-              {{this.user.profile.gender || "-"}}
+              {{(this.genders[this.user.profile.gender] | translate)|| "-"}}
             </span>
           </li>
           <li>

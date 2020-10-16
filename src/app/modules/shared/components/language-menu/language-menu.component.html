@@ -1,5 +1,5 @@
 <div #tmenu class="LanguageMenu">
-    <button (click)='this.expand(this.tmenu)'>
+    <button (click)='this.expand(this.tmenu, $event)'>
         <em class="icon-language"></em>
     </button>
     <div *ngIf='this.isOpen' class="LanguageMenu__Container">

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OverlayService } from '@services/overlay.service';
 import { UserService } from '@user/services/user.service';
+import { EGender } from '@utilities/enums/user.enum';
 import { IDialogOptions } from '@utilities/interfaces/overlay.interface';
 
 @Component({
@@ -20,6 +21,20 @@ export class UserProfileEditDialogComponent implements OnInit {
   ) { }
 
   public profile: FormGroup;
+
+  get genders() {
+    return ["User.Field.Gender.Unknow", "User.Field.Gender.Male", "User.Field.Gender.Female"];
+  }
+
+  get gender() {
+    return this.profile.get('gender').value
+  }
+
+  set gender(value: any) {
+    this.profile.get('gender').setValue(value);
+  }
+
+  public test = 'test';
 
   ngOnInit(): void {
     this.initial();

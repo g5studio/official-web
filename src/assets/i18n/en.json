@@ -67,6 +67,15 @@
             }
         }
     },
+    "User": {
+        "Field": {
+            "Gender": {
+                "Unknow": "Unknow",
+                "Male": "Male",
+                "Female": "Female"
+            }
+        }
+    },
     "Messages": {
         "Error": {
             "Password": "The password has to be 8 to 20 characters, containing uppercase and lowercase letter, number and symbol (e.g. @, #, $, _ ).",
