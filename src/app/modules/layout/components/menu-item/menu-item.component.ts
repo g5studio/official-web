@@ -12,6 +12,7 @@ export class MenuItemComponent implements OnInit {
   @Input() size: 'lg' | 'xl' | 'xxl' = 'xl';
   @Input() parms: IMenuItemParms;
   @Input() disabledTooltip;
+  @Input() disabled = false;
   @Output() onclick: EventEmitter<string> = new EventEmitter();
 
   constructor(

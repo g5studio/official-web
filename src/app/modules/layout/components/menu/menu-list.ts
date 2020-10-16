@@ -7,11 +7,11 @@ export const MENU_LIST: IMenuItemParms[] = [
         icon: 'dashboard',
         i18n: 'Menu.Home'
     },
-    {
-        path: 'team',
-        icon: 'account1',
-        i18n: 'Menu.Team'
-    }
+    // {
+    //     path: 'team',
+    //     icon: 'account1',
+    //     i18n: 'Menu.Team'
+    // }
 ];
 
 export const MENU_SET: IMenuItemParms = {
