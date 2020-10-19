@@ -4,46 +4,34 @@
 .AboutUs {
   padding: 0 1.5rem;
   height: 100%;
-  ul {
-    height: 100%;
-    li {
-      display: flex;
-      align-items: center;
-      & > div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
-        min-height: 8rem;
-        @include border($link-water);
-        padding: 0.5rem 1rem;
-        h1 {
-          @include font-size("md");
-          text-align: right;
-        }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-        img {
-          width: 8rem;
-        }
+  &__Container {
+    @include border($white);
+    box-shadow: 0px 0px 3px 1px $white;
+  }
 
-        & > div {
-          flex: 1;
-          height: 100%;
-          ul {
-            li {
-              display: flex;
-              justify-content: flex-end;
-            }
-          }
-        }
-      }
+  &__Introduction {
+    display: none;
+  }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, "xl")) {
+  .AboutUs {
+    &__Container {
+      width: 25rem;
     }
   }
+}
 
-  &__Tutor {
-    background-color: $logo-bg;
-  }
-
-  &__Case {
+@media screen and (min-width: map-get($grid-breakpoints, "xxl")) {
+  .AboutUs {
+    &__Introduction {
+      flex: 1;
+      display: flex;
+      padding-left: 3.5rem;
+    }
   }
 }

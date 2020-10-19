@@ -11,6 +11,8 @@ export class CarouselComponent implements OnInit, OnDestroy {
   @Input() duration = 3000;
   @Input() isVertical = false;
   @Input() images = [];
+  @Input() hideControler = false;
+  @Input() hideBackground = false;
   @Input() opacity = 0;
 
   constructor() {

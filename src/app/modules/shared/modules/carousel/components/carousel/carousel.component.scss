@@ -56,6 +56,11 @@
     }
 }
 
+.no-bg {
+    background-color: inherit;
+    box-shadow: none;
+}
+
 .vertical {
     top: 0;
     bottom: auto;
@@ -72,20 +77,20 @@
 
 .sliding-out {
     animation-name: carousel-slide-left-out;
-    animation-duration: 1s;
+    animation-duration: 1.1s;
 }
 
 .sliding-in {
     animation-name: carousel-slide-left-in;
-    animation-duration: 1s;
+    animation-duration: 1.1s;
 }
 
 .sliding-vertical-out {
     animation-name: carousel-slide-down-out;
-    animation-duration: 1s;
+    animation-duration: 1.1s;
 }
 
 .sliding-vertical-in {
     animation-name: carousel-slide-down-in;
-    animation-duration: 1s;
+    animation-duration: 1.1s;
 }
