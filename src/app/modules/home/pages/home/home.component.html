@@ -16,8 +16,8 @@
     </app-layout-card>
   </div>
   <div class="col-12 col-md-6">
-    <app-layout-card fullHeight hideLink>
-      <h1><em class="icon-guidebook"></em>{{"Pages.Home.Outcome" | translate}}</h1>
+    <app-layout-card [linkPath] = "'/training/dashboard'" fullHeight hideLink>
+      <h1><em class="icon-guidebook"></em>{{"Pages.Home.Training" | translate}}</h1>
       <ng-container body>
         <app-outcome></app-outcome>
       </ng-container>

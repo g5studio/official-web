@@ -3,6 +3,7 @@
         "Home": "首頁",
         "Team": "團隊成員",
         "AboutUs": "簡介",
+        "Training": "培訓中心",
         "Setting": "設定",
         "Logout": "登出"
     },
@@ -33,6 +34,7 @@
             "Activity": "活動剪影",
             "News": "最新消息",
             "Outcome": "教學成果",
+            "Training": "培訓中心",
             "Aboutus": "工作室簡介"
         },
         "Guideline": {

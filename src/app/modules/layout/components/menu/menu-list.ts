@@ -11,6 +11,11 @@ export const MENU_LIST: IMenuItemParms[] = [
         path: 'guideline',
         icon: 'guide',
         i18n: 'Menu.AboutUs'
+    },
+    {
+        path: 'training',
+        icon: 'guidebook',
+        i18n: 'Menu.Training'
     }
     // {
     //     path: 'team',

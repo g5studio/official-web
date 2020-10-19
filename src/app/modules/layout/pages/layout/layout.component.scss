@@ -36,11 +36,12 @@
             height: 100%;
             background-color: $body-bg;
             border-top-left-radius: 24px;
-            padding: 1rem 0 0 1rem;
+            padding: 1rem 1rem 0 1rem;
         }
 
         &__Scroll {
             height: $page-height;
+            display: block;
             @include scroll();
         }
     }

@@ -13,6 +13,10 @@
     color: $white;
     white-space: nowrap;
     letter-spacing: 0.1rem;
+    max-width: 5rem;
+    &::ng-deep {
+        @include g5-outrange-hidden();
+    }
 }
 
 .top {
