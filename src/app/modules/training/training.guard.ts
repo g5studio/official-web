@@ -23,10 +23,7 @@ export class TrainingGuard implements CanActivate, CanActivateChild {
       take(1),
       map(
         user => {
-          if (!state.url.split('/')[2]) {
-            this.$navigation.navigate('/training/dashboard');
-          }
-          if (state.url !== '/training' && !state.url.includes('dashboard') && user.profile.identity !== EIdentity.Student) {
+          if (!state.url.includes('dashboard') && user.profile.identity !== EIdentity.Student) {
             return false;
           }
           return true;

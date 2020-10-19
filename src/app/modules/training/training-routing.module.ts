@@ -7,8 +7,10 @@ import { TrainingGuard } from './training.guard';
 const routes: Routes = [{
   path: '',
   canActivate: [TrainingGuard],
+  canActivateChild: [TrainingGuard],
   children: [
-    {path: 'dashboard', component: TrainingDashboardComponent}
+    { path: '', redirectTo: 'dashboard' },
+    { path: 'dashboard', component: TrainingDashboardComponent }
   ]
 }];
 

@@ -3,7 +3,7 @@
         "Home": "Home",
         "Team": "Member",
         "AboutUs": "About Us",
-        "Training": "Training Center",
+        "Training": "Training",
         "Setting": "Settings",
         "Logout": "Logout"
     },
@@ -33,7 +33,8 @@
         "Home": {
             "Activity": "Activities",
             "News": "Latest News",
-            "Outcome": "Teching Outcome",
+            "Outcome": "Outcome",
+            "Training": "Training Center",
             "Aboutus": "About Us"
         },
         "Guideline": {
