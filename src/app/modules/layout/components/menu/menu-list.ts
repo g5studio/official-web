@@ -7,6 +7,11 @@ export const MENU_LIST: IMenuItemParms[] = [
         icon: 'dashboard',
         i18n: 'Menu.Home'
     },
+    {
+        path: 'guideline',
+        icon: 'guide',
+        i18n: 'Menu.AboutUs'
+    }
     // {
     //     path: 'team',
     //     icon: 'account1',

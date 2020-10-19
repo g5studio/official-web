@@ -31,8 +31,8 @@ $xxl: 1.875rem;
 .g5-font-hint-sm {
     @include g5-font($sm, $gray, normal);
 }
-.g5-font-hint-xs {
-    @include g5-font($xs, $gray, normal);
+.g5-font-hint-xxs {
+    @include g5-font($xxs, $gray, normal);
 }
 .g5-font-hint {
     @include g5-font($xs, $gray, normal);

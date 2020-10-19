@@ -1,5 +1,6 @@
 import { IMenuItemParms } from '@utilities/interfaces/layout.interface';
 import { Component, OnInit, Input } from '@angular/core';
+import { NavigationService } from '@services/navigation.service';
 
 @Component({
   selector: 'app-layout-card',
@@ -9,8 +10,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LayoutCardComponent implements OnInit {
 
   @Input() hideHead;
+  @Input() linkPath;
+  @Input() fullHeight;
 
-  constructor() { }
+
+  constructor(
+    public $navigation: NavigationService
+  ) { }
 
   ngOnInit(): void {
   }

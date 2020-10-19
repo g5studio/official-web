@@ -1,0 +1,37 @@
+@import "variables";
+@import "mixins";
+
+.AboutUs {
+  padding: 0 1.5rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__Container {
+    @include border($white);
+    box-shadow: 0px 0px 3px 1px $white;
+  }
+
+  &__Introduction {
+    display: none;
+  }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, "xl")) {
+  .AboutUs {
+    &__Container {
+      width: 25rem;
+    }
+  }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, "xxl")) {
+  .AboutUs {
+    &__Introduction {
+      flex: 1;
+      display: flex;
+      padding-left: 3.5rem;
+    }
+  }
+}
