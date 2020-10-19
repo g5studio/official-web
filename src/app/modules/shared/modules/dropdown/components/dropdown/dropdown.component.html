@@ -1,0 +1,9 @@
+<div class="Dropdown">
+  <div #tDropdown (click)="this.expand(tDropdown, $event)" class="Dropdown__Container form-control">
+    <ng-content select="[selected]"></ng-content>
+    <em class="icon-down1"></em>
+  </div>
+  <div class="Dropdown__Menu" *ngIf='this.isOpen'>
+    <ng-content select="[menu]"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { GuidelineComponent } from './pages/guideline/guideline.component';
+
+
+const routes: Routes = [{
+  path: '',
+  children: [
+    {path: '', component: GuidelineComponent}
+  ]
+}];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class GuidelineRoutingModule { }

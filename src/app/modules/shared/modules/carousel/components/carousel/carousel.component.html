@@ -1,4 +1,4 @@
-<div class="Carousel">
+<div [class.no-bg]="this.hideBackground" class="Carousel">
     <div class="Carousel__Viewer">
         <img [ngClass]='{
             "sliding-out": this.isSliding && !this.isVertical,
@@ -9,7 +9,7 @@
             "sliding-vertical-in":  this.isSliding && this.isVertical
         }' src="{{this.slideQueue[1]}}" alt="">
     </div>
-    <div class="Carousel__Controler" [ngClass]='{"vertical": this.isVertical}'>
+    <div *ngIf='!this.hideControler' class="Carousel__Controler" [ngClass]='{"vertical": this.isVertical}'>
         <ng-container *ngFor='let image of this.images; let i = index;let last = last'>
             <input (change)='this.controlerOnChange(i)' [checked]='i === this.currentIndex' id="carousel-{{i}}"
                 name="carousel" type="radio">

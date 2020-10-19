@@ -8,10 +8,15 @@ export const MENU_LIST: IMenuItemParms[] = [
         i18n: 'Menu.Home'
     },
     {
-        path: 'team',
-        icon: 'account1',
-        i18n: 'Menu.Team'
+        path: 'guideline',
+        icon: 'guide',
+        i18n: 'Menu.AboutUs'
     }
+    // {
+    //     path: 'team',
+    //     icon: 'account1',
+    //     i18n: 'Menu.Team'
+    // }
 ];
 
 export const MENU_SET: IMenuItemParms = {

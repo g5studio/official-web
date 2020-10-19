@@ -1,5 +1,6 @@
 import { Injectable, ElementRef, forwardRef, Component, Provider } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { AbstractModal } from './modal';
 
 export function getNgModelProvider(component: any): Provider {
   return {
@@ -10,9 +11,10 @@ export function getNgModelProvider(component: any): Provider {
 }
 
 @Injectable()
-export abstract class AbstractNgModel implements ControlValueAccessor {
+export abstract class AbstractNgModel extends AbstractModal implements ControlValueAccessor {
 
   constructor() {
+    super();
   }
 
   public model;

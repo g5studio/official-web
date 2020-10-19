@@ -7,7 +7,7 @@
     flex-direction: column;
     width: 100%;
     &__Container {
-        // height: 100vh;
+        height: 100%;
         padding: 1rem 0;
         background-color: $layout-card-bg-color;
         border-radius: 1rem;
@@ -16,6 +16,15 @@
     &__Head {
         border-bottom: 0.5px solid $menu-color;
         padding: 0 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        & > em {
+            &:hover {
+                color: $logo-bg;
+            }
+        }
         &::ng-deep > h1 {
             display: flex;
             align-items: baseline;
@@ -28,11 +37,38 @@
                 margin-right: 0.5rem;
             }
         }
-
+        em {
+            @include font-size("md");
+        }
         @include box-shadow($menu-color);
     }
 
     &__Body {
         padding: 1rem 1rem 0 1rem;
+        height: calc(100% - 2.375rem);
+    }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, "xl")) {
+    .LayoutCard {
+        &__Head {
+            &::ng-deep > h1 {
+                @include font-size("xl");
+                em {
+                    @include font-size("lgx");
+                }
+            }
+            em {
+                @include font-size("lgx");
+            }
+        }
+
+        &__Body {
+            &::ng-deep {
+                p {
+                    @include font-size("lg");
+                }
+            }
+        }
     }
 }

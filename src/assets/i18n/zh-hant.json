@@ -2,6 +2,7 @@
     "Menu": {
         "Home": "首頁",
         "Team": "團隊成員",
+        "AboutUs": "簡介",
         "Setting": "設定",
         "Logout": "登出"
     },
@@ -29,7 +30,13 @@
             "Submit": "送出"
         },
         "Home": {
-            "Activity": "活動剪影"
+            "Activity": "活動剪影",
+            "News": "最新消息",
+            "Outcome": "教學成果",
+            "Aboutus": "工作室簡介"
+        },
+        "Guideline": {
+            "Introduction": "G5Studio™ 成立於2019年5月，核心成員多為現任或原知名外商工程師團隊組成，包含Google、FFN集團、Yahoo等。"
         },
         "Profile": {
             "NickName": {
@@ -64,6 +71,15 @@
                 "Title": "編輯個人資料",
                 "Submit": "送出",
                 "Optional": "選填"
+            }
+        }
+    },
+    "User": {
+        "Field": {
+            "Gender": {
+                "Unknow": "未知",
+                "Male": "男性",
+                "Female": "女性"
             }
         }
     },

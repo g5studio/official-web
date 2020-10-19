@@ -14,6 +14,7 @@ import { SingUpModalComponent } from './components/sing-up-modal/sing-up-modal.c
 import { UserProfileEditDialogComponent } from './components/user-profile-edit-dialog/user-profile-edit-dialog.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { LoadingComponent } from './pages/loading/loading.component';
+import { DropdownModule } from '../dropdown/dropdown.module';
 
 
 
@@ -38,7 +39,8 @@ import { LoadingComponent } from './pages/loading/loading.component';
     TranslateModule,
     ReactiveFormsModule,
     CommonModule,
-    CarouselModule
+    CarouselModule,
+    DropdownModule
   ]
 })
 export class OverlayModule { }

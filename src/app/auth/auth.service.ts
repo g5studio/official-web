@@ -51,8 +51,10 @@ export class AuthService {
   }
 
   public login({ email, password }): Promise<void> {
+    this.$overlay.startLoading();
     return this.$firebaseAuth.signInWithEmailAndPassword(email, password).then(
       res => {
+        this.$overlay.finishLoading();
         if (!res.user.emailVerified) {
           const MESSAGE_OPTIONS: IMessagePopupOptions = {
             alert: true,
@@ -65,6 +67,7 @@ export class AuthService {
       }
     ).catch(
       error => {
+        this.$overlay.finishLoading();
         const MESSAGE_OPTIONS: IMessagePopupOptions = {
           alert: true,
           message: this.getErrorMsg(error.code)
@@ -75,9 +78,11 @@ export class AuthService {
   }
 
   public signUpWithProvider(org = EUserProvider.Google): Promise<void> {
+    this.$overlay.startLoading();
     const provider = this.getSingInProvider(org);
     return this.$firebaseAuth.signInWithPopup(provider).then(
       res => {
+        this.$overlay.finishLoading();
         if (res.additionalUserInfo.isNewUser) {
           this.signUp(res.user, res.additionalUserInfo.profile, org);
         } else {
@@ -88,8 +93,10 @@ export class AuthService {
   }
 
   public signUpWithEmailAndPassword({ email, password }): Promise<void> {
+    this.$overlay.startLoading();
     return this.$firebaseAuth.createUserWithEmailAndPassword(email, password).then(
       res => {
+        this.$overlay.finishLoading();
         if (res.additionalUserInfo.isNewUser) {
           res.user.sendEmailVerification().then(
             _ => this.signUp(res.user, res.additionalUserInfo.profile)
@@ -127,8 +134,10 @@ export class AuthService {
 
   private loginCallback(user: fb.User) {
     sessionStorage.setItem('uid', user.uid);
+    this.$overlay.startLoading();
     this.$firebase.document('users', user.uid).get().subscribe(
       userProfile => {
+        this.$overlay.finishLoading();
         this.setIdle();
         this.$user.inital(new User(userProfile.data(), user));
         if (this.redirectUrl) {

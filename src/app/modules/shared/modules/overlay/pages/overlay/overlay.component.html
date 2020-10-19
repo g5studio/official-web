@@ -6,6 +6,6 @@
     <ng-container *ngSwitchCase='"dialog"'>
       <app-dialog-provider></app-dialog-provider>
     </ng-container>
-    <app-loading *ngIf="this.$overlay.loading$ | async as loading"></app-loading>
   </div>
 </div>
+<app-loading *ngIf="this.$overlay.loading$ | async as loading"></app-loading>
