@@ -51,6 +51,8 @@
     .NonAutoCarousel {
         &__Container {
             align-items: center;
+            min-width: 10rem !important;
+            max-width:  10rem !important;
         }
 
         &__Images {

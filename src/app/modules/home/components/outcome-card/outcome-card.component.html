@@ -1,0 +1,11 @@
+<div *ngIf="this.$window.device$ | async as device" class="OutcomeCard">
+    <div class="OutcomeCard__Preview">
+        <a (mouseenter)="this.path = this.gif" (mouseleave)="this.path = this.static" target="blank"
+            [href]=" this.link">
+            <img [src]=" device <= this.deviceType.Pad ? this.gif : this.path" alt="">
+        </a>
+    </div>
+    <div class="OutcomeCard__Introduction">
+        <ng-content></ng-content>
+    </div>
+</div>
