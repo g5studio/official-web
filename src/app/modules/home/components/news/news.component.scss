@@ -1,0 +1,13 @@
+@import "variables";
+@import "mixins";
+
+.News {
+    height: 100%;
+
+    &__Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20rem;
+    }
+}

@@ -84,15 +84,15 @@
   }
 
   100% {
-    opacity: 0;
-    transform: translate(-80%);
+    // opacity: 0;
+    transform: translate(-100%);
   }
 }
 
 @keyframes carousel-slide-left-in {
   0% {
     opacity: 0;
-    transform: translate(80%);
+    transform: translate(100%);
   }
 
   100% {
@@ -107,15 +107,15 @@
   }
 
   100% {
-    opacity: 0;
-    transform: translateY(4rem);
+    // opacity: 0;
+    transform: translateY(100%);
   }
 }
 
 @keyframes carousel-slide-down-in {
   0% {
     opacity: 0;
-    transform: translateY(-4rem);
+    transform: translateY(-100%);
   }
 
   100% {

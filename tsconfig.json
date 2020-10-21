@@ -19,6 +19,9 @@
       "@user/*": [
         "src/app/modules/user/*"
       ],
+      "@training/*": [
+        "src/app/modules/training/*"
+      ],
       "@overlay/*": [
         "src/app/modules/shared/modules/overlay/*"
       ],

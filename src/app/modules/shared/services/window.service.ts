@@ -47,6 +47,6 @@ export class WindowService {
   }
 
   private onDeviceChange(device: EDeviceType) {
-
+    // console.log(device)
   }
 }

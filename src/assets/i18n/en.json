@@ -3,6 +3,7 @@
         "Home": "Home",
         "Team": "Member",
         "AboutUs": "About Us",
+        "Training": "Training",
         "Setting": "Settings",
         "Logout": "Logout"
     },
@@ -32,8 +33,16 @@
         "Home": {
             "Activity": "Activities",
             "News": "Latest News",
-            "Outcome": "Teching Outcome",
-            "Aboutus": "About Us"
+            "Outcome": {
+                "Outcome": "Outcome",
+                "AngularNetflix": "Develop netflix offical web by Angular framework.",
+                "FirebaseDessert": "Develop dessert shop web , and deploy to firebase."
+            },
+            "Training": "Training Center",
+            "Aboutus": "About Us",
+            "Q&A": {
+                "Title": "Q&A"
+            }
         },
         "Guideline": {
             "Introduction": "G5Studio™ 成立於2019年5月，核心成員多為現任或原知名外商工程師團隊組成，包含Google、FFN集團、Yahoo等。"

@@ -1,3 +1,4 @@
+import { environment } from './../../../../../environments/environment';
 import { Modal } from '../../../shared/modules/overlay/models/modal.model';
 import { Component, OnInit } from '@angular/core';
 import { OverlayService } from '@services//overlay.service';
@@ -12,6 +13,8 @@ import { UserService } from '@user//services/user.service';
 export class HomeComponent implements OnInit {
 
   constructor() { }
+
+  public isDev = !environment.production;
 
 
 

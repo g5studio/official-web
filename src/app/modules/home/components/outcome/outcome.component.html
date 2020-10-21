@@ -1,1 +1,9 @@
-<p>outcome works!</p>
+<div class="Outcome">
+  <ul *ngIf='this.outcomes'>
+    <li *ngFor='let outcome of this.outcomes; let index = index'>
+      <app-outcome-card [reverse] = "index % 2 !== 0" [name]="outcome.name" [link]="outcome.link">
+        {{"Pages.Home.Outcome." + outcome.introduction | translate}}
+      </app-outcome-card>
+    </li>
+  </ul>
+</div>
