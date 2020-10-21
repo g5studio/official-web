@@ -13,18 +13,12 @@
         <app-layout-card [maxHeight]='15' fullHeight>
           <h1><em class="icon-guide"></em>{{"Pages.Home.Q&A.Title" | translate}}</h1>
           <ng-container body>
-            <ul>
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-            </ul>
+           <app-general-questions></app-general-questions>
           </ng-container>
         </app-layout-card>
       </div>
       <div class="col-12">
-        <app-layout-card fullHeight [maxHeight]='15' [linkPath]="'/guideline'">
+        <app-layout-card fullHeight [maxHeight]='15' [linkPath]="this.isDev ? '/guideline' : this.isDev">
           <h1><em class="icon-guide"></em>{{"Pages.Home.Aboutus" | translate}}</h1>
           <ng-container body>
             <app-about-us></app-about-us>
@@ -34,7 +28,7 @@
     </div>
   </div>
   <div class="col-12 col-md-6">
-    <app-layout-card [linkPath]="'/training/dashboard'" fullHeight hideLink>
+    <app-layout-card [linkPath]="this.isDev ? '/training/dashboard' : this.isDev" fullHeight hideLink>
       <h1><em class="icon-guidebook"></em>{{"Pages.Home.Training" | translate}}</h1>
       <ng-container body>
         <app-outcome></app-outcome>

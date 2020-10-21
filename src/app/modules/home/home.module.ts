@@ -9,6 +9,7 @@ import { NewsComponent } from './components/news/news.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { OutcomeComponent } from './components/outcome/outcome.component';
 import { OutcomeCardComponent } from './components/outcome-card/outcome-card.component';
+import { GeneralQuestionsComponent } from './components/general-questions/general-questions.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { OutcomeCardComponent } from './components/outcome-card/outcome-card.com
     NewsComponent,
     AboutUsComponent,
     OutcomeComponent,
-    OutcomeCardComponent
+    OutcomeCardComponent,
+    GeneralQuestionsComponent
   ],
   imports: [
     CommonModule,
