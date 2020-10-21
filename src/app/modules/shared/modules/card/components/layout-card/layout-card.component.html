@@ -1,10 +1,10 @@
-<div class="LayoutCard" [style.max-height]='this.maxHeight + "rem"' [class.h-100]='this.fullHeight !== undefined'>
+<div class="LayoutCard" [class.h-100]='this.fullHeight !== undefined'>
   <div class="LayoutCard__Container">
     <div *ngIf='this.hideHead === undefined' class="LayoutCard__Head">
       <ng-content></ng-content>
       <em (click)="this.$navigation.navigate(this.linkPath)" *ngIf='this.linkPath' class="icon-link"></em>
     </div>
-    <div class="LayoutCard__Body">
+    <div class="LayoutCard__Body" [style.max-height]='this.maxHeight + "rem"'>
       <ng-content select='[body]'></ng-content>
     </div>
   </div>

@@ -48,7 +48,10 @@
 }
 
 .reverse {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  .OutcomeCard__Introduction {
+    justify-content: flex-start;
+  }
 }
 
 @media screen and (max-width: map-get($grid-breakpoints, "xl")) {
@@ -75,6 +78,6 @@
   }
 
   .reverse {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
