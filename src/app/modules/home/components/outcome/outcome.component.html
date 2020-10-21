@@ -1,6 +1,6 @@
 <div class="Outcome">
     <ul *ngIf='this.outcomes'>
-        <li *ngFor='let outcome of this.outcomes'>
+        <li *ngFor='let outcome of this.outcomes; let index = index'>
             <app-outcome-card [name]="outcome.name" [link]="outcome.link">
                 <p>{{outcome.introduction}}</p>
             </app-outcome-card>
