@@ -1,4 +1,4 @@
-import { EModalSize, EModalProvider, EMessage } from './../enums/overlay.enum';
+import { EModalSize, EModalProvider, EMessage } from '@utilities/enums/overlay.enum';
 export interface IModalOptions {
     size?: EModalSize;
     hideClose?: boolean;
