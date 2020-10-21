@@ -2,46 +2,79 @@
 @import "mixins";
 
 .OutcomeCard {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 0px 3px 1px $white;
-    &__Preview {
-        flex: 2;
-        img {
-            border-radius: 3px;
-            width: 100%;
-            cursor: pointer;
-            opacity: 0.5;
-            &:hover {
-                opacity: 1;
-                transition: 0.5s;
-            }
-        }
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 0px 3px 1px $white;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+    transition: 0.5s;
+    p {
+      display: flex;
+      transition: 0.5s;
     }
 
-    &__Introduction {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding-left: 1rem;
-        background-color: $black;
+    h1 {
+      display: none;
+      transition: 0.5s;
     }
+  }
+  &__Preview {
+    flex: 2;
+    img {
+      border-radius: 3px;
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+
+  &__Introduction {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 1rem;
+    background-color: $black;
+    p {
+      display: none;
+      word-break: break-all;
+    }
+
+    h1 {
+      display: flex;
+    }
+  }
+}
+
+.reverse {
+    flex-direction: row-reverse;
 }
 
 @media screen and (max-width: map-get($grid-breakpoints, "xl")) {
-    .OutcomeCard {
-        flex-direction: column;
-        &__Preview {
-            img {
-                opacity: 1;
-            }
-        }
-
-        &__Introduction {
-            justify-content: center;
-            padding: 1rem;
-        }
+  .OutcomeCard {
+    opacity: 1;
+    p {
+      display: flex;
     }
+
+    h1 {
+      display: none;
+    }
+    flex-direction: column;
+    &__Preview {
+      img {
+        opacity: 1;
+      }
+    }
+
+    &__Introduction {
+      justify-content: center;
+      padding: 1rem;
+    }
+  }
+
+  .reverse {
+      flex-direction: column;
+  }
 }
