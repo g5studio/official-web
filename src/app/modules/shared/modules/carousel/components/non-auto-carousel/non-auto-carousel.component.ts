@@ -28,7 +28,7 @@ export class NonAutoCarouselComponent extends UnsubOndestroy implements OnInit {
 
   @HostListener('window: resize') OnResize() {
     if (this.$window.isMobile(this.device)) {
-      this.imgWidth = this.$window.windowWidth - (59.594 * 2);
+      this.imgWidth = 176;
     }
   }
 
@@ -85,7 +85,7 @@ export class NonAutoCarouselComponent extends UnsubOndestroy implements OnInit {
 
   private resizeToMobile() {
     this.show = 1;
-    this.imgWidth = this.$window.windowWidth - (59.594 * 2);
+    this.imgWidth = 176;
     this.offset = 0;
     this.index = 0;
   }

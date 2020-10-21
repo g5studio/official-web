@@ -33,9 +33,16 @@
         "Home": {
             "Activity": "活動剪影",
             "News": "最新消息",
-            "Outcome": "教學成果",
+            "Outcome": {
+                "Outcome": "成果展示",
+                "AngularNetflix": "前端中階課程作品﹐使用Angular框架開發Netflix官方網站。",
+                "FirebaseDessert": "前端中階課程作品，搭配Firebase開發甜點網站。"
+            },
             "Training": "培訓中心",
-            "Aboutus": "工作室簡介"
+            "Aboutus": "工作室簡介",
+            "Q&A": {
+                "Title": "常見問題"
+            }
         },
         "Guideline": {
             "Introduction": "G5Studio™ 成立於2019年5月，核心成員多為現任或原知名外商工程師團隊組成，包含Google、FFN集團、Yahoo等。"

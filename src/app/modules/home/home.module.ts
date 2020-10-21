@@ -8,6 +8,8 @@ import { ActivityComponent } from './components/activity/activity.component';
 import { NewsComponent } from './components/news/news.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { OutcomeComponent } from './components/outcome/outcome.component';
+import { OutcomeCardComponent } from './components/outcome-card/outcome-card.component';
+import { GeneralQuestionsComponent } from './components/general-questions/general-questions.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { OutcomeComponent } from './components/outcome/outcome.component';
     ActivityComponent,
     NewsComponent,
     AboutUsComponent,
-    OutcomeComponent
+    OutcomeComponent,
+    OutcomeCardComponent,
+    GeneralQuestionsComponent
   ],
   imports: [
     CommonModule,

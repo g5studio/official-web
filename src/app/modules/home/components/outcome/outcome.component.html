@@ -1,4 +1,9 @@
 <div class="Outcome">
-    <p>{{"Pages.Home.Outcome" | translate}}</p>
-    <a target="blank" href="https://kunyao-fu.github.io/angular-netflix/guest">netflix</a>
+  <ul *ngIf='this.outcomes'>
+    <li *ngFor='let outcome of this.outcomes; let index = index'>
+      <app-outcome-card [reverse] = "index % 2 !== 0" [name]="outcome.name" [link]="outcome.link">
+        {{"Pages.Home.Outcome." + outcome.introduction | translate}}
+      </app-outcome-card>
+    </li>
+  </ul>
 </div>
