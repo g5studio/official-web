@@ -32,7 +32,7 @@ export class AuthService {
         if (!!user && (user?.providerData[0].providerId !== 'password' || user?.emailVerified)) {
           this.loginCallback(user);
         } else {
-          this.logout();
+          // this.logout();
         }
       }
     );
@@ -47,7 +47,7 @@ export class AuthService {
   }
 
   get redirectUrl() {
-    return sessionStorage.getItem('redirectUrl');
+    return sessionStorage.getItem('redirectUrl') || '/';
   }
 
   public login({ email, password }): Promise<void> {
@@ -61,8 +61,6 @@ export class AuthService {
             message: EMessage.EmailUnverified
           };
           this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
-        } else {
-          this.redirectUrl = '/home';
         }
       }
     ).catch(
@@ -78,6 +76,7 @@ export class AuthService {
   }
 
   public signUpWithProvider(org = EUserProvider.Google): Promise<void> {
+    console.log('in')
     this.$overlay.startLoading();
     const provider = this.getSingInProvider(org);
     return this.$firebaseAuth.signInWithPopup(provider).then(
@@ -85,9 +84,16 @@ export class AuthService {
         this.$overlay.finishLoading();
         if (res.additionalUserInfo.isNewUser) {
           this.signUp(res.user, res.additionalUserInfo.profile, org);
-        } else {
-          this.redirectUrl = '/home';
         }
+      }
+    ).catch(
+      error => {
+        this.$overlay.finishLoading();
+        const MESSAGE_OPTIONS: IMessagePopupOptions = {
+          alert: true,
+          message: this.getErrorMsg(error.code)
+        };
+        this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
       }
     );
   }
