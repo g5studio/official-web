@@ -12,9 +12,9 @@
     animation-duration: 0.25s;
     position: relative;
     @include g5-modal();
-    // @include scroll();
+    @include scroll();
     height: 100%;
-    max-height: 100vh;
+    max-height: 90vh;
     width: 800px;
     em {
       position: absolute;
