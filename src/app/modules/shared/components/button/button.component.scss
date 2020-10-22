@@ -2,19 +2,26 @@
 @import "mixins";
 
 button {
-  color: $white;
-  @include border($white);
-  padding: 0.5rem 1rem;
-  width: max-content;
-  @include font-size("lg");
+  &::ng-deep {
+    color: $white;
+    @include border($white);
+    padding: 0.5rem 1rem;
+    width: max-content;
+    @include font-size("lg");
+  }
+
   &:hover {
-    border-color: $chrome-yellow;
-    color: $chrome-yellow;
+    &::ng-deep {
+      border-color: $chrome-yellow;
+      color: $chrome-yellow;
+    }
   }
 
   &:disabled {
-    border-color: $gray;
-    color: $gray;
-    cursor: not-allowed;
+    &::ng-deep {
+      border-color: $gray;
+      color: $gray;
+      cursor: not-allowed;
+    }
   }
 }

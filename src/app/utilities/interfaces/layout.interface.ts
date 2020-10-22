@@ -6,6 +6,7 @@ export interface IMenuItemParms {
     path: string;
     i18n: string;
     tooltip?: ToolTipPosition;
+    hide?: boolean;
 }
 
 export interface ILayoutCardParms {

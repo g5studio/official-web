@@ -10,6 +10,7 @@ import { NavigationService } from '@services/navigation.service';
 export class LayoutCardComponent implements OnInit {
 
   @Input() hideHead;
+  @Input() hideScroll;
   @Input() linkPath;
   @Input() fullHeight;
   @Input() maxHeight = 30;

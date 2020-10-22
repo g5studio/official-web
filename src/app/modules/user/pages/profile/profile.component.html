@@ -1,6 +1,6 @@
 <div class="Profile" *ngIf='this.$user.user$ | async as user'>
     <div class="col-12 col-md-6 mb-4 mb-md-0">
-        <app-layout-card hideHead>
+        <app-layout-card hideHead hideScroll [maxHeight]='0'>
             <ng-container body>
                 <div class="Profile__Basic">
                     <app-basic-info [user]='user'></app-basic-info>
@@ -9,7 +9,7 @@
         </app-layout-card>
     </div>
     <div class="col-12 col-md-6">
-        <app-layout-card hideHead>
+        <app-layout-card hideHead hideScroll [maxHeight]='0'>
             <ng-container body>
                 <div class="Profile__Dashboard">
                     <app-learning-dashboard></app-learning-dashboard>

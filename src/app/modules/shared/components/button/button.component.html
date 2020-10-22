@@ -1,1 +1,3 @@
-<button></button>
+<button [disabled]='this.disabled' (click)='this.clickEvent.emit()'>
+    <ng-content></ng-content>
+</button>
