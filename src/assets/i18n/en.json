@@ -35,8 +35,10 @@
             "News": "Latest News",
             "Outcome": {
                 "Outcome": "Outcome",
+                "More": "View More",
                 "AngularNetflix": "Develop netflix offical web by Angular framework.",
-                "FirebaseDessert": "Develop dessert shop web , and deploy to firebase."
+                "FirebaseDessert": "Develop dessert shop web , and deploy to firebase.",
+                "UnityJungle": "Develop 3D shooting game by Unity3D."
             },
             "Training": "Training Center",
             "Aboutus": "About Us",

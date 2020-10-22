@@ -1,9 +1,13 @@
 <div class="Outcome">
   <ul *ngIf='this.outcomes'>
     <li *ngFor='let outcome of this.outcomes; let index = index'>
-      <app-outcome-card [reverse] = "index % 2 !== 0" [name]="outcome.name" [link]="outcome.link">
+      <app-outcome-card [reverse]="index % 2 !== 0" [name]="outcome.name" [link]="outcome.link">
         {{"Pages.Home.Outcome." + outcome.introduction | translate}}
       </app-outcome-card>
     </li>
   </ul>
+  <div class="mt-4_2 d-flex justify-content-end">
+    <app-button [disbabled] = "this.isDev" (clickEvent)="this.$navigation.navigate('training')">{{"Pages.Home.Outcome.More" | translate}}
+    </app-button>
+  </div>
 </div>
