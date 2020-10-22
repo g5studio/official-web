@@ -4,7 +4,8 @@
       <ng-content></ng-content>
       <em (click)="this.$navigation.navigate(this.linkPath)" *ngIf='this.linkPath' class="icon-link"></em>
     </div>
-    <div class="LayoutCard__Body" [style.max-height]='this.maxHeight + "rem"'>
+    <div class="LayoutCard__Body" [style.overflow]='this.hideScroll === undefined ? "auto" : "hidden"'
+      [style.max-height]='this.maxHeight ?  this.maxHeight + "rem" : "none"'>
       <ng-content select='[body]'></ng-content>
     </div>
   </div>
