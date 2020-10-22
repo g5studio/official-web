@@ -20,6 +20,6 @@ export class LandingGuard implements CanActivate {
     if (this.$auth.isLogin) {
       this.$navigation.navigate('home');
     }
-    return true;
+    return !this.$auth.isLogin;
   }
 }
