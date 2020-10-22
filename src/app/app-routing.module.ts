@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorPageComponent } from './modules/layout/pages/error-page/error-page.component';
 import { AuthGuard } from './auth/auth.guard';
+import { LandingGuard } from './modules/landing/landing.guard';
 
 
 const routes: Routes = [
@@ -10,10 +11,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
     children: [
-      {
-        path: 'landing',
-        loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule)
-      },
       {
         path: 'home',
         loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
@@ -31,6 +28,11 @@ const routes: Routes = [
         loadChildren: () => import('./modules/training/training.module').then(m => m.TrainingModule)
       }
     ]
+  },
+  {
+    path: 'landing',
+    canActivate: [LandingGuard],
+    loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule)
   },
   { path: '404', component: ErrorPageComponent },
   { path: '**', redirectTo: '404' }
