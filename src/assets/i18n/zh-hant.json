@@ -4,6 +4,7 @@
         "Team": "團隊成員",
         "AboutUs": "簡介",
         "Training": "培訓中心",
+        "Enterprise": "商業中心",
         "Setting": "設定",
         "Logout": "登出"
     },
@@ -41,6 +42,9 @@
                 "UnityJungle": "Unity初階課程作品，3D動物射擊遊戲開發。"
             },
             "Training": "培訓中心",
+            "Business": {
+                "Title": "商業中心"
+            },
             "Aboutus": "工作室簡介",
             "Q&A": {
                 "Title": "常見問題",

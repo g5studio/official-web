@@ -1,6 +1,6 @@
 <div class="Home">
   <div class="col-12 mb-4">
-    <app-layout-card hideLink>
+    <app-layout-card>
       <h1><em class="icon-message"></em>{{"Pages.Home.News" | translate}}</h1>
       <ng-container body>
         <app-news></app-news>
@@ -13,7 +13,7 @@
         <app-layout-card [maxHeight]='15' fullHeight>
           <h1><em class="icon-library"></em>{{"Pages.Home.Q&A.Title" | translate}}</h1>
           <ng-container body>
-           <app-general-questions></app-general-questions>
+            <app-general-questions></app-general-questions>
           </ng-container>
         </app-layout-card>
       </div>
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="col-12 col-md-6">
-    <app-layout-card [linkPath]="this.isDev ? '/training/dashboard' : this.isDev" fullHeight hideLink>
+    <app-layout-card [linkPath]="this.isDev ? '/training' : this.isDev" fullHeight>
       <h1><em class="icon-guidebook"></em>{{"Pages.Home.Training" | translate}}</h1>
       <ng-container body>
         <app-outcome></app-outcome>
@@ -36,7 +36,15 @@
     </app-layout-card>
   </div>
   <div class="col-12 mt-4">
-    <app-layout-card hideLink>
+    <app-layout-card [linkPath]="this.isDev ? '/enterprise' : this.isDev">
+      <h1><em class="icon-exchange"></em>{{"Pages.Home.Business.Title" | translate}}</h1>
+      <ng-container body>
+        <app-business-center></app-business-center>
+      </ng-container>
+    </app-layout-card>
+  </div>
+  <div class="col-12 mt-4">
+    <app-layout-card>
       <h1><em class="icon-file9"></em>{{"Pages.Home.Activity" | translate}}</h1>
       <ng-container body>
         <app-activity></app-activity>

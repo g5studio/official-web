@@ -4,6 +4,7 @@
         "Team": "Member",
         "AboutUs": "About Us",
         "Training": "Training",
+        "Enterprise": "Enterprise",
         "Setting": "Settings",
         "Logout": "Logout"
     },
@@ -41,6 +42,9 @@
                 "UnityJungle": "Develop 3D shooting game by Unity3D."
             },
             "Training": "Training Center",
+            "Business": {
+                "Title": "Business Center"
+            },
             "Aboutus": "About Us",
             "Q&A": {
                 "Title": "Q&A",

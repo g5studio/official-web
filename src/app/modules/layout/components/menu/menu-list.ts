@@ -20,6 +20,12 @@ export const MENU_LIST: IMenuItemParms[] = [
         icon: 'guidebook',
         i18n: 'Menu.Training',
         hide: environment.production
+    },
+    {
+        path: 'enterprise',
+        icon: 'exchange',
+        i18n: 'Menu.Enterprise',
+        hide: environment.production
     }
     // {
     //     path: 'team',
