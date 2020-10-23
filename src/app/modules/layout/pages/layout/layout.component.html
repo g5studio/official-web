@@ -8,16 +8,11 @@
                 <app-menu [currentPath]='this.route'></app-menu>
             </div>
             <div class="Layout__Pages">
-                <div class="Layout__Pages__Container">
-                    <div class="Layout__Pages__Page">
-                        <div class="Layout__Pages__Scroll row">
-                            <ng-content></ng-content>
-                        </div>
+                <div class="Layout__Pages__Page">
+                    <div class="Layout__Pages__Scroll row">
+                        <ng-content></ng-content>
                     </div>
                 </div>
-                <!-- <div class="Layout__Footer">
-                    <app-footer></app-footer>
-                </div> -->
             </div>
         </div>
     </div>
