@@ -3,12 +3,6 @@
 
 .Guideline {
   height: 100%;
-  &__Container {
-    height: 100%;
-    background-color: $layout-card-bg-color;
-    border-radius: 1rem;
-  }
-
   &__Body {
     ul {
       margin-top: 3rem;

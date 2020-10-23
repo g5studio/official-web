@@ -1,5 +1,95 @@
 <div class="QA">
-    <div class="QA__Container">
-        <h1>{{"coming soon" | uppercase}}</h1>
+  <div class="QA__Container row">
+    <div class="col-12 mb-4_2">
+      <div class="row">
+        <h2 class="col-12">{{"Pages.Home.Q&A.Course" | translate}}</h2>
+        <div class="col-xl-6 col-12">
+          <ol>
+            <li>
+              <div class="QA__Question">
+                　<p>{{"Pages.Home.Q&A.Upgrade" | translate}}</p>
+                <em class="icon-question_cut"></em>
+              </div>
+            </li>
+            <li>
+              <div class="QA__Question">
+                <p>{{"Pages.Home.Q&A.TeachWay" | translate}}</p>
+                <em class="icon-question_cut"></em>
+              </div>
+            </li>
+            <li>
+              <div class="QA__Question">
+                <p>{{"Pages.Home.Q&A.NoExperence" | translate}}</p>
+                <em class="icon-question_cut"></em>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="col-xl-6 col-12">
+          <ol start="4">
+            <li>
+              <div class="QA__Question">
+                　<p>{{"Pages.Home.Q&A.Category" | translate}}</p>
+                <em class="icon-question_cut"></em>
+              </div>
+            </li>
+            <li>
+              <div class="QA__Question">
+                <p>{{"Pages.Home.Q&A.Charge" | translate}}</p>
+                <em class="icon-question_cut"></em>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
     </div>
+    <div class="col-12">
+      <div class="row">
+        <h2 class="col-12">{{"Pages.Home.Q&A.Enterprise" | translate}}</h2>
+        <div class="col-xl-6 col-12">
+          <ol>
+            <li>
+              <div class="QA__Question">
+                　<p>{{"Pages.Home.Q&A.OrderTalent" | translate}}</p>
+                <em class="icon-question_cut"></em>
+              </div>
+            </li>
+            <li>
+              <div class="QA__Question">
+                <p>{{"Pages.Home.Q&A.Training" | translate}}</p>
+                <em class="icon-question_cut"></em>
+              </div>
+            </li>
+            <li>
+              <div class="QA__Question">
+                <p>{{"Pages.Home.Q&A.Project" | translate}}</p>
+                <em class="icon-question_cut"></em>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="col-xl-6 col-12">
+          <ol start="4">
+            <li>
+              <div class="QA__Question">
+                　<p>{{"Pages.Home.Q&A.Advisor" | translate}}</p>
+                <em class="icon-question_cut"></em>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="this.$user.user$ | async as user" class="QA__Info">
+      <div>
+        <span class="mr-3 mt-3"><em class="icon-mail mr-1"></em> hr.g5studio@gmail.com</span>
+        <span class="mt-3"><em class="icon-phone mr-1"></em>(+886) 0975-087-863</span>
+      </div>
+      <a class="mt-3" [href]="this.getEmailTemplate(user)">
+        <app-button>
+          <p>{{"Pages.Home.Q&A.Others" | translate}}</p>
+        </app-button>
+      </a>
+    </div>
+  </div>
 </div>

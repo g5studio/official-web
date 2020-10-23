@@ -43,7 +43,19 @@
             "Training": "Training Center",
             "Aboutus": "About Us",
             "Q&A": {
-                "Title": "Q&A"
+                "Title": "Q&A",
+                "Course": "Courses Questions",
+                "Enterprise": "Enterprise Cooperation Questions",
+                "Category": "Courses Category",
+                "Charge": "Standard Charge",
+                "Upgrade": "Upgrade Account",
+                "TeachWay": "Teaching Methods",
+                "NoExperence": "None Experence",
+                "OrderTalent": "Ordering Tanlent",
+                "Training": "Enterprise Training",
+                "Project": "Project Case",
+                "Advisor": "Professional Advisor",
+                "Others": "Contact Us"
             }
         },
         "Guideline": {

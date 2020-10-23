@@ -43,7 +43,19 @@
             "Training": "培訓中心",
             "Aboutus": "工作室簡介",
             "Q&A": {
-                "Title": "常見問題"
+                "Title": "常見問題",
+                "Course": "教學課程",
+                "Enterprise": "企業合作",
+                "Charge": "收費方式",
+                "Category": "課程種類",
+                "Upgrade": "升級帳號",
+                "TeachWay": "授課方式",
+                "NoExperence": "初學者建議",
+                "OrderTalent": "人才訂製",
+                "Training": "企業培訓",
+                "Project": "專案委託",
+                "Advisor": "專業顧問",
+                "Others": "其他問題"
             }
         },
         "Guideline": {

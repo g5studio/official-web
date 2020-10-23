@@ -6,8 +6,93 @@
 
     &__Container {
         height: 100%;
-        display: flex;
-        justify-content: center;
+        padding: 0 1rem;
+        ol {
+            margin: 0;
+            margin-top: 0.25rem;
+            list-style: decimal;
+            list-style-position: inside;
+            @include font-size("md");
+            & > li {
+                &:not(:last-child) {
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+        h2 {
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid $white;
+        }
+    }
+
+    &__Question {
+        display: inline-flex;
+        flex-direction: row;
         align-items: center;
+        padding-left: 0.25rem;
+        em {
+            @include font-size("sm");
+            color: $dark-gray-blue;
+            margin-left: 0.5rem;
+            &:hover {
+                color: $logo-bg;
+            }
+        }
+    }
+
+    &__Info {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        a {
+            color: $white;
+            &:hover {
+                text-decoration: none;
+                color: $logo-bg;
+            }
+        }
+
+        & > div {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            flex-wrap: wrap;
+            span {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                @include font-size("xs");
+                p {
+                    margin: 0;
+                    margin-right: 0.25rem;
+                    @include font-size("xs");
+                }
+                em {
+                    @include font-size("md");
+                    cursor: auto;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "xl")) {
+    .QA {
+        &__Info {
+            & > div {
+                span {
+                    p {
+                        @include font-size("xxs");
+                    }
+                    em {
+                        @include font-size("xs");
+                    }
+                }
+            }
+        }
     }
 }
