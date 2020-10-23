@@ -59,7 +59,16 @@
             }
         },
         "Guideline": {
-            "Introduction": "G5Studio™ 成立於2019年5月，核心成員多為現任或原知名外商工程師團隊組成，包含Google、FFN集團、Yahoo等。"
+            "AboutUs": {
+                "Title": "About Us",
+                "Introduction": "G5Studio™ 成立於2019年5月，核心成員多為現任或原知名外商工程師團隊組成，包含Google、FFN集團、Yahoo等。"
+            },
+            "Feature": {
+                "Title": "Feature"
+            },
+            "Memorabilia": {
+                "Title": "Memorabilia"
+            }
         },
         "Profile": {
             "NickName": {
