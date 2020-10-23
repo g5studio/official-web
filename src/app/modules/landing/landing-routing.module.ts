@@ -6,11 +6,7 @@ import { LandingGuard } from './landing.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    canActivate: [LandingGuard],
-    children: [{
-      path: '', component: LandingComponent
-    }]
+    path: '', component: LandingComponent
   }
 ];
 
