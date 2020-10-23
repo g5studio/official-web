@@ -39,10 +39,12 @@
     p {
       display: none;
       word-break: break-all;
+      transition: 0.5s;
     }
 
     h1 {
       display: flex;
+      transition: 0.5s;
     }
   }
 }
