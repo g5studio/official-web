@@ -37,6 +37,7 @@
                 margin-right: 0.5rem;
             }
         }
+
         em {
             @include font-size("md");
         }
@@ -47,6 +48,15 @@
         padding: 1rem 1rem 0 1rem;
         height: calc(100% - 2.375rem);
         @include scroll();
+        &::ng-deep {
+            p {
+                @include font-size("sm");
+            }
+
+            h2 {
+                @include font-size("md");
+            }
+        }
     }
 }
 
@@ -66,8 +76,12 @@
 
         &__Body {
             &::ng-deep {
-                p {
+                h2 {
                     @include font-size("lg");
+                }
+
+                p {
+                    @include font-size("md");
                 }
             }
         }
