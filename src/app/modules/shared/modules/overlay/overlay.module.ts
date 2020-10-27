@@ -15,6 +15,15 @@ import { UserProfileEditDialogComponent } from './components/user-profile-edit-d
 import { DialogComponent } from './components/dialog/dialog.component';
 import { LoadingComponent } from './pages/loading/loading.component';
 import { DropdownModule } from '../dropdown/dropdown.module';
+import { QuestionUpgradeModalComponent } from './components/general-questions-modals/question-upgrade-modal/question-upgrade-modal.component';
+import { QuestionTeachModalComponent } from './components/general-questions-modals/question-teach-modal/question-teach-modal.component';
+import { QuestionNoexperienceModalComponent } from './components/general-questions-modals/question-noexperience-modal/question-noexperience-modal.component';
+import { QuestionCategoryModalComponent } from './components/general-questions-modals/question-category-modal/question-category-modal.component';
+import { QuestionChargeModalComponent } from './components/general-questions-modals/question-charge-modal/question-charge-modal.component';
+import { QuestionTalentOrderModalComponent } from './components/general-questions-modals/question-talent-order-modal/question-talent-order-modal.component';
+import { QuestionTrainingModalComponent } from './components/general-questions-modals/question-training-modal/question-training-modal.component';
+import { QuestionProjectModalComponent } from './components/general-questions-modals/question-project-modal/question-project-modal.component';
+import { QuestionAdvisorModalComponent } from './components/general-questions-modals/question-advisor-modal/question-advisor-modal.component';
 
 
 
@@ -31,6 +40,15 @@ import { DropdownModule } from '../dropdown/dropdown.module';
     UserProfileEditDialogComponent,
     DialogComponent,
     LoadingComponent,
+    QuestionUpgradeModalComponent,
+    QuestionTeachModalComponent,
+    QuestionNoexperienceModalComponent,
+    QuestionCategoryModalComponent,
+    QuestionChargeModalComponent,
+    QuestionTalentOrderModalComponent,
+    QuestionTrainingModalComponent,
+    QuestionProjectModalComponent,
+    QuestionAdvisorModalComponent,
   ],
   exports: [
     OverlayComponent,

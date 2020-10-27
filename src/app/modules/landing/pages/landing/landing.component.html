@@ -1,6 +1,6 @@
 <div class="Landing">
     <div class="Landing__Navbar">
-        <button (click)='this.toggleLoginModal()' class="mr-2">{{"Pages.Landing.Login" | translate}}</button>
+        <button (click)='this.toggleLoginModal($event)' class="mr-2">{{"Pages.Landing.Login" | translate}}</button>
         <app-language-menu></app-language-menu>
     </div>
     <div class="Landing__Logo" [ngClass]='{"landing-logo-rotate": this.rotationStart}'>
@@ -13,7 +13,7 @@
             <app-carousel [opacity]="0.3" [isVertical]='this.isVertical' [images]='this.introductions'></app-carousel>
         </div>
         <button class="Landing__Login" [ngClass]='{"landing-start": this.rotationEnd}'
-            (click)='this.toggleSingupModal()'>{{"Pages.Landing.Start" | translate}}</button>
+            (click)='this.toggleSingupModal($event)'>{{"Pages.Landing.Start" | translate}}</button>
     </div>
 </div>
 

@@ -22,3 +22,15 @@ export class MessagePopup {
 
     }
 }
+
+export enum EGeneralQuestionModalType {
+    Upgrade = 1,
+    Teach,
+    NoneExperience,
+    Category,
+    Charge,
+    TalentOrder,
+    Training,
+    Project,
+    Advisor
+}
