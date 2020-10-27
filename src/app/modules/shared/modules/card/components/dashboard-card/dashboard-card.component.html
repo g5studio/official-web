@@ -1,3 +1,8 @@
 <div class="DashboardCard">
-    <ng-content></ng-content>
+    <div class="DashboardCard__Header">
+        <ng-content></ng-content>
+    </div>
+    <div class="DashboardCard__Body">
+        <ng-content select="[body]"></ng-content>
+    </div>
 </div>

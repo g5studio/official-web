@@ -1,8 +1,12 @@
 <div class="BusinessCenter">
     <div class="BusinessCenter__Container row">
-        <div class="col-md-4 col-12">
+        <div class="col-xl-4 col-md-6 col-12">
             <app-dashboard-card>
-                <h2>test</h2>
+                <h2>人才庫存量</h2>
+                <canvas body baseChart [chartType]="this.stock.type" [data]="this.stock.data"
+                    [labels]="this.stock.labels" [options]="this.stock.options" [legend]="true"
+                    (chartClick)="onChartClick($event)" [colors] = "this.stock.colors">
+                </canvas>
             </app-dashboard-card>
         </div>
     </div>

@@ -1,9 +1,10 @@
+import { ThemeService } from 'ng2-charts';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { LanguageService } from '@services//language.service';
 import { WindowService } from '@services//window.service';
 import { NavigationService } from '@services//navigation.service';
-import { FirebaseService } from '@services//firebase.service';
 import { AuthService } from './auth/auth.service';
+import { ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent implements OnInit {
     private $language: LanguageService,
     private $window: WindowService,
     public $navigation: NavigationService,
-    private $firebase: FirebaseService,
+    private $theme: ThemeService,
     public $auth: AuthService
   ) {
     this.$language.inital();
@@ -27,6 +28,26 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initial();
+  }
 
+  private initial() {
+    const ChartStyles: ChartOptions = {
+      legend: {
+        labels: { fontColor: 'white' }
+      },
+      responsive: true,
+      plugins: {
+        datalabels: {
+          labels: {
+            fontColor: {
+              color: 'white'
+            }
+          },
+          // formatter: (value) => `${this.roundDecimal(value / this.info.totalAvailable * 100, 2)}%`
+        },
+      }
+    };
+    this.$theme.setColorschemesOptions(ChartStyles);
   }
 }
