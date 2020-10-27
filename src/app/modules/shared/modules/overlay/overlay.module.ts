@@ -24,6 +24,7 @@ import { QuestionTalentOrderModalComponent } from './components/general-question
 import { QuestionTrainingModalComponent } from './components/general-questions-modals/question-training-modal/question-training-modal.component';
 import { QuestionProjectModalComponent } from './components/general-questions-modals/question-project-modal/question-project-modal.component';
 import { QuestionAdvisorModalComponent } from './components/general-questions-modals/question-advisor-modal/question-advisor-modal.component';
+import { GeneralQuestionModalComponent } from './components/general-questions-modals/general-question-modal/general-question-modal.component';
 
 
 
@@ -49,6 +50,7 @@ import { QuestionAdvisorModalComponent } from './components/general-questions-mo
     QuestionTrainingModalComponent,
     QuestionProjectModalComponent,
     QuestionAdvisorModalComponent,
+    GeneralQuestionModalComponent,
   ],
   exports: [
     OverlayComponent,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Modal } from '@overlay/models/modal.model';
 
 @Component({
   selector: 'app-question-charge-modal',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-charge-modal.component.scss']
 })
 export class QuestionChargeModalComponent implements OnInit {
-
+  @Input() modal: Modal;
   constructor() { }
 
   ngOnInit(): void {

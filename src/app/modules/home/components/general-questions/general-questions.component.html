@@ -8,19 +8,19 @@
             <li>
               <div class="QA__Question">
                 　<p>{{"Pages.Home.Q&A.Upgrade" | translate}}</p>
-                <em class="icon-question_cut"></em>
+                <em (click)="this.toggleModal(this.modalType.Upgrade, $event)" class="icon-question_cut"></em>
               </div>
             </li>
             <li>
               <div class="QA__Question">
                 <p>{{"Pages.Home.Q&A.TeachWay" | translate}}</p>
-                <em class="icon-question_cut"></em>
+                <em (click)="this.toggleModal(this.modalType.Teach, $event)" class="icon-question_cut"></em>
               </div>
             </li>
             <li>
               <div class="QA__Question">
                 <p>{{"Pages.Home.Q&A.NoExperience" | translate}}</p>
-                <em class="icon-question_cut"></em>
+                <em (click)="this.toggleModal(this.modalType.NoneExperience, $event)" class="icon-question_cut"></em>
               </div>
             </li>
           </ol>
@@ -30,13 +30,13 @@
             <li>
               <div class="QA__Question">
                 　<p>{{"Pages.Home.Q&A.Category" | translate}}</p>
-                <em class="icon-question_cut"></em>
+                <em (click)="this.toggleModal(this.modalType.Category, $event)" class="icon-question_cut"></em>
               </div>
             </li>
             <li>
               <div class="QA__Question">
                 <p>{{"Pages.Home.Q&A.Charge" | translate}}</p>
-                <em class="icon-question_cut"></em>
+                <em (click)="this.toggleModal(this.modalType.Charge, $event)" class="icon-question_cut"></em>
               </div>
             </li>
           </ol>
@@ -51,19 +51,19 @@
             <li>
               <div class="QA__Question">
                 　<p>{{"Pages.Home.Q&A.OrderTalent" | translate}}</p>
-                <em class="icon-question_cut"></em>
+                <em (click)="this.toggleModal(this.modalType.TalentOrder, $event)" class="icon-question_cut"></em>
               </div>
             </li>
             <li>
               <div class="QA__Question">
                 <p>{{"Pages.Home.Q&A.Training" | translate}}</p>
-                <em class="icon-question_cut"></em>
+                <em (click)="this.toggleModal(this.modalType.Training, $event)" class="icon-question_cut"></em>
               </div>
             </li>
             <li>
               <div class="QA__Question">
                 <p>{{"Pages.Home.Q&A.Project" | translate}}</p>
-                <em class="icon-question_cut"></em>
+                <em (click)="this.toggleModal(this.modalType.Project, $event)" class="icon-question_cut"></em>
               </div>
             </li>
           </ol>
@@ -73,7 +73,7 @@
             <li>
               <div class="QA__Question">
                 　<p>{{"Pages.Home.Q&A.Advisor" | translate}}</p>
-                <em class="icon-question_cut"></em>
+                <em (click)="this.toggleModal(this.modalType.Advisor, $event)" class="icon-question_cut"></em>
               </div>
             </li>
           </ol>
