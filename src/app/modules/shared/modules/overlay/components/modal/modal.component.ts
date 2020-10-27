@@ -32,7 +32,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   private clickEvent(click: MouseEvent) {
     if (!this.tmodal.nativeElement.contains(click.target)) {
-      this.$overlay.closeAll();
+      this.$overlay.closeAll(click);
     }
   }
 

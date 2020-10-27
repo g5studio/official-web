@@ -64,7 +64,7 @@ export class UserService {
             }
           );
       }
-    )
+    );
   }
 
   public refreshUser() {
@@ -85,7 +85,7 @@ export class UserService {
         this.user.next(user);
         this.$overlay.finishLoading();
       }
-    )
+    );
   }
 
   private firstLoginPopup() {

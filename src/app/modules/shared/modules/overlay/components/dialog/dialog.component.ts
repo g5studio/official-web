@@ -16,7 +16,7 @@ export class DialogComponent implements OnInit, OnDestroy {
     hideClose: false,
     disabledOutsideClose: false,
     hideBackground: false
-  }
+  };
 
   constructor(
     public $overlay: OverlayService
@@ -32,7 +32,7 @@ export class DialogComponent implements OnInit, OnDestroy {
 
   private clickEvent(click: MouseEvent) {
     if (!this.dialog.nativeElement.contains(click.target)) {
-      this.$overlay.closeAll();
+      this.$overlay.closeAll(click);
     }
   }
 

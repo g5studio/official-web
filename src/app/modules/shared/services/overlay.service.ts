@@ -36,19 +36,19 @@ export class OverlayService {
     startWith(false)
   );
 
-  public toggleModal(modal: Modal) {
+  public toggleModal(modal: Modal, event?: MouseEvent) {
     event?.stopPropagation();
     this.modal.next(modal);
     this.overlay.next(EOverlayType.Modal);
   }
 
-  public toggleDialog(dialog: Dialog) {
+  public toggleDialog(dialog: Dialog, event?: MouseEvent) {
     event?.stopPropagation();
     this.dialog.next(dialog);
     this.overlay.next(EOverlayType.Dialog);
   }
 
-  public closeAll() {
+  public closeAll(event?: MouseEvent) {
     event?.stopPropagation();
     this.onClose.next();
     this.overlay.next(EOverlayType.Close);
