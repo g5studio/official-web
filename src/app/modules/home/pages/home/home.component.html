@@ -36,7 +36,7 @@
     </app-layout-card>
   </div>
   <div class="col-12 mt-4">
-    <app-layout-card [linkPath]="this.isDev ? '/enterprise' : this.isDev">
+    <app-layout-card fullHeight [linkPath]="this.isDev ? '/enterprise' : this.isDev">
       <h1><em class="icon-exchange"></em>{{"Pages.Home.Business.Title" | translate}}</h1>
       <ng-container body>
         <app-business-center></app-business-center>

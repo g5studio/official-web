@@ -55,6 +55,7 @@
 
             h2 {
                 @include font-size("md");
+                margin: 0;
             }
         }
     }
