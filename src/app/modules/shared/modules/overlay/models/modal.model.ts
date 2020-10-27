@@ -5,7 +5,8 @@ export class Modal {
 
     constructor(
         public provider: EModalProvider,
-        public options?: IModalOptions
+        public options?: IModalOptions,
+        public config?: any
     ) {
         this.initialModalOptions();
     }
@@ -23,14 +24,3 @@ export class MessagePopup {
     }
 }
 
-export enum EGeneralQuestionModalType {
-    Upgrade = 1,
-    Teach,
-    NoneExperience,
-    Category,
-    Charge,
-    TalentOrder,
-    Training,
-    Project,
-    Advisor
-}

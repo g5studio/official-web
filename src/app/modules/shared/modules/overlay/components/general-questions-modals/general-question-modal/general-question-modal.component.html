@@ -1,0 +1,19 @@
+<ng-container [ngSwitch]='this.modal.config.type'>
+    <app-question-upgrade-modal [modal]="this.modal" *ngSwitchCase="this.questionType.Upgrade">
+    </app-question-upgrade-modal>
+    <app-question-teach-modal [modal]="this.modal" *ngSwitchCase="this.questionType.Teach"></app-question-teach-modal>
+    <app-question-noexperience-modal [modal]="this.modal" *ngSwitchCase="this.questionType.NoneExperience">
+    </app-question-noexperience-modal>
+    <app-question-category-modal [modal]="this.modal" *ngSwitchCase="this.questionType.Category">
+    </app-question-category-modal>
+    <app-question-charge-modal [modal]="this.modal" *ngSwitchCase="this.questionType.Charge">
+    </app-question-charge-modal>
+    <app-question-talent-order-modal [modal]="this.modal" *ngSwitchCase="this.questionType.TalentOrder">
+    </app-question-talent-order-modal>
+    <app-question-training-modal [modal]="this.modal" *ngSwitchCase="this.questionType.Training">
+    </app-question-training-modal>
+    <app-question-project-modal [modal]="this.modal" *ngSwitchCase="this.questionType.Project">
+    </app-question-project-modal>
+    <app-question-advisor-modal [modal]="this.modal" *ngSwitchCase="this.questionType.Advisor">
+    </app-question-advisor-modal>
+</ng-container>

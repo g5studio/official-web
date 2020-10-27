@@ -8,6 +8,7 @@ export enum EModalProvider {
     Introduction = 1,
     Album,
     Login,
+    GeneralQuestion,
     Singup
 }
 
@@ -38,5 +39,18 @@ export enum EMessage {
     ModifiedSuccessfully = 'Messages.System.ModifiedSuccessfully',
     ModifiedFailed = 'Messages.Error.ModifiedFailed'
 }
+
+export enum EGeneralQuestionModalType {
+    Upgrade = 1,
+    Teach,
+    NoneExperience,
+    Category,
+    Charge,
+    TalentOrder,
+    Training,
+    Project,
+    Advisor
+}
+
 
 
