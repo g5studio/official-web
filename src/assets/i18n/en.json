@@ -43,7 +43,19 @@
             },
             "Training": "Training Center",
             "Business": {
-                "Title": "Business Center"
+                "Title": "Business Center",
+                "Hot": {
+                    "Title": "Hot Talent"
+                },
+                "Store": {
+                    "Title": "Current Talent"
+                },
+                "AverageCost": {
+                    "Title": "Average Cost"
+                },
+                "Portfolio": {
+                    "Title": "Portfolio"
+                }
             },
             "Aboutus": "About Us",
             "Q&A": {

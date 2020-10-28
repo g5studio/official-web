@@ -6,7 +6,7 @@
                     <app-dashboard-card>
                         <span class="d-flex flex-row align-items-baseline">
                             <em class="icon-star-outline mr-2"></em>
-                            <h2>熱門精選</h2>
+                            <h2>{{"Pages.Home.Business.Hot.Title" | translate}}</h2>
                         </span>
                         <canvas body baseChart [chartType]="this.stock.type" [data]="this.stock.data"
                             [labels]="this.stock.labels" [options]="this.stock.options" [legend]="true"
@@ -18,7 +18,7 @@
                     <app-dashboard-card>
                         <span class="d-flex flex-row align-items-baseline">
                             <em class="icon-file3 mr-2"></em>
-                            <h2>人才儲備</h2>
+                            <h2>{{"Pages.Home.Business.Store.Title" | translate}}</h2>
                         </span>
                         <canvas body baseChart [chartType]="this.stock.type" [data]="this.stock.data"
                             [labels]="this.stock.labels" [options]="this.stock.options" [legend]="true"
@@ -26,16 +26,17 @@
                         </canvas>
                     </app-dashboard-card>
                 </div>
-                <div class="col-xl-4 col-12  mb-md-0 mb-4_2 mb-xl-4_2">
+                <div class="col-xl-4 col-12  mt-md-0 mt-4_2">
                     <app-dashboard-card>
                         <span class="d-flex flex-row align-items-baseline">
                             <em class="icon-analysis mr-2"></em>
-                            <h2>平均成交價</h2>
+                            <h2>{{"Pages.Home.Business.AverageCost.Title" | translate}}</h2>
                         </span>
-                        <canvas body baseChart [chartType]="this.stock.type" [data]="this.stock.data"
-                            [labels]="this.stock.labels" [options]="this.stock.options" [legend]="true"
-                            (chartClick)="onChartClick($event)" [colors]="this.stock.colors">
+                        <canvas body baseChart [chartType]="this.hot.type" [datasets]="this.hot.datasets"
+                            [labels]="this.hot.labels" [options]="this.hot.options" [legend]="true"
+                            (chartClick)="onChartClick($event)">
                         </canvas>
+
                     </app-dashboard-card>
                 </div>
             </div>
@@ -44,7 +45,7 @@
             <app-dashboard-card>
                 <span class="d-flex flex-row align-items-baseline">
                     <em class="icon-infobox mr-2"></em>
-                    <h2>近期作品</h2>
+                    <h2>{{"Pages.Home.Business.Portfolio.Title" | translate}}</h2>
                 </span>
                 <div body class="w-100">
                     <div class="row">
@@ -53,17 +54,24 @@
                             </app-outcome-card>
                             <p class="text-center">Blackhole 黑洞創造有限公司</p>
                         </div>
-                        <div class="col-12 col-xl-6  mb-4_2 portfolio-card">
+                        <div class="col-12 col-xl-6 mb-4_2  portfolio-card">
+                            <app-outcome-card hideIntro [name]="'mysmartadvisor'"
+                                [link]="'https://www.mysmartadvisor.com/'">
+                            </app-outcome-card>
+                            <p class="text-center">MySmartAdvisor™</p>
+                        </div>
+                        <div class="col-12 col-xl-6 mb-4_2 mb-xl-0  portfolio-card">
+                            <app-outcome-card fullHeight hideIntro [name]="'cams'" [link]="'https://new.cams.com/'">
+                            </app-outcome-card>
+                            <p class="text-center">CAMS</p>
+                        </div>
+                        <div class="col-12 col-xl-6 portfolio-card">
                             <app-outcome-card hideIntro [name]="'lightlife'"
                                 [link]="'https://g5studio.github.io/light-life/'">
                             </app-outcome-card>
                             <p class="text-center">Light Life 健身平台</p>
                         </div>
-                        <div class="col-12 col-xl-6 mb-4_2 mb-xl-0 portfolio-card">
-                            <app-outcome-card hideIntro [name]="'mysmartadvisor'" [link]="'https://mysmartadvisor.com/'">
-                            </app-outcome-card>
-                            <p class="text-center">MySmartAdvisor™</p>
-                        </div>
+
                     </div>
                 </div>
             </app-dashboard-card>

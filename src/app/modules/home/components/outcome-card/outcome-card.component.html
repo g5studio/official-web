@@ -1,5 +1,5 @@
 <div (mouseenter)="this.path = this.gif" (mouseleave)="this.path = this.static"
-  *ngIf="this.$window.device$ | async as device" [class.reverse] = "this.reverse" class="OutcomeCard">
+  *ngIf="this.$window.device$ | async as device" [class.reverse] = "this.reverse" class="OutcomeCard" [class.h-100] = "this.fullHeight !== undefined">
   <div class="OutcomeCard__Preview">
     <a target="blank" [href]=" this.link">
       <img [src]=" device <= this.deviceType.Pad ? this.gif : this.path" alt="">
