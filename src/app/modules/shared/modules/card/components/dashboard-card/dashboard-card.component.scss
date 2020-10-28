@@ -10,6 +10,10 @@
     box-shadow: 0px 0px 3px 1px $white;
     &__Body {
         padding: 1rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     &__Header {
         padding: 1rem;
@@ -17,9 +21,22 @@
     }
 
     &::ng-deep {
+        em {
+            @include font-size("lg");
+        }
         h2 {
-            text-align: center;
+            text-align: left;
             width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
+    .DashboardCard {
+        &::ng-deep {
+            em {
+                @include font-size("md");
+            }
         }
     }
 }

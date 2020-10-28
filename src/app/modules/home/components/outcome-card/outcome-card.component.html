@@ -5,7 +5,7 @@
       <img [src]=" device <= this.deviceType.Pad ? this.gif : this.path" alt="">
     </a>
   </div>
-  <div class="OutcomeCard__Introduction">
+  <div *ngIf = "this.hideIntro === undefined" class="OutcomeCard__Introduction">
     <h1>{{"Pages.Home.Outcome.Outcome" | translate}}</h1>
     <p>
       <ng-content></ng-content>
