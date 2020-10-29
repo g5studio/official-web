@@ -10,14 +10,35 @@
 .portfolio-card {
     position: relative;
     p {
-        @include font-size('lg');
+        @include font-size("lg");
         width: calc(100% - 1.5rem);
         position: absolute;
         bottom: 0;
         padding: 1rem 0;
         left: 0.75rem;
-        z-index: map-get($layout-level, 'cover');
+        z-index: map-get($layout-level, "cover");
         background-color: rgba($black, 0.8);
         pointer-events: none;
+    }
+}
+
+.tip {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
+    .BusinessCenter {
+        &__Container {
+            padding: 0.125rem 0rem;
+        }
+    }
+
+    .portfolio-card {
+        p {
+            @include font-size("sm");
+            padding: 0.5rem 0;
+        }
     }
 }

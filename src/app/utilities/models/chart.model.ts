@@ -2,8 +2,9 @@ import { ChartData, ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 export class PieChart {
-
-    public colors = [{ backgroundColor: this.background }];
+    public colors = [{
+        backgroundColor: this.background
+    }];
     public type: ChartType = 'pie';
     public plugins = [pluginDataLabels];
     constructor(
@@ -13,11 +14,6 @@ export class PieChart {
         public options: ChartOptions = { plugins: {} },
     ) {
         this.options.plugins.datalabels = {
-            labels: {
-                fontColor: {
-                    color: 'white'
-                }
-            },
             formatter: (value) => `${this.roundDecimal(value / this.data.reduce((sum, next) => sum + next, 0) * 100, 2)}%`
         };
     }
@@ -39,10 +35,8 @@ export class PieChart {
     }
 }
 
-export class LineChart {
-
-    public type: ChartType = 'line';
-
+export class BarChart {
+    public type: ChartType = 'bar';
     constructor(
         public datasets: ChartDataSets[],
         public labels: string[],
@@ -50,17 +44,29 @@ export class LineChart {
     ) {
         this.options = {
             responsive: true,
+            legend: {
+                labels: {
+                    fontSize: 12,
+                    boxWidth: 13,
+                    padding: 16
+                },
+                position: 'right',
+                align: 'end'
+            },
+            tooltips: {
+                enabled: false
+            },
             scales: {
                 yAxes: [{
                     gridLines: {
                         display: false,
                         drawBorder: false,
+                        color: '#fff',
                     },
                     ticks: {
                         fontColor: '#fff',
                         min: 0,
-                        max: 100,
-                        stepSize: 20
+                        stepSize: 1
                     }
                 }],
                 xAxes: [{
@@ -73,30 +79,87 @@ export class LineChart {
                     },
                     offset: true
                 }]
+            },
+            plugins: {
+                datalabels: {
+                    // display: false,
+                },
             }
         };
-        this.datasets = [{
-            label: 'My First dataset',
-            data: [50, 60, 70, 38, 25],
-            fill: false,
-            borderColor: '#ef951b',
-            pointBackgroundColor: '#ef951b',
-            pointBorderWidth: 0,
-            pointHoverBackgroundColor: '#ef951b',
-            hoverBackgroundColor: '#ef951b',
-        }, {
-            label: 'My Second dataset',
-            fill: false,
-            borderColor: '#cd264f',
-            pointBackgroundColor: '#cd264f',
-            pointBorderWidth: 0,
-            pointHoverBackgroundColor: '#cd264f',
-            hoverBackgroundColor: '#cd264f',
-            data: [18, 33, 22, 19, 11, 39, 30],
-        }];
     }
 
     public setOptions(options: ChartOptions) {
         this.options = { ...this.options, ...options };
+    }
+
+    public setStepSize(size: number) {
+        this.options.scales.ticks.stepSize = size;
+    }
+}
+
+export class LineChart {
+    public type: ChartType = 'line';
+    constructor(
+        public datasets: ChartDataSets[],
+        public labels: string[],
+        public options: ChartOptions = { plugins: {}, scales: {} },
+    ) {
+        this.options = {
+            responsive: true,
+            legend: {
+                labels: {
+                    fontSize: 12,
+                    boxWidth: 13,
+                    padding: 16
+                },
+                position: 'right',
+                align: 'end'
+            },
+            scales: {
+                yAxes: [{
+                    gridLines: {
+                        display: false,
+                        drawBorder: false,
+                    },
+                    ticks: {
+                        fontColor: '#fff',
+                        min: 0,
+                        max: 100,
+                        stepSize: 20,
+                        beginAtZero: true
+                    }
+                }],
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                        drawBorder: false,
+                    },
+                    ticks: {
+                        fontColor: '#fff',
+                    },
+                    offset: true
+                }]
+            },
+            plugins: {
+                datalabels: {
+                    display: false,
+                },
+            }
+        };
+    }
+
+    public setOptions(options: ChartOptions) {
+        this.options = { ...this.options, ...options };
+    }
+
+    public setTitle(title: string) {
+        this.options.title = {
+            display: true,
+            text: title,
+            position: 'top',
+            fontSize: 16,
+            fontStyle: 'normal',
+            fontColor: '#fff'
+        };
     }
 }

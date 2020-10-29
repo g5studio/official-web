@@ -51,7 +51,8 @@
                     "Title": "Current Talent"
                 },
                 "AverageCost": {
-                    "Title": "Average Cost"
+                    "Title": "Average Annual Salary",
+                    "Unit": "unit: 10k"
                 },
                 "Portfolio": {
                     "Title": "Portfolio"

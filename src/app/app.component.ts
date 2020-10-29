@@ -44,7 +44,6 @@ export class AppComponent implements OnInit {
               color: 'white'
             }
           },
-          // formatter: (value) => `${this.roundDecimal(value / this.info.totalAvailable * 100, 2)}%`
         },
       }
     };

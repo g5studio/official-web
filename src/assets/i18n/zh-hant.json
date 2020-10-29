@@ -51,7 +51,8 @@
                     "Title": "現有人才"
                 },
                 "AverageCost": {
-                    "Title": "平均成交價"
+                    "Title": "平均年薪",
+                    "Unit": "單位: 萬"
                 },
                 "Portfolio": {
                     "Title": "近期作品"
