@@ -5,7 +5,8 @@ export class Modal {
 
     constructor(
         public provider: EModalProvider,
-        public options?: IModalOptions
+        public options?: IModalOptions,
+        public config?: any
     ) {
         this.initialModalOptions();
     }
@@ -22,3 +23,4 @@ export class MessagePopup {
 
     }
 }
+

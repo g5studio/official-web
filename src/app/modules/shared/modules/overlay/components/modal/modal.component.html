@@ -1,6 +1,6 @@
 <div #tmodal class="Modal {{this.options.size}}">
     <div class="Modal__Container" [ngClass]='{"hidebg": this.options.hideBackground}'>
         <ng-content></ng-content>
-        <em (click)='this.$overlay.closeAll()' *ngIf='!this.options.hideClose' class="icon-close"></em>
+        <em (click)='this.$overlay.closeAll($event)' *ngIf='!this.options.hideClose' class="icon-close"></em>
     </div>
 </div>

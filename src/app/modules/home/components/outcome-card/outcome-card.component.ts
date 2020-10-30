@@ -11,7 +11,9 @@ export class OutcomeCardComponent implements OnInit, OnChanges {
 
   @Input() name: string;
   @Input() link: string;
-  @Input() reverse: boolean = false;
+  @Input() reverse = false;
+  @Input() hideIntro;
+  @Input() fullHeight;
   constructor(
     public $window: WindowService
   ) { }

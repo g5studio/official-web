@@ -2,6 +2,8 @@
     <app-introduction-modal [modal]='modal' *ngSwitchCase='modalProvider.Introduction'></app-introduction-modal>
     <app-non-auto-carousel-modal [modal]='modal' *ngSwitchCase='modalProvider.Album'>
     </app-non-auto-carousel-modal>
+    <app-general-question-modal [modal]="modal" *ngSwitchCase='modalProvider.GeneralQuestion'>
+    </app-general-question-modal>
     <app-login-modal [modal]='modal' *ngSwitchCase='modalProvider.Login'></app-login-modal>
     <app-sing-up-modal [modal]='modal' *ngSwitchCase='modalProvider.Singup'></app-sing-up-modal>
 </div>

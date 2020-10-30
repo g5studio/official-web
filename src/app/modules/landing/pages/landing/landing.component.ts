@@ -53,21 +53,21 @@ export class LandingComponent extends UnsubOndestroy implements OnInit {
     );
   }
 
-  public toggleLoginModal() {
+  public toggleLoginModal(event: MouseEvent) {
     this.$overlay.toggleModal(
       new Modal(EModalProvider.Login, {
         size: EModalSize.Large,
         hideClose: true,
-      })
+      }), event
     );
   }
 
-  public toggleSingupModal() {
+  public toggleSingupModal(event: MouseEvent) {
     this.$overlay.toggleModal(
       new Modal(EModalProvider.Singup, {
         size: EModalSize.Large,
         hideClose: true,
-      })
+      }), event
     );
   }
 

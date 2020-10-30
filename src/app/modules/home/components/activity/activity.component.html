@@ -1,12 +1,12 @@
 <div class="Activity">
     <div class="Activity__Container">
         <ul>
-            <li (click)='this.toggleAlbumModal(this.configs.speechs.images)'>
+            <li (click)='this.toggleAlbumModal(this.configs.speechs.images, $event)'>
                 <app-image-water-marker [url]='this.configs.speechs.index'>
                     {{"Images.Speech.2019" | translate : {location: "台中高工"} }}
                 </app-image-water-marker>
             </li>
-            <li (click)='this.toggleAlbumModal(this.configs.unity.images)'>
+            <li (click)='this.toggleAlbumModal(this.configs.unity.images, $event)'>
                 <app-image-water-marker [url]='this.configs.unity.index'>
                     {{"Images.Group.2019" | translate : {location: "NTUT", type: "Unity"} }}
                 </app-image-water-marker>

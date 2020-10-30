@@ -40,14 +40,15 @@ export class ActivityComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public toggleAlbumModal(images) {
+  public toggleAlbumModal(images, event: MouseEvent) {
     this.$overlay.toggleModal(
       new Modal(EModalProvider.Album, {
         size: EModalSize.Large,
         hideBackground: true,
         hideClose: true,
         config: { images }
-      })
+      }),
+      event
     );
   }
 

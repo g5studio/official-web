@@ -23,7 +23,7 @@ export class BasicInfoComponent extends ProfileOptions implements OnInit, OnChan
   constructor(
     private $fb: FirebaseService,
     private $overlay: OverlayService
-  ) { 
+  ) {
     super();
   }
 
@@ -42,11 +42,13 @@ export class BasicInfoComponent extends ProfileOptions implements OnInit, OnChan
     return input.length > 0;
   }
 
-  public toggleEditDialog() {
+  public toggleEditDialog(event: MouseEvent) {
     this.$overlay.toggleDialog(new Dialog(EDialogProvider.UserProfileEdit, {
       config: {
         profile: this.user.profile
       }
-    }));
+    }),
+      event
+    );
   }
 }

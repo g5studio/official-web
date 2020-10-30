@@ -10,6 +10,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { OutcomeComponent } from './components/outcome/outcome.component';
 import { OutcomeCardComponent } from './components/outcome-card/outcome-card.component';
 import { GeneralQuestionsComponent } from './components/general-questions/general-questions.component';
+import { BusinessCenterComponent } from './components/business-center/business-center.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { GeneralQuestionsComponent } from './components/general-questions/genera
     AboutUsComponent,
     OutcomeComponent,
     OutcomeCardComponent,
-    GeneralQuestionsComponent
+    GeneralQuestionsComponent,
+    BusinessCenterComponent
   ],
   imports: [
     CommonModule,

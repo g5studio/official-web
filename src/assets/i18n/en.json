@@ -4,6 +4,7 @@
         "Team": "Member",
         "AboutUs": "About Us",
         "Training": "Training",
+        "Enterprise": "Enterprise",
         "Setting": "Settings",
         "Logout": "Logout"
     },
@@ -41,6 +42,22 @@
                 "UnityJungle": "Develop 3D shooting game by Unity3D."
             },
             "Training": "Training Center",
+            "Business": {
+                "Title": "Business Center",
+                "Hot": {
+                    "Title": "Hot Talent"
+                },
+                "Store": {
+                    "Title": "Current Talent"
+                },
+                "AverageCost": {
+                    "Title": "Average Annual Salary",
+                    "Unit": "unit: 10k"
+                },
+                "Portfolio": {
+                    "Title": "Portfolio"
+                }
+            },
             "Aboutus": "About Us",
             "Q&A": {
                 "Title": "Q&A",
@@ -50,7 +67,7 @@
                 "Charge": "Standard Charge",
                 "Upgrade": "Upgrade Account",
                 "TeachWay": "Teaching Methods",
-                "NoExperence": "None Experence",
+                "NoExperience": "None Experience",
                 "OrderTalent": "Ordering Tanlent",
                 "Training": "Enterprise Training",
                 "Project": "Project Case",
@@ -59,7 +76,16 @@
             }
         },
         "Guideline": {
-            "Introduction": "G5Studio™ 成立於2019年5月，核心成員多為現任或原知名外商工程師團隊組成，包含Google、FFN集團、Yahoo等。"
+            "AboutUs": {
+                "Title": "About Us",
+                "Introduction": "G5Studio™ 成立於2019年5月，核心成員多為現任或原知名外商工程師團隊組成，包含Google、FFN集團、Yahoo等。"
+            },
+            "Feature": {
+                "Title": "Feature"
+            },
+            "Memorabilia": {
+                "Title": "Memorabilia"
+            }
         },
         "Profile": {
             "NickName": {
