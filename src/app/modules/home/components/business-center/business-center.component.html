@@ -1,1 +1,121 @@
-<p>business-center works!</p>
+<div *ngIf="this.$window.device$ | async as device" class="BusinessCenter">
+    <div class="BusinessCenter__Container row">
+        <div class="col-12 mb-xxl-0 mb-4_2" *ngIf="!this.$window.isMobile(device)">
+            <div class="row">
+                <ng-container *ngIf="this.$window.windowWidth >= 1024 else tCol12;">
+                    <div class="col-md-6 col-xxl-4 col-12 mb-4_2">
+                        <app-dashboard-card>
+                            <span class="d-flex flex-row align-items-baseline">
+                                <em class="icon-star-outline mr-2"></em>
+                                <h2>{{"Pages.Home.Business.Hot.Title" | translate}}</h2>
+                            </span>
+                            <div body class="w-100">
+                                <canvas *ngIf="this.hotTalent" baseChart [chartType]="'doughnut'"
+                                    [data]="this.hotTalent.data" [labels]="this.hotTalent.labels"
+                                    [options]="this.hotTalent.options" [legend]="true"
+                                    (chartClick)="onChartClick($event)" [colors]="this.hotTalent.colors">
+                                </canvas>
+                            </div>
+                        </app-dashboard-card>
+                    </div>
+                    <div class="col-md-6 col-xxl-4 col-12">
+                        <app-dashboard-card>
+                            <span class="d-flex flex-row align-items-baseline">
+                                <em class="icon-file3 mr-2"></em>
+                                <h2>{{"Pages.Home.Business.Store.Title" | translate}}</h2>
+                            </span>
+                            <div class="w-100" body>
+                                <canvas *ngIf="this.currentTalent" baseChart [chartType]="this.currentTalent.type"
+                                    [datasets]="this.currentTalent.datasets" [options]="this.currentTalent.options"
+                                    [legend]="true" (chartClick)="onChartClick($event)">
+                                </canvas>
+                            </div>
+                        </app-dashboard-card>
+                    </div>
+                </ng-container>
+                <ng-template #tCol12>
+                    <div class="col-12 mb-4_2">
+                        <app-dashboard-card>
+                            <span class="d-flex flex-row align-items-baseline">
+                                <em class="icon-star-outline mr-2"></em>
+                                <h2>{{"Pages.Home.Business.Hot.Title" | translate}}</h2>
+                            </span>
+                            <div body class="w-100">
+                                <canvas *ngIf="this.hotTalent" baseChart [chartType]="'doughnut'"
+                                    [data]="this.hotTalent.data" [labels]="this.hotTalent.labels"
+                                    [options]="this.hotTalent.options" [legend]="true"
+                                    (chartClick)="onChartClick($event)" [colors]="this.hotTalent.colors">
+                                </canvas>
+                            </div>
+                        </app-dashboard-card>
+                    </div>
+                    <div class="col-12 mb-4_2">
+                        <app-dashboard-card>
+                            <span class="d-flex flex-row align-items-baseline">
+                                <em class="icon-file3 mr-2"></em>
+                                <h2>{{"Pages.Home.Business.Store.Title" | translate}}</h2>
+                            </span>
+                            <div class="w-100" body>
+                                <canvas *ngIf="this.currentTalent" baseChart [chartType]="this.currentTalent.type"
+                                    [datasets]="this.currentTalent.datasets" [options]="this.currentTalent.options"
+                                    [legend]="true" (chartClick)="onChartClick($event)">
+                                </canvas>
+                            </div>
+                        </app-dashboard-card>
+                    </div>
+                </ng-template>
+                <div class="col-xxl-4 col-12  mt-md-0 mt-4_2">
+                    <app-dashboard-card>
+                        <span class="d-flex flex-row align-items-baseline">
+                            <em class="icon-analysis mr-2"></em>
+                            <h2>{{"Pages.Home.Business.AverageCost.Title" | translate}}</h2>
+                        </span>
+                        <div class="w-100 position-relative" body>
+                            <canvas *ngIf="this.averageCost" baseChart [chartType]="this.averageCost.type"
+                                [datasets]="this.averageCost.datasets" [labels]="this.averageCost.labels"
+                                [options]="this.averageCost.options" [legend]="true"
+                                (chartClick)="onChartClick($event)">
+                            </canvas>
+                            <p class="g5-font-hint-xxs tip">{{"Pages.Home.Business.AverageCost.Unit" | translate}}</p>
+                        </div>
+                    </app-dashboard-card>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <app-dashboard-card>
+                <span class="d-flex flex-row align-items-baseline">
+                    <em class="icon-infobox mr-2"></em>
+                    <h2>{{"Pages.Home.Business.Portfolio.Title" | translate}}</h2>
+                </span>
+                <div body class="w-100">
+                    <div class="row">
+                        <div class="col-12 col-xl-6 mb-4_2 portfolio-card">
+                            <app-outcome-card hideIntro [name]="'black_hole'" [link]="'http://bkhole.com/'">
+                            </app-outcome-card>
+                            <p class="text-center">Blackhole 黑洞創造有限公司</p>
+                        </div>
+                        <div class="col-12 col-xl-6 mb-4_2  portfolio-card">
+                            <app-outcome-card hideIntro [name]="'mysmartadvisor'"
+                                [link]="'https://www.mysmartadvisor.com/'">
+                            </app-outcome-card>
+                            <p class="text-center">MySmartAdvisor™</p>
+                        </div>
+                        <div class="col-12 col-xl-6 mb-4_2 mb-xl-0  portfolio-card">
+                            <app-outcome-card fullHeight hideIntro [name]="'cams'" [link]="'https://new.cams.com/'">
+                            </app-outcome-card>
+                            <p class="text-center">CAMS</p>
+                        </div>
+                        <div class="col-12 col-xl-6 portfolio-card">
+                            <app-outcome-card hideIntro [name]="'lightlife'"
+                                [link]="'https://g5studio.github.io/light-life/'">
+                            </app-outcome-card>
+                            <p class="text-center">Light Life 健身平台</p>
+                        </div>
+
+                    </div>
+                </div>
+            </app-dashboard-card>
+        </div>
+    </div>
+</div>

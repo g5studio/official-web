@@ -23,9 +23,10 @@ export enum EDialogProvider {
 }
 
 export enum EDeviceType {
-    Desktop = 1920,
-    Pad = 1200,
-    Mobile = 767
+    Large = 1920,
+    Desktop = 1200,
+    Pad = 767,
+    Mobile = 1
 }
 
 export enum EMessage {

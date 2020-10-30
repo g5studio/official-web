@@ -1,8 +1,5 @@
-import { EDeviceType } from './../../../../../../utilities/enums/overlay.enum';
 import { Modal } from './../../models/modal.model';
 import { Component, OnInit, Input } from '@angular/core';
-import { IModalOptions } from '@utilities/interfaces/overlay.interface';
-import { EModalSize } from '@utilities/enums/overlay.enum';
 import { WindowService } from '@services//window.service';
 
 @Component({

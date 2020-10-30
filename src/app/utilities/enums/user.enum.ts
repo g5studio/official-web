@@ -17,3 +17,11 @@ export enum EGender {
     Male,
     Female
 }
+
+export enum ECategory {
+    Frontend = 1,
+    Backend,
+    Java,
+    Unity,
+    Python
+}

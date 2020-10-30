@@ -22,7 +22,7 @@ export class WindowService {
     tap((device) => this.onDeviceChange(device))
   );
 
-  public isDestop(device: EDeviceType) {
+  public isDesktop(device: EDeviceType) {
     return device === EDeviceType.Desktop;
   }
 
@@ -37,9 +37,11 @@ export class WindowService {
 
 
   public resize() {
-    if (this.windowWidth > EDeviceType.Pad) {
+    if (this.windowWidth > EDeviceType.Large) {
+      this.device.next(EDeviceType.Large);
+    } else if (this.windowWidth > EDeviceType.Desktop) {
       this.device.next(EDeviceType.Desktop);
-    } else if (this.windowWidth > EDeviceType.Mobile) {
+    } else if (this.windowWidth > EDeviceType.Pad) {
       this.device.next(EDeviceType.Pad);
     } else {
       this.device.next(EDeviceType.Mobile);
