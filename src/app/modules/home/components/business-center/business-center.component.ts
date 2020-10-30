@@ -27,7 +27,7 @@ export class BusinessCenterComponent extends UnsubOndestroy implements OnInit {
   public averageCost: LineChart;
   public currentTalent: BarChart;
 
-  private theme = {
+  public theme = {
     frontend: '#cd264f',
     backend: '#ef951b',
     java: '#ffe205',
@@ -81,29 +81,39 @@ export class BusinessCenterComponent extends UnsubOndestroy implements OnInit {
         label: 'Frontend',
         data: [students.frontend.length],
         fill: false,
+        borderColor: '#fff',
+        borderWidth: 1,
         backgroundColor: this.theme.frontend,
         hoverBackgroundColor: this.theme.frontend,
       }, {
         label: 'Backend',
         fill: false,
+        borderColor: '#fff',
+        borderWidth: 1,
         backgroundColor: this.theme.backend,
         hoverBackgroundColor: this.theme.backend,
         data: [students.backend.length]
       }, {
         label: 'Jave',
         fill: false,
+        borderColor: '#fff',
+        borderWidth: 1,
         backgroundColor: this.theme.java,
         hoverBackgroundColor: this.theme.java,
         data: [students.java.length]
       }, {
         label: 'Unity',
         fill: false,
+        borderColor: '#fff',
+        borderWidth: 1,
         backgroundColor: this.theme.unity,
         hoverBackgroundColor: this.theme.unity,
         data: [students.unity.length]
       }, {
         label: 'Python',
         fill: false,
+        borderColor: '#fff',
+        borderWidth: 1,
         backgroundColor: this.theme.python,
         hoverBackgroundColor: this.theme.python,
         data: [students.python.length]
