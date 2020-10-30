@@ -1,3 +1,99 @@
+@import "variables";
+
 .AboutUs {
-    
+    height: 100%;
+    &__Container {
+        padding: 1rem;
+    }
+
+    &__History {
+        width: 100%;
+        height: 1rem;
+        border-radius: 1rem;
+        background-color: $white;
+        position: relative;
+
+        & > li {
+            display: flex;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0.8rem;
+            height: 0.8rem;
+            border-radius: 100%;
+            background-color: $logo-bg;
+            // border: 1px solid $midnight;
+            z-index: map-get($layout-level, "cover");
+            &:first-child {
+                left: 0.2rem;
+            }
+
+            &:last-child {
+                right: 0.2rem;
+            }
+        }
+    }
+
+    &__Point {
+        &::before {
+            content: "";
+            display: flex;
+            width: 1px;
+            background-color: $white;
+            position: absolute;
+            height: 1.5rem;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: map-get($layout-level, "normal");
+        }
+        & > div {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 1.5rem;
+            left: 0;
+            p {
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
+    .AboutUs {
+        &__Container {
+            display: flex;
+            justify-content: center;
+        }
+        &__History {
+            width: 1rem;
+            min-height: 20rem;
+            & > li {
+                top: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                &:first-child {
+                    left: 50%;
+                    top: 0.2rem;
+                }
+
+                &:last-child {
+                    left: 50%;
+                    bottom: 0.2rem;
+                }
+            }
+        }
+
+        &__Point {
+            position: relative;
+            & > div {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 0;
+                left: 1.5rem;
+            }
+        }
+    }
 }
