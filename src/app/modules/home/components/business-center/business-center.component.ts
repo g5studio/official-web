@@ -1,10 +1,12 @@
+import { ECategory } from './../../../../utilities/enums/user.enum';
+import { ChartDataSets } from 'chart.js';
 import { IStudent, IStudentGroup } from '@utilities/interfaces/training.interface';
 import { take, takeUntil } from 'rxjs/operators';
 import { EDeviceType } from '@utilities/enums/overlay.enum';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { WindowService } from '@services/window.service';
-import { BarChart, LineChart, PieChart } from '@utilities/models/chart.model';
+import { BarChart, BarChartDataSets, LineChart, PieChart } from '@utilities/models/chart.model';
 import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 import { TrainingService } from '@training/services/training.service';
 
@@ -33,7 +35,6 @@ export class BusinessCenterComponent extends UnsubOndestroy implements OnInit {
     java: '#ffe205',
     unity: '#67d658',
     python: '#465bca'
-
   };
 
   get deviceType(): typeof EDeviceType {
@@ -76,51 +77,17 @@ export class BusinessCenterComponent extends UnsubOndestroy implements OnInit {
   }
 
   private initialCurrentTalent(students: IStudentGroup) {
-    this.currentTalent = new BarChart(
-      [{
-        label: 'Frontend',
-        data: [students.frontend.length],
-        fill: false,
-        borderColor: '#fff',
-        borderWidth: 1,
-        backgroundColor: this.theme.frontend,
-        hoverBackgroundColor: this.theme.frontend,
-      }, {
-        label: 'Backend',
-        fill: false,
-        borderColor: '#fff',
-        borderWidth: 1,
-        backgroundColor: this.theme.backend,
-        hoverBackgroundColor: this.theme.backend,
-        data: [students.backend.length]
-      }, {
-        label: 'Jave',
-        fill: false,
-        borderColor: '#fff',
-        borderWidth: 1,
-        backgroundColor: this.theme.java,
-        hoverBackgroundColor: this.theme.java,
-        data: [students.java.length]
-      }, {
-        label: 'Unity',
-        fill: false,
-        borderColor: '#fff',
-        borderWidth: 1,
-        backgroundColor: this.theme.unity,
-        hoverBackgroundColor: this.theme.unity,
-        data: [students.unity.length]
-      }, {
-        label: 'Python',
-        fill: false,
-        borderColor: '#fff',
-        borderWidth: 1,
-        backgroundColor: this.theme.python,
-        hoverBackgroundColor: this.theme.python,
-        data: [students.python.length]
-      }],
-      [''],
+    const DATAS: ChartDataSets[] = [];
+    Object.keys(students).forEach(
+      (category, index) => {
+        if (students[category].length > 0) {
+          DATAS.push(
+            new BarChartDataSets(ECategory[index + 1], [students[category].length], this.theme[category]),
+          );
+        }
+      }
     );
-
+    this.currentTalent = new BarChart(DATAS, ['']);
   }
 
   private initialAverageCost(students: IStudentGroup) {

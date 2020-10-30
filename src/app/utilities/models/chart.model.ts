@@ -97,6 +97,22 @@ export class BarChart {
     }
 }
 
+export class BarChartDataSets implements ChartDataSets {
+    public fill = false;
+    public borderColor = '#fff';
+    public borderWidth = 1;
+    public backgroundColor;
+    public hoverBackgroundColor;
+    constructor(
+        public label: string,
+        public data: number[],
+        color: string,
+    ) {
+        this.backgroundColor = color;
+        this.hoverBackgroundColor = color;
+    }
+}
+
 export class LineChart {
     public type: ChartType = 'line';
     constructor(
