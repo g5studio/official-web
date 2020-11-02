@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagePopupComponent } from '@shared/components/message-popup/message-popup.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { DropdownModule } from '@shared/modules/dropdown/dropdown.module';
+import { TimelineComponent } from './components/timeline/timeline.component';
 
 
 
@@ -25,6 +26,7 @@ import { DropdownModule } from '@shared/modules/dropdown/dropdown.module';
     ImageWaterMarkerComponent,
     MessagePopupComponent,
     ButtonComponent,
+    TimelineComponent,
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { DropdownModule } from '@shared/modules/dropdown/dropdown.module';
     MessagePopupComponent,
     ButtonComponent,
     DropdownModule,
-    ChartsModule
+    ChartsModule,
+    TimelineComponent
   ]
 })
 export class SharedModule { }
