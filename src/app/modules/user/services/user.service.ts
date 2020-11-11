@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { EMessage, EModalProvider, EModalSize } from '@utilities/enums/overlay.enum';
 import { filter, tap, take, switchMap, map } from 'rxjs/operators';
 import { IUserProfile } from '@utilities/interfaces/user.interface';
@@ -89,12 +90,14 @@ export class UserService {
   }
 
   private firstLoginPopup() {
-    this.$overlay.toggleModal(
-      new Modal(EModalProvider.Introduction, {
-        size: EModalSize.Large,
-        hideClose: true
-      })
-    );
+    if (!environment.production) {
+      this.$overlay.toggleModal(
+        new Modal(EModalProvider.Introduction, {
+          size: EModalSize.Large,
+          hideClose: true
+        })
+      );
+    }
   }
 
 
