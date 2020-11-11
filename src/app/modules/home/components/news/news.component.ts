@@ -28,10 +28,10 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.interval = setInterval(
-      _ => this.slide(),
-      3000
-    );
+    // this.interval = setInterval(
+    //   _ => this.slide(),
+    //   3000
+    // );
   }
 
   public mouseIn() {

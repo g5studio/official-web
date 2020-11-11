@@ -1,3 +1,4 @@
+import { environment } from './../../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { EGeneralQuestionModalType, EModalProvider } from '@utilities/enums/overlay.enum';
 import { OverlayService } from '@services/overlay.service';
@@ -29,13 +30,15 @@ export class GeneralQuestionsComponent implements OnInit {
   }
 
   public toggleModal(type: EGeneralQuestionModalType, event: MouseEvent) {
-    this.$overlay.toggleModal(
-      new Modal(EModalProvider.GeneralQuestion,
-        {},
-        {
-          type
-        }), event
-    );
+    if (!environment.production) {
+      this.$overlay.toggleModal(
+        new Modal(EModalProvider.GeneralQuestion,
+          {},
+          {
+            type
+          }), event
+      );
+    }
   }
 
 }
