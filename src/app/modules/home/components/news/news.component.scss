@@ -6,8 +6,72 @@
 
     &__Container {
         display: flex;
+        // justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        img {
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        div {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            ul {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    @include border($white);
+                    color: $white;
+                    &:not(:last-child) {
+                        margin-right: 0.5rem;
+                    }
+                    cursor: pointer;
+                    &:hover {
+                        color: $logo-bg;
+                        border-color: $logo-bg;
+                        transform: scale(1.125);
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.active {
+    color: $logo-bg !important;
+    border-color: $logo-bg !important;
+    transform: scale(1.125);
+    transition: 0.5s;
+}
+
+.sliding-out {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: 1.5s;
+}
+
+.sliding-in {
+    transform: translateX(-100%);
+    transition: 1.5s;
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, "xxl")) {
+    .News {
+        display: flex;
         justify-content: center;
         align-items: center;
-        height: 20rem;
+        &__Container {
+            width: 70%;
+        }
     }
 }
