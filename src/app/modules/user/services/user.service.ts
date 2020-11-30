@@ -30,7 +30,7 @@ export class UserService {
 
   private firstLogin$ = this.user$.pipe(
     filter(user => user.profile.firstLogin),
-    tap(_ => this.firstLoginPopup())
+    // tap(_ => this.firstLoginPopup())
   );
 
   public inital(user: User) {
