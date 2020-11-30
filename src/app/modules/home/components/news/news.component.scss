@@ -19,6 +19,7 @@
             position: absolute;
             top: 0.5rem;
             right: 0.5rem;
+            z-index: map-get($layout-level, 'cover');
             ul {
                 display: flex;
                 flex-direction: row;
@@ -75,3 +76,5 @@
         }
     }
 }
+
+@media screen and (max-width: map-get($grid-breakpoints, 'md')) {}

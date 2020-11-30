@@ -1,22 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { WindowService } from '@services/window.service';
+import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
+import { EDeviceType } from '@utilities/enums/overlay.enum';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss']
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent extends UnsubOndestroy implements OnInit {
 
-  constructor() { }
+  constructor(
+    private $window: WindowService
+  ) {
+    super();
+  }
 
   public current = 1;
   public interval: any;
   public isSliding = false;
-  public news = [
-    'assets/images/ads/2020-12-ntut-unity.png',
-    'assets/images/ads/2020-12-ntut-unity.png',
-    'assets/images/ads/2020-12-ntut-unity.png',
-    'assets/images/ads/2020-12-ntut-unity.png'
+  private news = [
+    'assets/images/ads/2020_12_ntut_unity_desktop.png',
+    'assets/images/ads/2021_01_frontend_desktop.png',
   ];
 
   get queue() {
@@ -32,6 +38,27 @@ export class NewsComponent implements OnInit {
       _ => this.slide(),
       3000
     );
+
+    this.$window.device$.pipe(
+      takeUntil(this.onDestroy$)
+    ).subscribe(
+      device => {
+        switch (device) {
+          case EDeviceType.Mobile:
+            this.news = [
+              'assets/images/ads/2020_12_ntut_unity_mobile.png',
+              'assets/images/ads/2021_01_frontend_mobile.png',
+            ];
+            break;
+          default:
+            this.news = [
+              'assets/images/ads/2020_12_ntut_unity_desktop.png',
+              'assets/images/ads/2021_01_frontend_desktop.png',
+            ]
+            break;
+        }
+      }
+    )
   }
 
   public mouseIn() {
@@ -51,9 +78,9 @@ export class NewsComponent implements OnInit {
 
   private slide() {
     this.isSliding = true;
-    this.updateCurrent();
     setTimeout(
       _ => {
+        this.updateCurrent();
         this.isSliding = false;
       }, 1600
     );

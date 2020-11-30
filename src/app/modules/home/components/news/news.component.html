@@ -1,12 +1,13 @@
 <div class="News">
-    <div class="News__Container">
-        <img [class.sliding-out]="this.isSliding" [src]="this.queue[0]" alt="">
-        <img [class.sliding-in]="this.isSliding" [src]="this.queue[1]" alt="">
-        <div (mouseenter)="this.mouseIn()" (mouseleave)="this.mouseLeave()">
-            <ul>
-                <li (click)="this.updateCurrent(i)" [class.active]="i === this.current" *ngFor="let i of [1,2,3,4]">
-                    {{i}}</li>
-            </ul>
-        </div>
-    </div>
+  <div class="News__Container">
+    <div (mouseenter)="this.mouseIn()" (mouseleave)="this.mouseLeave()">
+        <ul>
+          <li (click)="this.updateCurrent(i)" [class.active]="i + 1 === this.current"
+            *ngFor="let banner of this.queue; let i = index;">
+            {{i + 1}}</li>
+        </ul>
+      </div>
+    <img [class.sliding-out]="this.isSliding" [src]="this.queue[0]" alt="">
+    <img [class.sliding-in]="this.isSliding" [src]="this.queue[1]" alt="">
+  </div>
 </div>
