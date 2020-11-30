@@ -19,6 +19,7 @@
             position: absolute;
             top: 0.5rem;
             right: 0.5rem;
+            z-index: map-get($layout-level, 'cover');
             ul {
                 display: flex;
                 flex-direction: row;
@@ -72,6 +73,24 @@
         align-items: center;
         &__Container {
             width: 70%;
+        }
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, 'md')) {
+    .News {
+        &__Container {
+            & > div {
+                & > ul {
+                    & > li {
+                        width: 1rem;
+                        height: 1rem;
+                        font-size: 0.5rem;
+                    }
+                }
+                top: auto;
+                bottom: 0.5rem;
+            }
         }
     }
 }
