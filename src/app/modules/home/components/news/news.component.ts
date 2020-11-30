@@ -20,17 +20,17 @@ export class NewsComponent extends UnsubOndestroy implements OnInit {
   public current = 1;
   public interval: any;
   public isSliding = false;
-  private news = [
-    'assets/images/ads/2020_12_ntut_unity_desktop.png',
-    'assets/images/ads/2021_01_frontend_desktop.png',
-  ];
-
+  private news = [];
   get queue() {
     const NEXT = this.current + 1 > this.news.length ? 1 : this.current + 1;
     return [
       this.news[this.current - 1],
       this.news[NEXT - 1]
     ];
+  }
+
+  get indexs() {
+    return this.queue.map((_, index) => index + 1)
   }
 
   ngOnInit(): void {
