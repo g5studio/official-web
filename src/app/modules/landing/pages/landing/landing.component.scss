@@ -1,210 +1,72 @@
 @import "variables";
-@import "animations";
 @import "mixins";
 
-$viewer-width: 32rem;
-
 .Landing {
-    user-select: none;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: row;
     align-items: center;
-    flex-direction: column;
-    padding-top: 5rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
     height: 100vh;
-    z-index: map-get($map: $layout-level, $key: "cover");
-    background-image: linear-gradient(35deg, $chrome-yellow 0%, $layout-card-bg-color 20%, $body-bg 80%, $pink-1 100%);
-    &__Container {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        width: $viewer-width;
-        margin-top: 3rem;
-        background-color: inherit;
-        box-shadow: 0px 0px 3px 1px $layout-card-bg-color;
-        border-radius: 3px;
-        &::before,
-        &::after {
-            content: "";
-            box-sizing: border-box;
-            position: absolute;
-            border: 1px solid transparent;
-            width: 0;
-            height: 0;
-        }
-        &::before {
-            top: 0;
-            left: 0;
-            border-top-color: $white;
-            border-right-color: $white;
-            animation: border-cycle 2s;
-        }
-        &::after {
-            bottom: 0;
-            right: 0;
-            animation: border-cycle 2s 1s, borderColor 2s 1s;
-        }
+    width: 100vw;
+    position: relative;
+    app-language-menu {
+        position: absolute;
+        top: 2.5rem;
+        right: 4%;
     }
-
-    &__Logo {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        white-space: nowrap;
-        @include font-size("xxl");
-        & > img {
-            border-radius: 100%;
-            padding: 0.1rem;
-            border: 3px solid $white;
-            opacity: 0.8;
-            width: 6rem;
-            margin-right: 1rem;
-        }
-
-        & > p {
-            opacity: 0;
-        }
-    }
-
     &__Introduction {
+        flex: 3;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $blue-layer-3;
         position: relative;
-        padding: 3px;
-        opacity: 0;
+        span {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: absolute;
+            bottom: 9%;
+            right: 7.5%;
+            img {
+                width: 1.88rem;
+                margin-right: 0.63rem;
+            }
+            p {
+                color: $primary;
+                font-size: map-get($font-size, "lg");
+            }
+        }
     }
 
     &__Login {
-        @include font-size("xl");
-        // font-weight: bold;
-        letter-spacing: 0.2rem;
-        width: $viewer-width / 2;
-        position: absolute;
-        bottom: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(50%);
-        @include border($white);
-        border-width: 2px;
-        opacity: 0;
-        padding: 0.75rem;
-        color: $white;
-        z-index: map-get($layout-level, "canvus");
-        &:hover {
-            background-color: rgba($color: $black, $alpha: 0.5);
-            border-color: $chrome-yellow;
-            color: $chrome-yellow;
-            opacity: 0.8;
-            transition: 0.1s;
-        }
-    }
-
-    &__Navbar {
-        padding: 1.5rem 1.5rem;
-        position: fixed;
-        right: 0;
-        top: 0;
+        flex: 2;
+        height: 100%;
         display: flex;
-        flex-direction: row;
         align-items: center;
-        & > button {
-            letter-spacing: normal;
-            padding: 0.25rem 0.625rem;
-            @include border($white);
-            background-color: inherit;
-            color: $white;
-            &:hover {
-                // background-color: rgba($color: $body-bg, $alpha: 0.5);
-                @include border($chrome-yellow);
-                color: $chrome-yellow;
-            }
-        }
+        justify-content: center;
+        background-color: $blue-layer-8;
     }
 }
 
-.landing-start {
-    opacity: 1;
-    transition: 0.5s;
-}
-
-.landing-intro {
-    opacity: 0.8;
-    transition: 0.5s;
-}
-
-.landin-title-showup {
-    animation-name: showup;
-    animation-duration: 1s;
-    opacity: 1 !important;
-}
-
-.landing-logo-rotate {
-    img {
-        animation-name: landing-logo-rotate;
-        animation-duration: 2s;
-    }
-}
-
-@media screen and (min-width: map-get($grid-breakpoints, "xxl")) {
+@media screen and (max-width: map-get($grid-breakpoints, "xl")) {
     .Landing {
-        &__Container {
-            margin-top: 7.5rem;
-            width: calc(#{$viewer-width} * 1.5);
-        }
-
-        &__Login {
-            @include font-size("xxl");
-            width: calc(#{$viewer-width} / 2 * 1.5);
-        }
-
-        &__Logo {
-            @include font-size("xxxl");
-            img {
-                width: 8rem;
-                margin-right: 2rem;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: map-get($grid-breakpoints, "md")) {
-    .Landing {
-        &__Container {
-            width: 80%;
-            margin-top: 2.5rem;
-        }
-
-        &__Logo {
-            @include font-size("lg");
-            img {
-                width: 4rem;
-                margin-right: 0.5rem;
+        overflow-x: hidden;
+        flex-direction: column;
+        &__Introduction {
+            flex: none;
+            width: 100%;
+            height: 100%;
+            span {
+                position: fixed;
+                bottom: 1.5rem;
+                right: 1.5rem;
             }
         }
 
         &__Login {
-            bottom: -5rem;
+            flex: none;
+            width: 100%;
         }
-    }
-}
-
-@keyframes borderColor {
-    0% {
-        border-bottom-color: $white;
-        border-left-color: $white;
-    }
-    50% {
-        border-bottom-color: $white;
-        border-left-color: $white;
-    }
-    51% {
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-    }
-    100% {
-        border-bottom-color: transparent;
-        border-left-color: transparent;
     }
 }

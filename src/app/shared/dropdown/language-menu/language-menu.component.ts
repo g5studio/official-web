@@ -1,5 +1,5 @@
 import { ELanguage } from '@utilities/enums/language.enum';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AbstractModal } from '@utilities/abstract/modal';
 import { LanguageService } from '@services//language.service';
@@ -10,6 +10,9 @@ import { LanguageService } from '@services//language.service';
   styleUrls: ['./language-menu.component.scss']
 })
 export class LanguageMenuComponent extends AbstractModal implements OnInit {
+
+  @Input() showIcon;
+
   constructor(
     public $translate: TranslateService,
     private $language: LanguageService
@@ -20,7 +23,7 @@ export class LanguageMenuComponent extends AbstractModal implements OnInit {
   ngOnInit(): void {
   }
 
-  public setLanguage(language: string) {
+  public setLanguage(language: ELanguage) {
     this.$language.setLanguage(language);
     this.collapse();
   }

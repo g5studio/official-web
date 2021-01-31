@@ -33,3 +33,33 @@
         }
     }
 }
+
+.hideIcon {
+    & > button {
+        width: 5rem;
+        padding: 0;
+        color: $blue-layer-4;
+        p {
+            font-size: map-get($font-size, "xs");
+        }
+        em {
+            font-size: 0.5rem;
+        }
+    }
+
+    .LanguageMenu__Container {
+        right: 0;
+        li {
+            padding: 0;
+        }
+        button {
+            color: $blue-layer-4;
+            width: 5rem;
+            height: 2rem;
+            font-size: map-get($font-size, "xs");
+            &:hover {
+                background-color: $blue-layer-6;
+            }
+        }
+    }
+}

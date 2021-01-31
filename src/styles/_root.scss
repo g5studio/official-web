@@ -78,3 +78,9 @@ body {
         font-family: YuGothic, "Hiragino Sans";
     }
 }
+
+em {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    color: $blue-layer-4;
+}

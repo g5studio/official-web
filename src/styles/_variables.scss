@@ -1,9 +1,9 @@
 @import "colors";
 
 //custom
-$menu-color: $blue-22;
+$menu-color: $blue-layer-3;
 $logo-bg: #f7992b;
-$layout-card-bg-color: $blue-3;
+$layout-card-bg-color: $blue-layer-2;
 $menu-width: 6rem;
 $header-height: 4rem;
 $page-height: calc(100vh - 6rem);
@@ -35,13 +35,13 @@ $layout-level: (
 );
 
 //bootstrap
-$body-bg: $blue-2;
+$body-bg: $blue-layer-1;
 // $body-color: $midnight;
 $body-color: $white;
 
 $grid-gutter-width: 1.5rem;
 
-$primary: $azure;
+$primary: $logo-bg;
 $info: $water-grass;
 $warning: $aqua-green;
 $danger: $carmine;

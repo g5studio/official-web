@@ -1,5 +1,4 @@
 import { Component, OnInit, HostListener, Input, OnDestroy } from '@angular/core';
-import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 
 @Component({
   selector: 'app-carousel',

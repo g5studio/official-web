@@ -1,23 +1,13 @@
 <div class="Landing">
-    <div class="Landing__Navbar">
-        <button (click)='this.toggleLoginModal($event)' class="mr-2">{{"Pages.Landing.Login" | translate}}</button>
-        <app-language-menu></app-language-menu>
+    <div class="Landing__Introduction">
+        <app-period-carousel></app-period-carousel>
+        <span>
+            <img src="assets/images/logo.png" alt="">
+            <p>G5 STUDIO</p>
+        </span>
     </div>
-    <div class="Landing__Logo" [ngClass]='{"landing-logo-rotate": this.rotationStart}'>
-        <img src="assets/images/logo.png" alt="">
-        <p *ngIf='this.rotationEnd' [ngClass]='{"landin-title-showup": this.rotationEnd}'>G5 STUDIO™ OFFICAL</p>
-    </div>
-    <div class="Landing__Container" [ngStyle]="{'border': this.rotationEnd ? 'white 1px solid' : 'none'}">
+    <div class="Landing__Login">
 
-        <div class="Landing__Introduction" [ngClass]='{"landing-intro": this.rotationEnd}'>
-            <app-carousel [opacity]="0.3" [isVertical]='this.isVertical' [images]='this.introductions'></app-carousel>
-        </div>
-        <button class="Landing__Login" [ngClass]='{"landing-start": this.rotationEnd}'
-            (click)='this.toggleSingupModal($event)'>{{"Pages.Landing.Start" | translate}}</button>
     </div>
+    <app-language-menu></app-language-menu>
 </div>
-
-<app-message-popup [alert]='popup.options.alert' [time]='3' [central]='true'
-    *ngIf='this.$overlay.popup$ | async as popup' (onclose)='this.$overlay.hidePopup()'>
-    {{popup.options.message | translate}}
-</app-message-popup>

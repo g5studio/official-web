@@ -1,6 +1,7 @@
-<div #tmenu class="LanguageMenu">
+<div #tmenu class="LanguageMenu" [class.hideIcon]="this.showIcon === undefined">
     <button (click)='this.expand(this.tmenu, $event)'>
-        <em class="icon-language"></em>
+        <p *ngIf="this.showIcon === undefined;">{{"Language." + this.$translate.currentLang | translate}}</p>
+        <em class="icon-{{this.showIcon === undefined ? 'arrow-down'  : 'language'}}"></em>
     </button>
     <div *ngIf='this.isOpen' class="LanguageMenu__Container">
         <ul>
