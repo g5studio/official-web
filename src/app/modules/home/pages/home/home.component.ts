@@ -1,5 +1,5 @@
 import { environment } from './../../../../../environments/environment';
-import { Modal } from '../../../shared/modules/overlay/models/modal.model';
+import { Modal } from '@overlay/overlay.model';
 import { Component, OnInit } from '@angular/core';
 import { OverlayService } from '@services//overlay.service';
 import { EModalProvider, EModalSize } from '@utilities/enums/overlay.enum';

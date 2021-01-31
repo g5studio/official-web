@@ -1,14 +1,10 @@
-import { IUserProfile } from '@utilities/interfaces/user.interface';
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FirebaseService } from '@services/firebase.service';
 import { User } from '@user/models/user.model';
 import { OverlayService } from '@services/overlay.service';
-import { IMessagePopupOptions } from '@utilities/interfaces/overlay.interface';
-import { EDialogProvider, EMessage } from '@utilities/enums/overlay.enum';
-import { MessagePopup } from '@overlay/models/modal.model';
-import { error } from 'protractor';
+import { EDialogProvider } from '@utilities/enums/overlay.enum';
 import { EIdentity } from '@utilities/enums/user.enum';
-import { Dialog } from '@overlay/models/dialog.model';
+import { Dialog } from '@overlay/overlay.model';
 import { ProfileOptions } from '@utilities/abstract/user-profile-options';
 
 @Component({

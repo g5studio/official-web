@@ -10,7 +10,7 @@ import { EUserProvider } from '@utilities/enums/user.enum';
 import { UserIdleService } from 'angular-user-idle';
 import { IMessagePopupOptions } from '@utilities/interfaces/overlay.interface';
 import { OverlayService } from '@services/overlay.service';
-import { MessagePopup } from '@overlay/models/modal.model';
+import { MessagePopup } from '@overlay/overlay.model';
 import { EMessage } from '@utilities/enums/overlay.enum';
 
 @Injectable({

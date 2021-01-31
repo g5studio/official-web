@@ -5,7 +5,7 @@ import { IUserProfile } from '@utilities/interfaces/user.interface';
 import { forkJoin, ReplaySubject, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { OverlayService } from '@services/overlay.service';
-import { MessagePopup, Modal } from '@overlay/models/modal.model';
+import { MessagePopup, Modal } from '@overlay/overlay.model';
 import { User } from '@user/models/user.model';
 import { FirebaseService } from '@services/firebase.service';
 import { IMessagePopupOptions } from '@utilities/interfaces/overlay.interface';

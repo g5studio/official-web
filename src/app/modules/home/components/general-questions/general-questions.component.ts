@@ -4,7 +4,7 @@ import { EGeneralQuestionModalType, EModalProvider } from '@utilities/enums/over
 import { OverlayService } from '@services/overlay.service';
 import { User } from '@user/models/user.model';
 import { UserService } from '@user/services/user.service';
-import { Modal } from '@overlay/models/modal.model';
+import { Modal } from '@overlay/overlay.model';
 
 @Component({
   selector: 'app-general-questions',

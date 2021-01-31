@@ -23,22 +23,19 @@
         "src/app/modules/training/*"
       ],
       "@overlay/*": [
-        "src/app/modules/shared/modules/overlay/*"
+        "src/app/shared/overlay/*"
       ],
       "@services/*": [
-        "src/app/modules/shared/services/*"
-      ],
-      "@models/*": [
-        "src/app/modules/shared/models/*"
+        "src/app/shared/services/*"
       ],
       "@directives/*": [
-        "src/app/modules/shared/directives/*"
+        "src/app/shared/directives/*"
       ],
       "@utilities/*": [
         "src/app/utilities/*"
       ],
       "@shared/*": [
-        "src/app//modules/shared/*"
+        "src/app/shared/*"
       ]
     },
   },

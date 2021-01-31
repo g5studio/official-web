@@ -6,7 +6,7 @@ import { WindowService } from '@services//window.service';
 import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
 import { AuthService } from 'src/app/auth/auth.service';
 import { OverlayService } from '@services/overlay.service';
-import { Modal } from '@overlay/models/modal.model';
+import { Modal } from '@overlay/overlay.model';
 
 @Component({
   selector: 'app-landing',

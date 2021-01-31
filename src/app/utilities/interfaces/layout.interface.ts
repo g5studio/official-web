@@ -1,4 +1,4 @@
-import { ToolTipPosition } from 'src/app/modules/shared/components/tooltip/tooltip.component';
+import { ToolTipPosition } from '@shared/general/tooltip/tooltip.component';
 
 
 export interface IMenuItemParms {
