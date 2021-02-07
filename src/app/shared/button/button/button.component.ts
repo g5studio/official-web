@@ -9,6 +9,7 @@ export class ButtonComponent implements OnInit {
 
   @Output() clickEvent: EventEmitter<void> = new EventEmitter();
   @Input() disabled: boolean;
+  @Input() white;
 
   constructor() { }
 

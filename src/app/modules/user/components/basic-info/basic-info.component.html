@@ -5,14 +5,14 @@
     </span>
     <ul>
       <li class="mb-4">
-        <p>{{"Pages.Profile.NickName.Field" | translate}}</p>
+        <p>{{"Fields" | translate}}</p>
         <span>
           {{this.user.profile.nickName || "-"}}
         </span>
       </li>
       <li>
-        <p>{{"Pages.Profile.Identity.Field" | translate}}</p>
-        <span>{{"Pages.Profile.Identity." + this.user.profile.identity | translate}}</span>
+        <p>{{"Fields.Identity" | translate}}</p>
+        <span>{{"Enums.Identity." + this.user.profile.identity | translate}}</span>
       </li>
     </ul>
   </div>
@@ -26,25 +26,25 @@
         <h1>{{"Pages.Profile.UserProfile.Title" | translate}}</h1>
         <ul>
           <li>
-            <p>{{"Pages.Profile.UserProfile.Fields.FirstName" | translate}}</p>
+            <p>{{"Fields.FirstName" | translate}}</p>
             <span>
               {{this.user.profile.firstName || "-"}}
             </span>
           </li>
           <li>
-            <p>{{"Pages.Profile.UserProfile.Fields.LastName" | translate}}</p>
+            <p>{{"Fields.LastName" | translate}}</p>
             <span>
               {{this.user.profile.lastName || "-"}}
             </span>
           </li>
           <li>
-            <p>{{"Pages.Profile.UserProfile.Fields.Gender" | translate}}</p>
+            <p>{{"Fields.Gender" | translate}}</p>
             <span>
               {{(this.genders[this.user.profile.gender] | translate)|| "-"}}
             </span>
           </li>
           <li>
-            <p>{{"Pages.Profile.UserProfile.Fields.Address" | translate}}</p>
+            <p>{{"Fields.Address" | translate}}</p>
             <span>
               {{this.user.profile.address || "-"}}
             </span>

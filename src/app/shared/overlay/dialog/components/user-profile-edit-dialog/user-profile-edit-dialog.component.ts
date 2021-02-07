@@ -23,7 +23,7 @@ export class UserProfileEditDialogComponent implements OnInit {
   public profile: FormGroup;
 
   get genders() {
-    return ["User.Field.Gender.Unknow", "User.Field.Gender.Male", "User.Field.Gender.Female"];
+    return ["Enums.Gender.Unknow", "Enums.Gender.Male", "Enums.Gender.Female"];
   }
 
   get gender() {

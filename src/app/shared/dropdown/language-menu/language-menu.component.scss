@@ -2,64 +2,73 @@
 @import "variables";
 
 .LanguageMenu {
-    position: relative;
-    & > button {
-        height: 1.5rem;
-        color: $white;
-        em {
-            @include font-size("xl");
-        }
+  position: relative;
+  & > button {
+    height: 1.5rem;
+    color: $white;
+    em {
+      @include font-size("xl");
     }
+  }
 
-    &__Container {
-        position: absolute;
-        top: calc(100% + 0.5rem);
-        right: 0.625rem;
-        z-index: map-get($layout-level, "important");
-        @include g5-card();
-        color: $midnight;
-        white-space: nowrap;
-        li {
-            padding: 0.25rem;
-        }
-        button {
-            padding: 0.25rem 0.5rem;
-            cursor: pointer;
-            @include font-size("xs");
-            &:hover {
-                background-color: $chrome-yellow;
-                color: $white;
-            }
-        }
+  &__Container {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0.625rem;
+    z-index: map-get($layout-level, "important");
+    @include g5-card();
+    color: $midnight;
+    white-space: nowrap;
+    li {
+      padding: 0.25rem;
     }
+    button {
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      @include font-size("xs");
+      &:hover {
+        background-color: $chrome-yellow;
+        color: $white;
+      }
+    }
+  }
 }
 
 .hideIcon {
-    & > button {
-        width: 5rem;
-        padding: 0;
-        color: $blue-layer-4;
-        p {
-            font-size: map-get($font-size, "xs");
-        }
-        em {
-            font-size: 0.5rem;
-        }
+  & > button {
+    width: 5rem;
+    padding: 0;
+    color: $blue-layer-4;
+    p {
+      font-size: map-get($font-size, "sm");
     }
+    em {
+      font-size: 0.5rem;
+    }
+  }
 
-    .LanguageMenu__Container {
-        right: 0;
-        li {
-            padding: 0;
-        }
-        button {
-            color: $blue-layer-4;
-            width: 5rem;
-            height: 2rem;
-            font-size: map-get($font-size, "xs");
-            &:hover {
-                background-color: $blue-layer-6;
-            }
-        }
+  .LanguageMenu__Container {
+    right: 0;
+    li {
+      padding: 0;
     }
+    button {
+      color: $blue-layer-4;
+      width: 5rem;
+      height: 2rem;
+      font-size: map-get($font-size, "sm");
+      &:hover {
+        background-color: $blue-layer-6;
+      }
+    }
+  }
+}
+
+.white {
+  & > button {
+    color: $white;
+    em {
+      color: $white;
+    }
+  }
 }

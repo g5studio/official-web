@@ -12,10 +12,11 @@ import { LanguageService } from '@services//language.service';
 export class LanguageMenuComponent extends AbstractModal implements OnInit {
 
   @Input() showIcon;
+  @Input() white;
 
   constructor(
     public $translate: TranslateService,
-    private $language: LanguageService
+    private $language: LanguageService,
   ) {
     super();
   }

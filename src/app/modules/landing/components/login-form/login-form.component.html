@@ -1,0 +1,36 @@
+<div [formGroup]="this.login" class="Login">
+  <ul>
+    <li>
+      <input formControlName="email" [placeholder]="'Fields.Email' | translate" id="email" type="text">
+      <label for="email">
+        <em class="icon-mail"></em>
+      </label>
+    </li>
+    <small *ngIf="this.login.get('email').invalid && this.login.get('email').touched" alert class="alert-message mt-3">
+      <em class="icon-alert_2"></em>
+      <p>{{this.getErrorMessage("email") | translate}}</p>
+    </small>
+    <li>
+      <input formControlName="password" [placeholder]="'Fields.Password' | translate" id="password" type="password">
+      <label for="password">
+        <em class="icon-account"></em>
+      </label>
+    </li>
+    <small *ngIf="this.login.get('password').invalid && this.login.get('password').touched" alert class="alert-message mt-3">
+      <em class="icon-alert_2"></em>
+      <p>{{this.getErrorMessage("password") | translate}}</p>
+    </small>
+  </ul>
+  <div class="d-flex flex-row justify-content-between align-items-center mb-5">
+    <div class=" custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="customCheck1">
+      <label class="custom-control-label" for="customCheck1">
+        {{"Pages.Landing.RememberMe" | translate}}
+      </label>
+    </div>
+    <a href=""> {{"Pages.Landing.ForgotPassword" | translate}}</a>
+  </div>
+  <app-button [disabled]="this.login.invalid">
+    {{"Pages.Landing.Login" | translate}}
+  </app-button>
+</div>

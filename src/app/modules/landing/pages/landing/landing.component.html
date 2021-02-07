@@ -1,13 +1,46 @@
-<div class="Landing">
-    <div class="Landing__Introduction">
-        <app-period-carousel></app-period-carousel>
-        <span>
-            <img src="assets/images/logo.png" alt="">
-            <p>G5 STUDIO</p>
-        </span>
+<div *ngIf="this.$window.device$ | async as device" class="Landing">
+  <div class="Landing__Introduction">
+    <app-period-carousel></app-period-carousel>
+    <span>
+      <img src="assets/images/logo.png" alt="">
+      <p>G5 STUDIO</p>
+    </span>
+  </div>
+  <div class="Landing__Login">
+    <div class="Landing__Forms">
+      <ul class="Landing__Tabs">
+        <li [class.Landing__Tabs--active]="this.currentTab === 0">
+          <button (click)="this.currentTab = 0">{{"Pages.Landing.Login" | translate}}</button>
+        </li>
+        <li [class.Landing__Tabs--active]="this.currentTab === 1">
+          <button (click)="this.currentTab = 1">{{"Pages.Landing.Signup" | translate}}</button>
+        </li>
+      </ul>
+      <ng-container [ngSwitch]="this.currentTab">
+        <app-login-form *ngSwitchCase="0"></app-login-form>
+        <app-sign-up-form *ngSwitchCase="1"></app-sign-up-form>
+      </ng-container>
     </div>
-    <div class="Landing__Login">
-
+    <div class="Landing__Tools">
+      <p>or Sign up using</p>
+      <ul>
+        <li>
+          <button class="p-0">
+            <img src="assets/images/icons/facebook.svg" alt="">
+          </button>
+        </li>
+        <li>
+          <button class="p-0">
+            <img src="assets/images/icons/twitter.svg" alt="">
+          </button>
+        </li>
+        <li>
+          <button class="p-0">
+            <img src="assets/images/icons/google.svg" alt="">
+          </button>
+        </li>
+      </ul>
     </div>
-    <app-language-menu></app-language-menu>
+  </div>
+  <app-language-menu [white]="!this.$window.isDesktop(device)"></app-language-menu>
 </div>

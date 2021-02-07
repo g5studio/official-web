@@ -1,0 +1,68 @@
+@import "variables";
+@import "mixins";
+
+.Login {
+  ul {
+    & > li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid $blue-layer-7;
+      &:not(:first-child) {
+        margin-top: 2rem;
+      }
+      & > input {
+        border: 0;
+        width: 100%;
+        color: $blue-layer-5;
+        background-color: inherit;
+        @include font-size("sm");
+        &::placeholder {
+          color: $blue-layer-7;
+          opacity: 1;
+        }
+
+        &:-ms-input-placeholder {
+          color: $blue-layer-7;
+        }
+
+        &::-ms-input-placeholder {
+          color: $blue-layer-7;
+        }
+      }
+
+      & > input ~ label {
+        display: inline-flex;
+        margin-bottom: 0;
+        & > em {
+          color: $blue-layer-7;
+          font-size: 1.3rem;
+        }
+      }
+    }
+    margin-bottom: 2rem;
+  }
+
+  a {
+    letter-spacing: 0.88px;
+    color: $blue-layer-5;
+  }
+
+  .custom-checkbox {
+    & > .custom-control-input {
+      ~ label {
+        color: $blue-layer-5;
+        letter-spacing: 0.88px;
+      }
+      &:checked ~ .custom-control-label::before {
+        background-color: $blue-layer-5;
+        border-color: $blue-layer-5;
+      }
+      &:indeterminate ~ .custom-control-label::before {
+        background-color: $blue-layer-5;
+        border-color: $blue-layer-5;
+      }
+    }
+  }
+}

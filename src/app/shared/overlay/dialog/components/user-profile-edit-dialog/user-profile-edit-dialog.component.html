@@ -5,7 +5,7 @@
       <ul>
         <li class="row">
           <div class="UserProfileEdit__Field col-md-6 col-12">
-            <p class="mb-2">{{"Pages.Profile.NickName.Field" | translate}}</p>
+            <p class="mb-2">{{"Fields" | translate}}</p>
             <input [class.invalid]="this.getFieldInvalid('nickName')" formControlName="nickName" type="text"
               class="form-control">
             <small *ngIf="this.getFieldInvalid('nickName')">
@@ -16,7 +16,7 @@
         </li>
         <li class="row">
           <div class="UserProfileEdit__Field col-md-6 col-12 mb-3 mb-md-0">
-            <p class="mb-2">{{"Pages.Profile.UserProfile.Fields.FirstName" | translate}}</p>
+            <p class="mb-2">{{"Fields.FirstName" | translate}}</p>
             <input [class.invalid]="this.getFieldInvalid('firstName')" formControlName="firstName" type="text"
               class="form-control">
             <small *ngIf="this.getFieldInvalid('firstName')">
@@ -25,7 +25,7 @@
             </small>
           </div>
           <div class="UserProfileEdit__Field col-md-6 col-12">
-            <p class="mb-2">{{"Pages.Profile.UserProfile.Fields.LastName" | translate}}</p>
+            <p class="mb-2">{{"Fields.LastName" | translate}}</p>
             <input [class.invalid]="this.getFieldInvalid('lastName')" formControlName="lastName" type="text"
               class="form-control">
             <small *ngIf="this.getFieldInvalid('lastName')">
@@ -37,7 +37,7 @@
         <li class="row">
           <div class="UserProfileEdit__Field col-md-6 col-12 mb-3 mb-md-0">
             <p class="mb-2">
-              {{"Pages.Profile.UserProfile.Fields.Address" | translate}}
+              {{"Fields.Address" | translate}}
               <em class="g5-font-hint">- {{"Pages.Profile.EditProfile.Optional" | translate}}</em>
             </p>
             <input [class.invalid]="this.getFieldInvalid('address')" formControlName="address" type="text"
@@ -49,7 +49,7 @@
           </div>
           <div class="UserProfileEdit__Field col-md-6 col-12">
             <p class="mb-2">
-              {{"Pages.Profile.UserProfile.Fields.Gender" | translate}}
+              {{"Fields.Gender" | translate}}
               <em class="g5-font-hint-xxs">- {{"Pages.Profile.EditProfile.Optional" | translate}}</em>
             </p>
             <app-dropdown>
@@ -67,8 +67,7 @@
         </li>
       </ul>
       <div class="UserProfileEdit__Button">
-        <button (click)="this.submit()"
-          [disabled]="this.profile.invalid">{{"Pages.Profile.EditProfile.Submit" | translate}}</button>
+        <button (click)="this.submit()" [disabled]="this.profile.invalid">{{"Buttons.Submit" | translate}}</button>
       </div>
     </div>
   </div>

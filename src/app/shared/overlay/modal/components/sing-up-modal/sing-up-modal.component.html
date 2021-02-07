@@ -1,41 +1,40 @@
 <app-modal [options]='this.modal.options'>
-    <div class="SignupModal" [formGroup]="this.form">
-        <h1>{{"Pages.Landing.Signup" | translate}}</h1>
-        <div class="SignupModal__Field">
-            <div class="SignupModal__Input">
-                <label for=""><em class="icon-mail"></em></label>
-                <input autocomplete="new-password"
-                    [class.is-invalid]="form.get('email').invalid && form.get('email').touched" formControlName="email"
-                    type="text" class="form-control" />
-            </div>
-            <small *ngIf="form.get('email').invalid && form.get('email').touched">
-                <span class="icon-alert_2 pr-1"></span>
-                <span>{{this.getErrorMessage('email', 'invalid') | translate}}</span>
-            </small>
-        </div>
-        <div class="SignupModal__Field">
-            <div class="SignupModal__Input">
-                <label for=""><em class="icon-unlock"></em></label>
-                <input autocomplete="new-password"
-                    [class.is-invalid]="form.get('password').invalid && form.get('password').touched"
-                    formControlName="password" type="password" class="form-control" />
-            </div>
-            <small *ngIf="form.get('password').invalid && form.get('password').touched">
-                <span class="icon-alert_2 pr-1"></span>
-                <span>{{this.getErrorMessage('password', 'invalid') | translate}}</span>
-            </small>
-        </div>
-        <small *ngIf='this.authErrorMsg'>
-            <span class="icon-alert_2 pr-1"></span>
-            {{this.authErrorMsg}}
-        </small>
-        <div class="SignupModal__Submit">
-            <span (click)='this.signUpWithProvider(this.userProvider.Google)'>
-                <button><img src="assets/images/google.png" alt=""></button>
-                Sign in with Google
-            </span>
-            <button [disabled]="form.get('password').invalid || form.get('email').invalid"
-                (click)='this.signUpWithEmailaAndPassword()'>{{"Pages.Landing.Submit" | translate}}</button>
-        </div>
+  <div class="SignupModal" [formGroup]="this.form">
+    <h1>{{"Pages.Landing.Signup" | translate}}</h1>
+    <div class="SignupModal__Field">
+      <div class="SignupModal__Input">
+        <label for=""><em class="icon-mail"></em></label>
+        <input autocomplete="new-password" [class.is-invalid]="form.get('email').invalid && form.get('email').touched"
+          formControlName="email" type="text" class="form-control" />
+      </div>
+      <small *ngIf="form.get('email').invalid && form.get('email').touched">
+        <span class="icon-alert_2 pr-1"></span>
+        <span>{{this.getErrorMessage('email', 'invalid') | translate}}</span>
+      </small>
     </div>
+    <div class="SignupModal__Field">
+      <div class="SignupModal__Input">
+        <label for=""><em class="icon-unlock"></em></label>
+        <input autocomplete="new-password"
+          [class.is-invalid]="form.get('password').invalid && form.get('password').touched" formControlName="password"
+          type="password" class="form-control" />
+      </div>
+      <small *ngIf="form.get('password').invalid && form.get('password').touched">
+        <span class="icon-alert_2 pr-1"></span>
+        <span>{{this.getErrorMessage('password', 'invalid') | translate}}</span>
+      </small>
+    </div>
+    <small *ngIf='this.authErrorMsg'>
+      <span class="icon-alert_2 pr-1"></span>
+      {{this.authErrorMsg}}
+    </small>
+    <div class="SignupModal__Submit">
+      <span (click)='this.signUpWithProvider(this.userProvider.Google)'>
+        <button><img src="assets/images/google.png" alt=""></button>
+        Sign in with Google
+      </span>
+      <button [disabled]="form.get('password').invalid || form.get('email').invalid"
+        (click)='this.signUpWithEmailaAndPassword()'>{{"Buttons.Submit" | translate}}</button>
+    </div>
+  </div>
 </app-modal>
