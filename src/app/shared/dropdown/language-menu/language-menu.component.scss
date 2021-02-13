@@ -8,6 +8,8 @@
     color: $white;
     em {
       @include font-size("xl");
+      margin-left: 0.5rem;
+      color: $blue-layer-4;
     }
   }
 

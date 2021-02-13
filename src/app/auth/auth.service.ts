@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import * as fb from 'firebase/app';
 import { FirebaseService } from '@services//firebase.service';
 import { UserService } from '@user//services/user.service';
-import { take, } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { EUserProvider } from '@utilities/enums/user.enum';
 import { UserIdleService } from 'angular-user-idle';
 import { IMessagePopupOptions } from '@utilities/interfaces/overlay.interface';
@@ -30,7 +30,12 @@ export class AuthService {
     this.$fbAuth.authState.subscribe(
       user => {
         if (!!user && (user?.providerData[0].providerId !== 'password' || user?.emailVerified)) {
-          this.loginCallback(user);
+          this.loginCallback(user).then(
+            userProfile => {
+              sessionStorage.setItem('uid', userProfile.id);
+              this.$navigation.navigate(this.redirectUrl);
+            }
+          );
         } else {
           // this.logout();
         }
@@ -47,11 +52,16 @@ export class AuthService {
   }
 
   get redirectUrl() {
-    return sessionStorage.getItem('redirectUrl') || '/';
+    return sessionStorage.getItem('redirectUrl');
+  }
+
+  get rememberMe(): boolean {
+    return localStorage.getItem('rememberMe') ? JSON.parse(localStorage.getItem('rememberMe')) : false;
   }
 
   public login({ email, password }): Promise<void> {
     this.$overlay.startLoading();
+    this.$firebaseAuth.setPersistence(this.rememberMe ? fb.auth.Auth.Persistence.LOCAL : fb.auth.Auth.Persistence.SESSION);
     return this.$firebaseAuth.signInWithEmailAndPassword(email, password).then(
       res => {
         this.$overlay.finishLoading();
@@ -75,15 +85,15 @@ export class AuthService {
     );
   }
 
-  public signUpWithProvider(org = EUserProvider.Google): Promise<void> {
-    console.log('in')
+  public loginWithProvider(provider = EUserProvider.Google): Promise<void> {
     this.$overlay.startLoading();
-    const provider = this.getSingInProvider(org);
-    return this.$firebaseAuth.signInWithPopup(provider).then(
+    const Provider = this.getSingInProvider(provider);
+    this.$firebaseAuth.setPersistence(this.rememberMe ? fb.auth.Auth.Persistence.LOCAL : fb.auth.Auth.Persistence.SESSION);
+    return this.$firebaseAuth.signInWithPopup(Provider).then(
       res => {
         this.$overlay.finishLoading();
         if (res.additionalUserInfo.isNewUser) {
-          this.signUp(res.user, res.additionalUserInfo.profile, org);
+          this.initialUserProfile(res.user, res.additionalUserInfo.profile, provider);
         }
       }
     ).catch(
@@ -105,7 +115,7 @@ export class AuthService {
         this.$overlay.finishLoading();
         if (res.additionalUserInfo.isNewUser) {
           res.user.sendEmailVerification().then(
-            _ => this.signUp(res.user, res.additionalUserInfo.profile)
+            _ => this.initialUserProfile(res.user, res.additionalUserInfo.profile)
           );
         }
       }
@@ -138,23 +148,22 @@ export class AuthService {
     }
   }
 
-  private loginCallback(user: fb.User) {
-    sessionStorage.setItem('uid', user.uid);
+  private loginCallback(user: fb.User): Promise<fb.firestore.DocumentSnapshot<fb.firestore.DocumentData>> {
     this.$overlay.startLoading();
-    this.$firebase.document('users', user.uid).get().subscribe(
-      userProfile => {
-        this.$overlay.finishLoading();
-        this.setIdle();
-        this.$user.inital(new User(userProfile.data(), user));
-        if (this.redirectUrl) {
-          this.$navigation.navigate(this.redirectUrl);
+    return new Promise((resolve, reject) => {
+      this.$firebase.document('users', user.uid).get().subscribe(
+        userProfile => {
+          this.$overlay.finishLoading();
+          this.setIdle();
+          this.$user.inital(new User(userProfile.data(), user));
+          resolve(userProfile);
         }
-      }
-    );
+      ), error => reject(error);
+    })
   }
 
-  private signUp(user: fb.User, profile: any, org?: EUserProvider) {
-    const USER_PROFILE = !!org ? new User(profile, user, org) : new User(profile, user);
+  private initialUserProfile(user: fb.User, profile: any, provider?: EUserProvider) {
+    const USER_PROFILE = !!provider ? new User(profile, user, provider) : new User(profile, user);
     this.$firebase.document('users', user.uid).set({ ...USER_PROFILE.profile }).then(
       _ => this.$navigation.navigate('home')
     );
@@ -171,13 +180,9 @@ export class AuthService {
   }
 
   private getSingInProvider(way: EUserProvider) {
-    let provider;
     switch (way) {
-      case EUserProvider.Google:
-        provider = new fb.auth.GoogleAuthProvider();
-        break;
+      case EUserProvider.Google: return new fb.auth.GoogleAuthProvider();
     }
-    return provider;
   }
 
 }

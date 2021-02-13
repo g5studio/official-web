@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Validator } from '@utilities/helpers/validate.helper';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -11,25 +12,32 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-
+    public $auth: AuthService
   ) { }
 
-  public login: FormGroup = this.fb.group({
+  public authentication: FormGroup = this.fb.group({
     email: ["", [Validators.required, this.emailValidator]],
     password: ["", [Validators.required, this.passwordValidator]]
   });
+
+  get rememberMe() { return JSON.parse(localStorage.getItem('rememberMe')); }
+
+  set rememberMe(enable: boolean) {
+    localStorage.setItem('rememberMe', JSON.stringify(enable));
+  }
 
   ngOnInit(): void {
   }
 
   public getErrorMessage(field: string): string {
-    const Field = this.login.get(field);
+    const Field = this.authentication.get(field);
     return Field.hasError("required") ? "Messages.Error.FieldRequired" :
       Field.getError("invalid").message;
   }
 
   private emailValidator(control: FormControl): ValidationErrors {
-    return new Validator().validateEmail(control.value) ? null : {
+    const Validators = new Validator();
+    return Validators.validateEmail(control.value) ? null : {
       invalid: {
         message: "Messages.Error.Email"
       }

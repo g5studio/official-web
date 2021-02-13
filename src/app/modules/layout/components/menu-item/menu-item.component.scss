@@ -2,38 +2,41 @@
 @import "mixins";
 
 .MenuItem {
-    text-align: left;
-    outline: none;
-    background-color: inherit;
-    border: none;
-    padding: 0 0.625rem;
-    width: 100%;
-    height: 1.5rem;
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $white;
-    font-weight: normal;
-    border-radius: 3px;
-    &:hover {
-        color: $chrome-yellow;
-        // transition: 0.5s;
+  text-align: left;
+  outline: none;
+  background-color: inherit;
+  border: none;
+  padding: 0 0.625rem;
+  width: 100%;
+  height: 1.5rem;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-weight: normal;
+  border-radius: 3px;
+  &:hover {
+    & > em {
+      color: $primary;
     }
+  }
 }
 
 .current {
-    color: $chrome-yellow;
+  & > em {
+    color: $primary;
+  }
 }
 
 .lg {
-    @include font-size("lg");
+  @include font-size("lg");
 }
 
 .xl {
-    @include font-size("xl");
+  @include font-size("xl");
 }
 
 .xxl {
-    @include font-size("xxl");
+  @include font-size("xxl");
 }

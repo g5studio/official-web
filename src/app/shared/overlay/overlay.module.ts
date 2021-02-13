@@ -18,9 +18,7 @@ import { QuestionChargeModalComponent } from '@overlay/modal/components/general-
 import { QuestionNoexperienceModalComponent } from '@overlay/modal/components/general-questions-modals/question-noexperience-modal/question-noexperience-modal.component';
 import { LoadingComponent } from '@overlay/loading/loading.component';
 import { UserProfileEditDialogComponent } from '@overlay/dialog/components/user-profile-edit-dialog/user-profile-edit-dialog.component';
-import { SingUpModalComponent } from '@overlay/modal/components/sing-up-modal/sing-up-modal.component';
 import { NonAutoCarouselModalComponent } from '@overlay/modal/components/non-auto-carousel-modal/non-auto-carousel-modal.component';
-import { LoginModalComponent } from '@overlay/modal/components/login-modal/login-modal.component';
 import { QuestionUpgradeModalComponent } from '@overlay/modal/components/general-questions-modals/question-upgrade-modal/question-upgrade-modal.component';
 import { QuestionTeachModalComponent } from '@overlay/modal/components/general-questions-modals/question-teach-modal/question-teach-modal.component';
 import { QuestionCategoryModalComponent } from '@overlay/modal/components/general-questions-modals/question-category-modal/question-category-modal.component';
@@ -34,7 +32,6 @@ import { MessagePopupComponent } from './message-popup/message-popup.component';
     MessagePopupComponent,
     OverlayComponent,
     IntroductionModalComponent,
-    LoginModalComponent,
     QuestionUpgradeModalComponent,
     QuestionTeachModalComponent,
     QuestionCategoryModalComponent,
@@ -43,8 +40,6 @@ import { MessagePopupComponent } from './message-popup/message-popup.component';
     ModalProviderComponent,
     DialogProviderComponent,
     NonAutoCarouselModalComponent,
-    SingUpModalComponent,
-    SingUpModalComponent,
     UserProfileEditDialogComponent,
     ModalComponent,
     LoadingComponent,

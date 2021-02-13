@@ -24,17 +24,21 @@ export class NavigationService extends UnsubOndestroy {
     );
   }
 
+  public navigate(path: string) {
+    this.router.navigateByUrl(path);
+  }
+
   private route: Subject<string> = new Subject();
   public route$ = this.route.asObservable().pipe(
     tap(path => this.onRouteChanged(path))
   );
 
   private onRouteChanged(path: string) {
-    // console.log(path);
+    if (path === '/') {
+      this.router.navigateByUrl('home');
+    }
   }
 
-  public navigate(path: string) {
-    this.router.navigate([path]);
-  }
+
 
 }
