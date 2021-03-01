@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NavigationService } from 'src/app/modules/shared/services/navigation.service';
+import { NavigationService } from '@services/navigation.service';
 import { MENU_LIST, MENU_SET, MENU_LOGOUT } from './menu-list';
 import { AuthService } from 'src/app/auth/auth.service';
 

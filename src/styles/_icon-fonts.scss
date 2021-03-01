@@ -1,9 +1,9 @@
 @font-face {
     font-family: "icomoon";
-    src: url("fonts/icomoon.eot?vz6gru");
-    src: url("fonts/icomoon.eot?vz6gru#iefix") format("embedded-opentype"),
-        url("fonts/icomoon.ttf?vz6gru") format("truetype"), url("fonts/icomoon.woff?vz6gru") format("woff"),
-        url("fonts/icomoon.svg?vz6gru#icomoon") format("svg");
+    src: url("fonts/icomoon.eot?wzqicc");
+    src: url("fonts/icomoon.eot?wzqicc#iefix") format("embedded-opentype"),
+        url("fonts/icomoon.ttf?wzqicc") format("truetype"), url("fonts/icomoon.woff?wzqicc") format("woff"),
+        url("fonts/icomoon.svg?wzqicc#icomoon") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -25,11 +25,44 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-clock:before {
+    content: "\e94e";
+}
+.icon-realtime:before {
+    content: "\e94d";
+}
+.icon-reject:before {
+    content: "\e94b";
+}
+.icon-agree:before {
+    content: "\e94c";
+}
 .icon-checkbox_large:before {
     content: "\e940";
 }
 .icon-QR:before {
     content: "\e93c";
+}
+.icon-addWatchlist:before {
+    content: "\e948";
+}
+.icon-excel-01:before {
+    content: "\e94a";
+}
+.icon-alphabet-A:before {
+    content: "\e944";
+}
+.icon-alphabet-C:before {
+    content: "\e945";
+}
+.icon-alphabet-N:before {
+    content: "\e946";
+}
+.icon-alphabet-U:before {
+    content: "\e947";
+}
+.icon-mobile:before {
+    content: "\e943";
 }
 .icon-down:before {
     content: "\e941";

@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
-import { Component, OnInit, Input, ViewChild, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PROFILE } from './header.config';
-import { NavigationService } from 'src/app/modules/shared/services/navigation.service';
+import { NavigationService } from '@services/navigation.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { AbstractModal } from '@utilities/abstract/modal';
 

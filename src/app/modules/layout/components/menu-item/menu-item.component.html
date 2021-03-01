@@ -1,9 +1,9 @@
 <button (click)='this.onclick.emit(this.parms.path)' [appTooltip]='this.disabledTooltip === undefined' class="MenuItem"
-    [ngClass]='{"current": this.checkIsCurrent()}'>
-    <em class="icon-{{this.parms.icon}} {{this.size}}"></em>
-    <ng-template #tooltipTemplate>
-        <app-tooltip [position]='this.parms.tooltip || "bottom"'>
-            <ng-content></ng-content>
-        </app-tooltip>
-    </ng-template>
+  [class.current]="this.checkIsCurrent()">
+  <em class="icon-{{this.parms.icon}} {{this.size}}"></em>
+  <ng-template #tooltipTemplate>
+    <app-tooltip [position]='this.parms.tooltip || "bottom"'>
+      <ng-content></ng-content>
+    </app-tooltip>
+  </ng-template>
 </button>

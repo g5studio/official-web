@@ -1,6 +1,6 @@
-import { environment } from './../../../../../environments/environment';
 import { IMenuItemParms } from '@utilities/interfaces/layout.interface';
-import { ToolTipPosition } from 'src/app/modules/shared/components/tooltip/tooltip.component';
+import { ToolTipPosition } from '@shared/general/tooltip/tooltip.component';
+import { environment } from 'src/environments/environment';
 
 export const MENU_LIST: IMenuItemParms[] = [
     {

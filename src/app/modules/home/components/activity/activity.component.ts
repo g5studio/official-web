@@ -1,7 +1,7 @@
 import { EModalProvider, EModalSize } from '@utilities/enums/overlay.enum';
 import { Component, OnInit } from '@angular/core';
 import { OverlayService } from '@services//overlay.service';
-import { Modal } from 'src/app/modules/shared/modules/overlay/models/modal.model';
+import { Modal } from '@overlay/overlay.model';
 
 @Component({
   selector: 'app-activity',

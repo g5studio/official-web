@@ -8,7 +8,28 @@
 @import "text";
 @import "animations";
 @import "layout";
+@import "custom-forms";
 
 .scroll-bar {
-    @include scroll();
+  @include scroll();
+}
+
+.alert-message {
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  color: $rose;
+  p {
+    margin-left: 0.25rem !important;
+    font-size: map-get($font-size, "sm") !important;
+    color: $rose !important;
+    margin-bottom: 0 !important;
+  }
+
+  em {
+    margin-left: 0;
+    color: $danger;
+    cursor: auto;
+  }
 }

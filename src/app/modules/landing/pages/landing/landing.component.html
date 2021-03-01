@@ -1,23 +1,50 @@
-<div class="Landing">
-    <div class="Landing__Navbar">
-        <button (click)='this.toggleLoginModal($event)' class="mr-2">{{"Pages.Landing.Login" | translate}}</button>
-        <app-language-menu></app-language-menu>
+<div *ngIf="this.$window.device$ | async as device" class="Landing">
+  <div class="Landing__Introduction">
+    <app-period-carousel></app-period-carousel>
+    <span>
+      <img src="assets/images/logo.png" alt="">
+      <p>G5 STUDIO</p>
+    </span>
+  </div>
+  <div class="Landing__Login">
+    <div class="Landing__Forms">
+      <ul class="Landing__Tabs">
+        <li [class.Landing__Tabs--active]="this.currentTab === 0">
+          <button (click)="this.currentTab = 0">{{"Pages.Landing.Login" | translate}}</button>
+        </li>
+        <li [class.Landing__Tabs--active]="this.currentTab === 1">
+          <button (click)="this.currentTab = 1">{{"Pages.Landing.Signup" | translate}}</button>
+        </li>
+      </ul>
+      <ng-container [ngSwitch]="this.currentTab">
+        <app-login-form *ngSwitchCase="0"></app-login-form>
+        <app-sign-up-form (submit)="this.currentTab = 0" *ngSwitchCase="1"></app-sign-up-form>
+      </ng-container>
     </div>
-    <div class="Landing__Logo" [ngClass]='{"landing-logo-rotate": this.rotationStart}'>
-        <img src="assets/images/logo.png" alt="">
-        <p *ngIf='this.rotationEnd' [ngClass]='{"landin-title-showup": this.rotationEnd}'>G5 STUDIO™ OFFICAL</p>
+    <div class="Landing__Tools">
+      <p>or Sign up using</p>
+      <ul>
+        <li>
+          <button disabled class="p-0">
+            <img src="assets/images/icons/facebook.svg" alt="">
+          </button>
+        </li>
+        <li>
+          <button disabled class="p-0">
+            <img src="assets/images/icons/twitter.svg" alt="">
+          </button>
+        </li>
+        <li>
+          <button (click) = "this.$auth.loginWithProvider(this.loginProvider.Google)" class="p-0">
+            <img src="assets/images/icons/google.svg" alt="">
+          </button>
+        </li>
+      </ul>
     </div>
-    <div class="Landing__Container" [ngStyle]="{'border': this.rotationEnd ? 'white 1px solid' : 'none'}">
-
-        <div class="Landing__Introduction" [ngClass]='{"landing-intro": this.rotationEnd}'>
-            <app-carousel [opacity]="0.3" [isVertical]='this.isVertical' [images]='this.introductions'></app-carousel>
-        </div>
-        <button class="Landing__Login" [ngClass]='{"landing-start": this.rotationEnd}'
-            (click)='this.toggleSingupModal($event)'>{{"Pages.Landing.Start" | translate}}</button>
-    </div>
+  </div>
+  <app-language-menu [white]="!this.$window.isDesktop(device)"></app-language-menu>
 </div>
-
-<app-message-popup [alert]='popup.options.alert' [time]='3' [central]='true'
-    *ngIf='this.$overlay.popup$ | async as popup' (onclose)='this.$overlay.hidePopup()'>
-    {{popup.options.message | translate}}
+<app-message-popup (onclose)='this.$overlay.hidePopup()' [alert]="popup.options.alert" [time]='2'
+  *ngIf='this.$overlay.popup$ | async as popup'>
+  {{popup.options.message | translate}}
 </app-message-popup>

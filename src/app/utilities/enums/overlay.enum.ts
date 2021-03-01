@@ -38,7 +38,8 @@ export enum EMessage {
     EmailNotMeetRules = 'Messages.Error.Email',
     PasswordNotMeetRules = 'Messages.Error.Password',
     ModifiedSuccessfully = 'Messages.System.ModifiedSuccessfully',
-    ModifiedFailed = 'Messages.Error.ModifiedFailed'
+    ModifiedFailed = 'Messages.Error.ModifiedFailed',
+    EmailAlreadyInUse = 'Messages.Error.EmailAlreadyInUse'
 }
 
 export enum EGeneralQuestionModalType {

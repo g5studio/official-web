@@ -1,6 +1,5 @@
-import { Injectable, ElementRef, forwardRef, Component, Provider } from '@angular/core';
+import { Injectable, forwardRef, Provider } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { AbstractModal } from './modal';
 
 export function getNgModelProvider(component: any): Provider {
   return {
@@ -11,17 +10,19 @@ export function getNgModelProvider(component: any): Provider {
 }
 
 @Injectable()
-export abstract class AbstractNgModel extends AbstractModal implements ControlValueAccessor {
+export abstract class AbstractNgModel implements ControlValueAccessor {
 
   constructor() {
-    super();
+
   }
 
   public model;
   private onChange: (value) => {};
+  public disabled = false;
 
   writeValue(value: any) {
     this.model = value;
+    this.onModelInitial(value);
   }
 
   registerOnChange(fn) {
@@ -29,12 +30,18 @@ export abstract class AbstractNgModel extends AbstractModal implements ControlVa
   }
 
   registerOnTouched() { }
-  setDisabledState(isDisabled: boolean) { }
 
-  public notifyValueChange() {
+  setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
+  }
+
+  public notifyValueChange(value?: any) {
     if (this.onChange) {
-      this.onChange(this.model);
+      this.onChange(value || this.model);
     }
   }
+
+  // overwrite to customize initial event
+  public onModelInitial(value) { }
 
 }

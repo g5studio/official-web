@@ -1,0 +1,50 @@
+<div class="SignUp">
+  <ul class="mb-5" [formGroup]="this.form">
+    <li>
+      <input formControlName="name" [placeholder]="'Fields.NickName' | translate" id="name" type="text">
+      <label for="name">
+        <em class="icon-man"></em>
+      </label>
+    </li>
+    <small *ngIf="this.form.get('name').invalid && this.form.get('name').touched" alert class="alert-message mt-3">
+      <em class="icon-alert_2"></em>
+      <p>{{this.getErrorMessage("name") | translate}}</p>
+    </small>
+    <li>
+      <input formControlName="password" [placeholder]="'Fields.Password' | translate" id="password" type="password">
+      <label for="password">
+        <em class="icon-unlock"></em>
+      </label>
+    </li>
+    <small *ngIf="this.form.get('password').invalid && this.form.get('password').touched" alert
+      class="alert-message mt-3">
+      <em class="icon-alert_2"></em>
+      <p>{{this.getErrorMessage("password") | translate}}</p>
+    </small>
+    <li>
+      <input formControlName="confirmPassword" [placeholder]="'Fields.ConfirmPassword' | translate" id="confirmPassword"
+        type="password">
+      <label for="confirmPassword">
+        <em class="icon-unlock"></em>
+      </label>
+    </li>
+    <small *ngIf="this.form.get('confirmPassword').invalid && this.form.get('confirmPassword').touched" alert
+      class="alert-message mt-3">
+      <em class="icon-alert_2"></em>
+      <p>{{this.getErrorMessage("confirmPassword") | translate}}</p>
+    </small>
+    <li>
+      <input formControlName="email" [placeholder]="'Fields.Email' | translate" id="email" type="text">
+      <label for="email">
+        <em class="icon-mail"></em>
+      </label>
+    </li>
+    <small *ngIf="this.form.get('email').invalid && this.form.get('email').touched" alert class="alert-message mt-3">
+      <em class="icon-alert_2"></em>
+      <p>{{this.getErrorMessage("email") | translate}}</p>
+    </small>
+  </ul>
+  <app-button (clickEvent)="this.signUpAndLogin()" [disabled]="this.form.invalid">
+    {{"Pages.Landing.Signup" | translate}}
+  </app-button>
+</div>

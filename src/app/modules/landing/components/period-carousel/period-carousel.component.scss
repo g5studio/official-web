@@ -1,0 +1,67 @@
+@import "variables";
+@import "mixins";
+
+.PeriodCarousel {
+    display: flex;
+    flex-direction: column;
+    &__Slider {
+        display: flex;
+        flex-direction: column;
+        img {
+            width: 35rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: $primary;
+            margin-top: 3.75rem;
+        }
+
+        p {
+            font-size: map-get($font-size, "lgx");
+            color: $purple-1;
+            margin-top: 1.75rem;
+        }
+    }
+
+    ul {
+        margin-top: 4.3rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        li {
+            width: 0.63rem;
+            height: 0.63rem;
+            border-radius: 100%;
+            background-color: $white;
+            opacity: 0.5;
+            &:not(:last-child) {
+                margin-right: 0.88rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
+    .PeriodCarousel {
+        &__Slider {
+            padding: 0 1.5rem;
+            img {
+                width: 21rem;
+            }
+
+            h1 {
+                margin-top: 4rem;
+            }
+
+            p {
+                margin-top: 2.25rem;
+            }
+        }
+
+        ul {
+            margin-top: 3rem;
+        }
+    }
+}

@@ -13,10 +13,13 @@ export abstract class UnsubOndestroy implements OnDestroy {
    */
   ngOnDestroy() {
     this.unsubAll();
+    this.onDestory();
   }
 
   private unsubAll(): void {
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }
+
+  public onDestory() { }
 }

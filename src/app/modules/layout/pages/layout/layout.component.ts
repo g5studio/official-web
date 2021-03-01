@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UnsubOndestroy } from '@utilities/abstract/unsub-ondestroy';
-import { NavigationService } from 'src/app/modules/shared/services/navigation.service';
+import { NavigationService } from '@services/navigation.service';
 
 @Component({
   selector: 'app-layout',
