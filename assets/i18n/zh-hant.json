@@ -28,8 +28,9 @@
             "Start": "立即開始",
             "Login": "登入",
             "Welcome": "歡迎使用",
-            "Signup": "註冊帳號",
-            "Submit": "送出"
+            "Signup": "註冊",
+            "RememberMe": "記住我",
+            "ForgotPassword": "忘記密碼"
         },
         "Home": {
             "Activity": "活動剪影",
@@ -88,24 +89,8 @@
             }
         },
         "Profile": {
-            "NickName": {
-                "Field": "暱稱"
-            },
-            "Identity": {
-                "Field": "身分",
-                "Guest": "訪客",
-                "Admin": "管理員",
-                "Student": "學生",
-                "Enterprise": "企業夥伴"
-            },
             "UserProfile": {
-                "Title": "使用者資料",
-                "Fields": {
-                    "FirstName": "姓氏",
-                    "LastName": "人名",
-                    "Address": "地址",
-                    "Gender": "性別"
-                }
+                "Title": "使用者資料"
             },
             "LearningDashboard": {
                 "Guest": "升級帳號解鎖專屬功能",
@@ -118,30 +103,53 @@
             },
             "EditProfile": {
                 "Title": "編輯個人資料",
-                "Submit": "送出",
                 "Optional": "選填"
             }
         }
     },
-    "User": {
-        "Field": {
-            "Gender": {
-                "Unknow": "未知",
-                "Male": "男性",
-                "Female": "女性"
-            }
+    "User": {},
+    "Buttons": {
+        "Submit": "送出"
+    },
+    "Fields": {
+        "NickName": "暱稱",
+        "FirstName": "姓氏",
+        "LastName": "人名",
+        "Address": "地址",
+        "Gender": "性別",
+        "Identity": "身份",
+        "Email": "信箱",
+        "Password": "密碼",
+        "ConfirmPassword": "確認密碼"
+    },
+    "Enums": {
+        "Gender": {
+            "Unknow": "未知",
+            "Male": "男性",
+            "Female": "女性"
+        },
+        "Identity": {
+            "Guest": "訪客",
+            "Admin": "管理員",
+            "Student": "學生",
+            "Enterprise": "企業夥伴"
         }
     },
     "Messages": {
         "Error": {
-            "Password": "長度必須8到20位元字元；必須包含大小寫字母、數字和特殊符號（如@, #, $, _等）。",
+            "PasswordLengthNotEnough": "長度必須8到20位元字符",
+            "PasswordNeedsSymbol": "必須包含特殊符號",
+            "PasswordNeedsNumber": "必須包含數字",
+            "PasswordNeedsCharacter": "必須包含英文大小寫字母",
             "Email": "郵箱格式錯誤。",
             "UserNotFound": "查無使用者，請確認輸入是否正確或註冊。",
             "InvalidPassword": "密碼錯誤，請重新輸入。",
             "EmailUnverified": "信箱尚未完成驗證，請至註冊信箱啟用帳號。",
             "Unknow": "發生未知錯誤，請聯絡客服人員。",
             "ModifiedFailed": "修改失敗，請重新操作。",
-            "FieldRequired": "此欄位不得為空"
+            "FieldRequired": "此欄位不得為空",
+            "NotEqualNewPassword": "與新密碼不相同",
+            "EmailAlreadyInUse": "信箱已被使用"
         },
         "System": {
             "VerificationLetterSent": "驗證信已發送，請到註冊信箱驗證後重新登入。",

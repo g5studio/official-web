@@ -26,10 +26,12 @@
     "Pages": {
         "Landing": {
             "Start": "Start Now",
-            "Login": "Login",
+            "Login": "Log In",
             "Welcome": "Welcome",
             "Signup": "Sign Up",
-            "Submit": "Submit"
+            "Submit": "Submit",
+            "RememberMe": "Remember Me",
+            "ForgotPassword": "Forgot Password"
         },
         "Home": {
             "Activity": "Activities",
@@ -88,9 +90,6 @@
             }
         },
         "Profile": {
-            "NickName": {
-                "Field": "Nick Name"
-            },
             "Identity": {
                 "Field": "Identity",
                 "Guest": "guest",
@@ -99,13 +98,7 @@
                 "Enterprise": "enterprise"
             },
             "UserProfile": {
-                "Title": "User Profile",
-                "Fields": {
-                    "FirstName": "First name",
-                    "LastName": "Last name",
-                    "Address": "Address",
-                    "Gender": "Gender"
-                }
+                "Title": "User Profile"
             },
             "LearningDashboard": {
                 "Guest": "Upgrade Account",
@@ -118,30 +111,53 @@
             },
             "EditProfile": {
                 "Title": "Edit User Profile",
-                "Submit": "Submit",
                 "Optional": "Optional"
             }
         }
     },
-    "User": {
-        "Field": {
-            "Gender": {
-                "Unknow": "Unknow",
-                "Male": "Male",
-                "Female": "Female"
-            }
+    "User": {},
+    "Buttons": {
+        "Submit": "Submit"
+    },
+    "Fields": {
+        "NickName": "Nick Name",
+        "FirstName": "First name",
+        "LastName": "Last name",
+        "Address": "Address",
+        "Gender": "Gender",
+        "Identity": "Identity",
+        "Email": "Email",
+        "Password": "Passowrd",
+        "ConfirmPassword": "Confirm Password"
+    },
+    "Enums": {
+        "Gender": {
+            "Unknow": "Unknow",
+            "Male": "Male",
+            "Female": "Female"
+        },
+        "Identity": {
+            "Guest": "guest",
+            "Admin": "admin",
+            "Student": "student",
+            "Enterprise": "enterprise"
         }
     },
     "Messages": {
         "Error": {
-            "Password": "The password has to be 8 to 20 characters, containing uppercase and lowercase letter, number and symbol (e.g. @, #, $, _ ).",
+            "PasswordLengthNotEnough": "The password must contain 8-20 characters",
+            "PasswordNeedsCharacter": "The password must include upper case and lower case letters",
+            "PasswordNeedsSymbol": "The password must include symbols",
+            "PasswordNeedsNumber": "The password must include numbers",
             "Email": "Dose not match email rule.",
             "UserNotFound": "User not found , please check again.",
             "InvalidPassword": "The password is invalid or the user does not have a password.",
             "EmailUnverified": "Email has not been verified.",
             "Unknow": "Unknow error , please contact customer service.",
             "ModifiedFailed": "Modify failed , please try again.",
-            "FieldRequired": "Field required"
+            "FieldRequired": "Field required",
+            "NotEqualNewPassword": "Dose not equal new password",
+            "EmailAlreadyInUse": "Email is already in use"
         },
         "System": {
             "VerificationLetterSent": "The verification letter has been sent, please follow the step to verify your email address.",
