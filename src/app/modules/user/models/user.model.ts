@@ -1,5 +1,4 @@
-import { IGoogleUser } from './../../../utilities/interfaces/user.interface';
-import { IUserProfile } from '@utilities/interfaces/user.interface';
+import { IUserProfile, IGoogleUser } from '@utilities/interfaces/user.interface';
 import { EUserProvider, EIdentity, EGender } from '@utilities/enums/user.enum';
 import * as fb from 'firebase/app';
 export class User {

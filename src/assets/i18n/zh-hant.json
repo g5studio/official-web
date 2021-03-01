@@ -28,7 +28,7 @@
             "Start": "立即開始",
             "Login": "登入",
             "Welcome": "歡迎使用",
-            "Signup": "註冊帳號",
+            "Signup": "註冊",
             "RememberMe": "記住我",
             "ForgotPassword": "忘記密碼"
         },
@@ -148,7 +148,8 @@
             "Unknow": "發生未知錯誤，請聯絡客服人員。",
             "ModifiedFailed": "修改失敗，請重新操作。",
             "FieldRequired": "此欄位不得為空",
-            "NotEqualNewPassword": "與新密碼不相同"
+            "NotEqualNewPassword": "與新密碼不相同",
+            "EmailAlreadyInUse": "信箱已被使用"
         },
         "System": {
             "VerificationLetterSent": "驗證信已發送，請到註冊信箱驗證後重新登入。",

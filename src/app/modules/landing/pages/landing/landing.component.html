@@ -18,7 +18,7 @@
       </ul>
       <ng-container [ngSwitch]="this.currentTab">
         <app-login-form *ngSwitchCase="0"></app-login-form>
-        <app-sign-up-form *ngSwitchCase="1"></app-sign-up-form>
+        <app-sign-up-form (submit)="this.currentTab = 0" *ngSwitchCase="1"></app-sign-up-form>
       </ng-container>
     </div>
     <div class="Landing__Tools">
@@ -44,6 +44,7 @@
   </div>
   <app-language-menu [white]="!this.$window.isDesktop(device)"></app-language-menu>
 </div>
-<app-message-popup (onclose)='this.$overlay.hidePopup()' [time]='2' *ngIf='this.$overlay.popup$ | async as popup'>
+<app-message-popup (onclose)='this.$overlay.hidePopup()' [alert]="popup.options.alert" [time]='2'
+  *ngIf='this.$overlay.popup$ | async as popup'>
   {{popup.options.message | translate}}
 </app-message-popup>

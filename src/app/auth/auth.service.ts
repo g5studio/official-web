@@ -29,15 +29,13 @@ export class AuthService {
   ) {
     this.$fbAuth.authState.subscribe(
       user => {
-        if (!!user && (user?.providerData[0].providerId !== 'password' || user?.emailVerified)) {
-          this.loginCallback(user).then(
-            userProfile => {
-              sessionStorage.setItem('uid', userProfile.id);
-              this.$navigation.navigate(this.redirectUrl);
-            }
-          );
+        console.log(user)
+        if (!!user) {
+          if (user?.providerData[0].providerId !== 'password' || user?.emailVerified) {
+            this.loginCallback(user);
+          }
         } else {
-          // this.logout();
+          this.logout();
         }
       }
     );
@@ -71,19 +69,11 @@ export class AuthService {
             message: EMessage.EmailUnverified
           };
           this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
+        } else {
+          this.loginCallback(res.user);
         }
       }
-    ).catch(
-      error => {
-        console.log(error);
-        this.$overlay.finishLoading();
-        const MESSAGE_OPTIONS: IMessagePopupOptions = {
-          alert: true,
-          message: this.getErrorMsg(error.code)
-        };
-        this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
-      }
-    );
+    ).catch(error => this.errorProcess(error));
   }
 
   public loginWithProvider(provider = EUserProvider.Google): Promise<void> {
@@ -94,33 +84,35 @@ export class AuthService {
       res => {
         this.$overlay.finishLoading();
         if (res.additionalUserInfo.isNewUser) {
-          this.initialUserProfile(res.user, res.additionalUserInfo.profile, provider);
+          const UserInfo = new User(res.additionalUserInfo.profile, res.user, provider);
+          this.setUserProfile(UserInfo);
         }
       }
-    ).catch(
-      error => {
-        this.$overlay.finishLoading();
-        const MESSAGE_OPTIONS: IMessagePopupOptions = {
-          alert: true,
-          message: this.getErrorMsg(error.code)
-        };
-        this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
-      }
-    );
+    ).catch(error => this.errorProcess(error));
   }
 
-  public signUpWithEmailAndPassword({ email, password }): Promise<void> {
+  public signUpWithEmailAndPassword({ email, password, nickName }): Promise<void> {
     this.$overlay.startLoading();
     return this.$firebaseAuth.createUserWithEmailAndPassword(email, password).then(
       res => {
-        this.$overlay.finishLoading();
-        if (res.additionalUserInfo.isNewUser) {
-          res.user.sendEmailVerification().then(
-            _ => this.initialUserProfile(res.user, res.additionalUserInfo.profile)
-          );
-        }
+        const UserInfo = new User(null, res.user);
+        UserInfo.profile.nickName = nickName;
+        this.setUserProfile(UserInfo).then(
+          _ => {
+            res.user.sendEmailVerification().then(
+              _ => {
+                this.$overlay.finishLoading();
+                const MESSAGE_OPTIONS: IMessagePopupOptions = {
+                  alert: false,
+                  message: EMessage.VerificationLetterSent
+                };
+                this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
+              }
+            ).catch(error => this.errorProcess(error))
+          }
+        ).catch(error => this.errorProcess(error));
       }
-    );
+    ).catch(error => this.errorProcess(error));
   }
 
   public logout() {
@@ -139,12 +131,21 @@ export class AuthService {
     );
   }
 
+  private errorProcess(error: any) {
+    this.$overlay.finishLoading();
+    const MESSAGE_OPTIONS: IMessagePopupOptions = {
+      alert: true,
+      message: this.getErrorMsg(error.code)
+    };
+    this.$overlay.showPopup(new MessagePopup(MESSAGE_OPTIONS));
+    throw error;
+  }
+
   private getErrorMsg(code: string) {
-    if (code.includes('user-not-found')) {
-      return EMessage.UserNotFund;
-    } else if (code.includes('wrong-password')) {
-      return EMessage.InvalidPassword;
-    } else {
+    if (code.includes('user-not-found')) { return EMessage.UserNotFund; }
+    else if (code.includes('wrong-password')) { return EMessage.InvalidPassword; }
+    else if (code.includes('email-already-in-use')) { return EMessage.EmailAlreadyInUse }
+    else {
       return EMessage.UnknowError;
     }
   }
@@ -157,18 +158,22 @@ export class AuthService {
           this.$overlay.finishLoading();
           this.setIdle();
           this.$user.inital(new User(userProfile.data(), user));
+          sessionStorage.setItem('uid', userProfile.id);
+          this.$navigation.navigate(this.redirectUrl);
           resolve(userProfile);
         }
       ), error => reject(error);
     })
   }
 
-  private initialUserProfile(user: fb.User, profile: any, provider?: EUserProvider) {
-    console.log(profile);
-    const USER_PROFILE = !!provider ? new User(profile, user, provider) : new User(profile, user);
-    this.$firebase.document('users', user.uid).set({ ...USER_PROFILE.profile }).then(
-      _ => this.$navigation.navigate('home')
-    );
+  private setUserProfile(user: User): Promise<void> {
+    return this.$firebase.document('users', user.profile.uid).set({ ...user.profile })
+      .catch(
+        error => {
+          this.$overlay.finishLoading();
+          console.log(error)
+        }
+      );
   }
 
   private setIdle() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, ValidationErrors, Validators } from '@angular/forms';
 import { Validator } from '@utilities/helpers/validate.helper';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./sign-up-form.component.scss']
 })
 export class SignUpFormComponent implements OnInit {
+
+  @Output() submit = new EventEmitter<void>();
 
   constructor(
     private fb: FormBuilder,
@@ -29,8 +31,9 @@ export class SignUpFormComponent implements OnInit {
     const Form = this.form.getRawValue()
     this.$auth.signUpWithEmailAndPassword({
       email: Form.email,
-      password: Form.password
-    });
+      password: Form.password,
+      nickName: Form.name
+    }).then(_ => this.submit.emit());
   }
 
   public getErrorMessage(field: string): string {

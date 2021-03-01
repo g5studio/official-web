@@ -156,7 +156,8 @@
             "Unknow": "Unknow error , please contact customer service.",
             "ModifiedFailed": "Modify failed , please try again.",
             "FieldRequired": "Field required",
-            "NotEqualNewPassword": "Dose not equal new password"
+            "NotEqualNewPassword": "Dose not equal new password",
+            "EmailAlreadyInUse": "Email is already in use"
         },
         "System": {
             "VerificationLetterSent": "The verification letter has been sent, please follow the step to verify your email address.",
