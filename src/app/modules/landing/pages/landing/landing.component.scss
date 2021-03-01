@@ -78,6 +78,14 @@
             transform: scale(1.125);
             transition: 0.25s;
           }
+
+          &:disabled {
+            img {
+              filter: grayscale(100%);
+            }
+
+            cursor: not-allowed;
+          }
         }
       }
     }

@@ -25,17 +25,17 @@
       <p>or Sign up using</p>
       <ul>
         <li>
-          <button class="p-0">
+          <button disabled class="p-0">
             <img src="assets/images/icons/facebook.svg" alt="">
           </button>
         </li>
         <li>
-          <button class="p-0">
+          <button disabled class="p-0">
             <img src="assets/images/icons/twitter.svg" alt="">
           </button>
         </li>
         <li>
-          <button class="p-0">
+          <button (click) = "this.$auth.loginWithProvider(this.loginProvider.Google)" class="p-0">
             <img src="assets/images/icons/google.svg" alt="">
           </button>
         </li>
