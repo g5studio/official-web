@@ -75,6 +75,7 @@ export class AuthService {
       }
     ).catch(
       error => {
+        console.log(error);
         this.$overlay.finishLoading();
         const MESSAGE_OPTIONS: IMessagePopupOptions = {
           alert: true,
@@ -163,6 +164,7 @@ export class AuthService {
   }
 
   private initialUserProfile(user: fb.User, profile: any, provider?: EUserProvider) {
+    console.log(profile);
     const USER_PROFILE = !!provider ? new User(profile, user, provider) : new User(profile, user);
     this.$firebase.document('users', user.uid).set({ ...USER_PROFILE.profile }).then(
       _ => this.$navigation.navigate('home')

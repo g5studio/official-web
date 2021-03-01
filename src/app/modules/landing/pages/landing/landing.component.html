@@ -44,3 +44,6 @@
   </div>
   <app-language-menu [white]="!this.$window.isDesktop(device)"></app-language-menu>
 </div>
+<app-message-popup (onclose)='this.$overlay.hidePopup()' [time]='2' *ngIf='this.$overlay.popup$ | async as popup'>
+  {{popup.options.message | translate}}
+</app-message-popup>

@@ -119,7 +119,8 @@
         "Gender": "性別",
         "Identity": "身份",
         "Email": "信箱",
-        "Password": "密碼"
+        "Password": "密碼",
+        "ConfirmPassword": "確認密碼"
     },
     "Enums": {
         "Gender": {
@@ -146,7 +147,8 @@
             "EmailUnverified": "信箱尚未完成驗證，請至註冊信箱啟用帳號。",
             "Unknow": "發生未知錯誤，請聯絡客服人員。",
             "ModifiedFailed": "修改失敗，請重新操作。",
-            "FieldRequired": "此欄位不得為空"
+            "FieldRequired": "此欄位不得為空",
+            "NotEqualNewPassword": "與新密碼不相同"
         },
         "System": {
             "VerificationLetterSent": "驗證信已發送，請到註冊信箱驗證後重新登入。",
