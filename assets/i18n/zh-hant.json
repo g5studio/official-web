@@ -30,7 +30,21 @@
             "Welcome": "歡迎使用",
             "Signup": "註冊",
             "RememberMe": "記住我",
-            "ForgotPassword": "忘記密碼"
+            "ForgotPassword": "忘記密碼",
+            "Carousel": {
+                "Period1": {
+                    "Title": "生產期",
+                    "Content": "透過專業性與階段性的指導，生產具備基本能力與知識的初級工程師。"
+                },
+                "Period2": {
+                    "Title": "加工期",
+                    "Content": "透過投入業界實際專案加工初級工程師，使其快速熟悉開發流程與累積經驗。"
+                },
+                "Period3": {
+                    "Title": "交收期",
+                    "Content": "產出具完備知識、能力與經驗的工程師，具備即戰力且無需培訓。"
+                }
+            }
         },
         "Home": {
             "Activity": "活動剪影",
