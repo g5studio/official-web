@@ -1,12 +1,15 @@
-<div class="PeriodCarousel">
-    <div class="PeriodCarousel__Slider">
-        <img src="assets/images/introduction/period-1.svg" alt="">
-        <h1>Production Period</h1>
-        <p>Through professional and periodical guiding to accomplish bottom-up </p>
+<div (mouseover)="this.onMouseover()" (mouseleave)="this.onMouseleave()" class="PeriodCarousel">
+  <div class="PeriodCarousel__Slider">
+    <div class="PeriodCarousel__Films">
+      <img *ngFor="let film of this.films; let index = index;" [class.PeriodCarousel__Films--active]="this.isPlaying"
+        [src]="film" alt="">
     </div>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+    <h1>{{("Pages.Landing.Carousel.Period" + (this.currentPeriod + 1) + ".Title")| translate}}</h1>
+    <p>{{"Pages.Landing.Carousel.Period"+ (this.currentPeriod + 1) +".Content" | translate}}</p>
+  </div>
+  <ul>
+    <li *ngFor="let period of this.periods; let index = index" [class.active]="index === this.currentPeriod"
+      (click)="this.current = index">
+    </li>
+  </ul>
 </div>
