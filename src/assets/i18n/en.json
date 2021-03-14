@@ -31,7 +31,21 @@
             "Signup": "Sign Up",
             "Submit": "Submit",
             "RememberMe": "Remember Me",
-            "ForgotPassword": "Forgot Password"
+            "ForgotPassword": "Forgot Password",
+            "Carousel": {
+                "Period1": {
+                    "Title": "Production Period",
+                    "Content": "Through professional and periodical guiding to make a jounior engineer."
+                },
+                "Period2": {
+                    "Title": "Processing Period",
+                    "Content": "Through participating in development to accumulate experience and familiar with the flow."
+                },
+                "Period3": {
+                    "Title": "Delivery Period",
+                    "Content": "With enough ability and experience, the jounior engineer is getting ready for work."
+                }
+            }
         },
         "Home": {
             "Activity": "Activities",
