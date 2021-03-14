@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href https://g5studio.github.io/offical-web/",
+    "build": "ng build --prod --base-href https://g5studio.github.io/official-web/",
     "deploy": "ngh --dir dist/g5-studio-offical",
     "test": "ng test",
     "lint": "ng lint",
