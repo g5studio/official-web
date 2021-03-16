@@ -42,7 +42,6 @@
         }
       }
     }
-    margin-bottom: 2rem;
   }
 
   a {
@@ -64,6 +63,14 @@
         background-color: $blue-layer-5;
         border-color: $blue-layer-5;
       }
+    }
+  }
+}
+
+@media screen and (max-height: 650px) {
+  .SignUp {
+    ul {
+      margin-bottom: 2rem !important;
     }
   }
 }

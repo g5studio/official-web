@@ -167,7 +167,7 @@
 @media screen and (max-width: map-get($grid-breakpoints, "md")) {
   .Landing {
     &__Login {
-     padding: 4rem 3rem;
+      padding: 4rem 3rem;
     }
 
     &__Forms {
@@ -182,6 +182,14 @@
     app-language-menu {
       top: 1.5rem;
       right: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-height: 650px) {
+  .Landing {
+    &__Login {
+      padding: 2rem 3rem;
     }
   }
 }
