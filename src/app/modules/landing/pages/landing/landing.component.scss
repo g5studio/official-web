@@ -175,11 +175,13 @@
     }
 
     &__Introduction {
-      padding: 5rem 2rem 5.5rem 2rem;
+      padding: 5.25rem 2rem 5.5rem 2rem;
+      align-items: flex-start;
     }
 
     app-language-menu {
-      right: 2rem;
+      top: 1.5rem;
+      right: 1.5rem;
     }
   }
 }

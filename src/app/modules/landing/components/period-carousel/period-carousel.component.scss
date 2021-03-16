@@ -89,3 +89,15 @@
     }
   }
 }
+
+@media screen and (max-height: 600px) {
+  .PeriodCarousel {
+    ul {
+      display: none;
+    }
+    h1,
+    p {
+      margin-top: 2rem;
+    }
+  }
+}
